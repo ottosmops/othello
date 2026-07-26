@@ -24,7 +24,7 @@
         </editor>
         <respStmt>
           <resp>Zusammenstellung der Textzeugen, maschinelles Alignment, TEI-Kodierung und Stellenkommentar</resp>
-          <name>Claude (Anthropic), im Auftrag des Herausgebers</name>
+          <name>Claude (Anthropic)</name>
         </respStmt>
       </titleStmt>
       <editionStmt>
@@ -401,7 +401,7 @@
         </div>
         <div type="commentary" subtype="einleitung" n="10" xml:id="note-play-entstehung" ana="#type-edition">
           <head>Zur Entstehung dieser Ausgabe</head>
-          <p>Diese Ausgabe entstand am 25. und 26. Juli 2026 in einem Arbeitsgang: Ein Sprachmodell (Claude, Anthropic) hat sie im Auftrag und in fortlaufender Absprache mit dem Herausgeber zusammengestellt, kodiert und kommentiert. Sie ist damit kein Digitalisat einer gedruckten Ausgabe, sondern eine originäre Zusammenstellung aus vorhandenen gemeinfreien Textzeugen — und der Bericht darüber gehört in die Ausgabe hinein, nicht in ihr Impressum.</p>
+          <p>Diese Ausgabe entstand am 25. und 26. Juli 2026 in einem Arbeitsgang: Ein Sprachmodell (Claude, Anthropic) hat sie zusammengestellt, kodiert und kommentiert, Schritt für Schritt im Gespräch. Sie ist damit kein Digitalisat einer gedruckten Ausgabe, sondern eine originäre Zusammenstellung aus vorhandenen gemeinfreien Textzeugen — und der Bericht darüber gehört in die Ausgabe hinein, nicht in ihr Impressum.</p>
           <p>Die Vorgabe lautete: ausschließlich gemeinfreie Quellen. Das entschied die Textwahl. Für das Englische wäre die Ausgabe der Folger Shakespeare Library technisch die beste Grundlage gewesen — sie unterscheidet Vers und Prosa und bietet eine etablierte Zeilenzählung —, steht aber unter einer NC-Lizenz und schied deshalb aus; gewählt wurde der Text von Project Gutenberg in der Tradition der <term ref="#g-globe">Globe-Ausgabe</term>. Für das Deutsche fiel die Wahl auf Baudissin in der CC0-Fassung des German Shakespeare Drama Corpus, weil diese Übersetzung Shakespeares Sprechaktgliederung nahezu eins zu eins folgt und Vers und Prosa auszeichnet. Wielands Prosafassung von 1766, ebenfalls gemeinfrei, wurde geprüft und für eine dritte Kolumne zurückgestellt.</p>
           <p>Die Verknüpfung beider Fassungen ist maschinell: ein Needleman-Wunsch-<term ref="#g-alignment">Alignment</term> über die Reihenfolge der Sprecher, szenenweise, mit der relativen Redelänge als Entscheidungshilfe bei Gleichstand. Von 1 183 Verknüpfungen sind 1 168 glatte Parallelstellen. Die fünfzehn Abweichungen sind nicht geglättet, sondern typisiert verzeichnet — sie waren der eigentliche Ertrag des Verfahrens und haben mehrere Anmerkungen erst veranlasst.</p>
           <p>Der Kommentar ist vom selben Sprachmodell verfasst. Weil das eine bekannte Fehlerquelle ist, wurde eine Prüfschicht eingezogen: Jede Anmerkung nennt ihr Stichwort in beiden Fassungen, und ein Prüfskript weist bei jedem Bau nach, dass diese Zitate dort tatsächlich stehen. Beim ersten Durchlauf schlug es bei dreißig von sechzig Anmerkungen an — durchweg deutsche Wortlaute, die aus der Erinnerung statt aus dem Text stammten. Sie wurden am Text berichtigt. In einem Fall kehrte sich das Urteil dabei um: Die Vermutung, Baudissin habe Jagos Wortspiel »his Moorship's ancient« aufgeben müssen, war falsch — er bildet es als »seiner Mohrschaft Fähndrich« nach.</p>

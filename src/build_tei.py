@@ -160,7 +160,7 @@ def write_header(w: Writer, stats: dict) -> None:
     w.open("respStmt")
     w.leaf("resp", "Zusammenstellung der Textzeugen, maschinelles Alignment, "
                    "TEI-Kodierung und Stellenkommentar")
-    w.leaf("name", "Claude (Anthropic), im Auftrag des Herausgebers")
+    w.leaf("name", "Claude (Anthropic)")
     w.close("respStmt")
     w.close("titleStmt")
 

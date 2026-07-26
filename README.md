@@ -1,61 +1,73 @@
-# Othello — zweisprachige kommentierte TEI-Ausgabe
+# Othello — zweisprachige kommentierte Ausgabe
 
 Shakespeares *Othello* englisch und deutsch nebeneinander, sprechaktweise
-verknüpft, mit deutschem Stellenkommentar, als gültiges TEI P5.
+verknüpft, deutsch kommentiert, als gültiges TEI P5.
 
-Beide Textzeugen sind gemeinfrei; Herkunft, Rechtsstand und die geprüften
-Alternativen stehen in **[QUELLEN.md](QUELLEN.md)**.
+### → **[Ausgabe lesen: ottosmops.github.io/othello](https://ottosmops.github.io/othello/)**
 
 | | |
 |---|---|
-| Englisch | Project Gutenberg #1531 (Globe-/Moby-Tradition, Mischtext Q1 1622 / F1 1623) |
+| Englisch | Project Gutenberg #1531 — Globe-Tradition, Mischtext aus Quarto 1622 und First Folio 1623 |
 | Deutsch | Wolf Heinrich Graf Baudissin 1832, über DraCor/TextGrid (CC0) |
-| Umfang | 2 354 Sprechakte, 5 889 Verszeilen, 701 Prosaabschnitte, 413 Regieanweisungen |
+| Umfang | 2 354 Sprechakte, 5 889 Verszeilen, 696 Prosaabschnitte, 413 Regieanweisungen |
 | Verknüpfungen | 1 183 — davon 1 168 Parallelstellen und 15 verzeichnete Abweichungen |
-| Kommentar | 121 Anmerkungen (106 Stellen, 9 Einleitung, 6 Befunde), deutsch, auf beide Zeugen bezogen |
-| Belege | jede Anmerkung mit Belegart: 70 am Wortlaut, 26 ausgezählt, 25 aus Literatur |
-| Konkordanz | 12 Wortfelder, 1 475 Belege des englischen Textes mit Stellenangabe |
-| Validierung | wohlgeformt · gültig gegen `tei_all` (RELAX NG) · alle Zeiger auflösbar |
+| Kommentar | 123 Anmerkungen, jede mit Beleg |
+| Konkordanz | 12 Wortfelder, 1 475 Belege; für 4 Felder ist geprüft, auf wen sich jede Nennung bezieht |
+| Validierung | wohlgeformt · gültig gegen `tei_all` (RELAX NG) · alle 2 605 Zeiger auflösbar |
 
-## Ergebnisdateien
+Beide Textzeugen sind gemeinfrei. Herkunft, Rechtsstand und die geprüften
+Alternativen stehen in **[QUELLEN.md](QUELLEN.md)**.
 
-| Datei | Inhalt |
+## Die Seiten
+
+| | |
 |---|---|
-| `othello-bilingual.tei.xml` | die Ausgabe (1,1 MB, TEI P5) |
-| `othello-bilingual.html` | Leseansicht, zweispaltig, aus der TEI-Datei erzeugt |
-| `einleitung.html` | die neun Texte zum Stück: Überlieferung, Übersetzung, Stoff, Rezeption |
-| `befunde.html` | die Auszählungen: Redeanteile, Vers/Prosa, Verknüpfung, Szenenumfang |
-| `konkordanz.html` + 12 Unterseiten | Wortfelder des englischen Textes, 1 475 Belege in ihrer Zeile |
-| `quellen.html` | Quellenverzeichnis, auch das Verworfene mit Begründung |
-| `QUELLEN.md` | dieselbe Liste ausführlich, mit allen Erwägungen |
-| `data/notes.json` | der Kommentar als eigene Datenschicht |
-| `data/bibliographie.json` | die Belegstellen des Kommentars |
-| `data/glossar.json` | die im Kommentar erklärten Fachbegriffe |
-| `data/bezuege.json` | wem im Ehre-Feld das Wort jeweils gilt, Stelle für Stelle gelesen |
+| [Start](https://ottosmops.github.io/othello/) | Übersicht und Kennzahlen |
+| [Einleitung](https://ottosmops.github.io/othello/einleitung.html) | Überlieferung, Übersetzung, Stoff, Wirkungsgeschichte — neun Texte |
+| [Ausgabe](https://ottosmops.github.io/othello/othello-bilingual.html) | der Paralleltext mit Kommentar |
+| [Befunde](https://ottosmops.github.io/othello/befunde.html) | die Auszählungen, jeweils mit der Abfrage, die sie erzeugt |
+| [Konkordanz](https://ottosmops.github.io/othello/konkordanz.html) | Wortfelder, jede Stelle in ihrer Zeile |
+| [Quellen](https://ottosmops.github.io/othello/quellen.html) | Textzeugen, Literatur — und was verworfen wurde, mit Begründung |
 
-Die vier Seiten sind in sich geschlossene HTML-Dateien ohne externe
-Abhängigkeiten — einfach im Browser öffnen; sie verlinken einander.
+**Lesen ohne Störung.** Eine Anmerkung erscheint nur als laufende Nummer
+(`[1]`, `[2]`, …) am Zeilenrand und öffnet sich als Karte über dem Text.
+Umschaltbar: Anmerkungen ganz aus, Anmerkungen im Fließtext, Zeilennummern ein.
+Fachbegriffe wie Q1 oder Blankvers erklären sich, sobald die Maus darauf ruht.
 
-**Der Kommentar stört das Lesen nicht.** Eine Anmerkung erscheint nur als
-laufende Nummer — `[1]`, `[2]`, … — am Zeilenrand und öffnet sich als Karte
-über dem Text, ohne den Satz zu verschieben. Die Nummern folgen der Reihenfolge
-des Textes und stehen auch in der TEI-Datei (`annotation/@n`), sind also
-zitierfähig. Zwei Schalter oben: *Anmerkungen* schaltet die Marken ganz ab,
-*im Text statt als Marke* stellt sie für alle, die durchlesen wollen, doch in
-den Fließtext. Die Einstellung bleibt über `localStorage` erhalten.
+## Was daran belegt ist
 
-**Die Belegstellen sind nummeriert.** Die Bibliographie trägt `[1]`–`[14]`;
-die Belegkarte einer Anmerkung zitiert mit diesen Nummern, die Seite *Quellen*
-führt sie auf.
+Der Kommentar ist **kein Nachdruck einer vorhandenen Ausgabe, sondern für diese
+Zusammenstellung verfasst — maschinell, von einem Sprachmodell**. Deshalb trägt
+jede Anmerkung eine Belegart:
 
-**Fachbegriffe erklären sich selbst.** Wörter wie Q1, Folio, Blankvers oder
-Stichomythie sind im Kommentar unterstrichen; sobald die Maus darauf ruht — oder
-der Tastaturfokus —, erscheint die Erklärung. Grundlage ist `data/glossar.json`;
-im TEI stehen die Begriffe als `<term ref="#g-…">` und die Erklärungen als
-`<list type="gloss">`.
+| Belegart | Anzahl | Was das heißt |
+|---|---|---|
+| `textzeuge` | 70 | am Wortlaut beider Fassungen ablesbar; jedes Zitat maschinell geprüft |
+| `auszählung` | 28 | am Text dieser Ausgabe erhoben, mit reproduzierbarer Abfrage |
+| `literatur` | 25 | aus der Literatur, im Volltext nachgeschlagen — oder ausdrücklich als *nicht nachgeprüft* gekennzeichnet |
 
-**Jede Anmerkung nennt ihren Beleg.** Am Fuß der Karte steht, worauf sie beruht,
-und bei Literaturangaben der Nachweis samt Link zum Volltext.
+`src/check_notes.py` besteht auf dem Feld und prüft, dass jedes Zitat in der
+Fassung vorkommt, der es zugeschrieben wird. Ein falsch erinnertes Zitat bricht
+den Bau. Die philologischen Urteile sind damit **nicht** abgesichert — sie
+gehören geprüft, bevor jemand sie zitiert.
+
+Zitiert werden drei gemeinfreie Klassiker, deren Volltexte geladen und deren
+Stellen im Wortlaut nachgeschlagen wurden: **Coleridge**, *Literary Remains* II
+(1836), **Hazlitt**, *Characters of Shakespear's Plays* (1817), **Bradley**,
+*Shakespearean Tragedy* (1904).
+
+## Die 15 Abweichungen
+
+Kein Fehler des Alignments, sondern der interessanteste Ertrag:
+
+| `@type` | Anzahl | |
+|---|---|---|
+| `parallel` | 1 168 | Sprechakt zu Sprechakt |
+| `en-only` | 11 | nur englisch — u. a. die sechs Zoten des Narren in III,1, die Baudissin ausspart |
+| `attribution` | 3 | abweichende Sprecherzuweisung, etwa die Q/F-Differenz in I,3 |
+| `de-only` | 1 | nur deutsch |
+
+Jede ist kommentiert.
 
 ## Aufbau der TEI-Datei
 
@@ -64,119 +76,46 @@ TEI
 ├── teiHeader        zwei Zeugen mit Lizenz und Provenienz, Editionsgrundsätze,
 │                    Alignment-Verfahren, Figurenverzeichnis beider Fassungen
 └── text
-    ├── front        Einleitung: die Kommentare zum Stück als ganzes
+    ├── front        die Texte zum Stück als ganzes
     └── group
         ├── text @xml:id="text-en"   englischer Zeuge
         └── text @xml:id="text-de"   deutscher Zeuge (mit pb der Aufbau-Ausgabe)
 standOff
 ├── linkGrp          Sprechakt-Alignment, typisiert
 ├── listAnnotation   Stellenkommentar, je Anmerkung mit note[@type="beleg"]
-├── listBibl         Belegstellen des Kommentars
+├── listBibl         Belegstellen, durchnummeriert
 └── list @type=gloss die erklärten Fachbegriffe
 ```
 
-Jeder Sprechakt trägt eine `xml:id` der Form `en-3.3.70` beziehungsweise
-`de-3.3.70` (Zeuge, Akt, Szene, laufende Nummer). Darauf zeigen sowohl die
-Verknüpfungen als auch der Kommentar — die beiden Texte selbst bleiben
-unangetastet und für sich lesbar.
-
-Die Verknüpfungen sind typisiert:
-
-| `@type` | Anzahl | Bedeutung |
-|---|---|---|
-| `parallel` | 1 168 | Sprechakt zu Sprechakt |
-| `attribution` | 3 | abweichende Sprecherzuweisung |
-| `en-only` | 11 | nur im englischen Zeugen |
-| `de-only` | 1 | nur im deutschen Zeugen |
-
-Diese 15 Abweichungen sind keine Fehler des Alignments, sondern das
-interessanteste Ergebnis: die im Deutschen ausgelassenen Zoten des Narren
-(III,1), die Q/F-Differenz beim Auftritt Desdemonas vor dem Senat (I,3), die
-fehlende dritte Runde der »The handkerchief!«-Stichomythie (III,4). Jede ist
-kommentiert.
+Jeder Sprechakt trägt eine `xml:id` (`en-3.3.70`), jede Zeile einen Anker
+(`#l-en-3.3.304`). Darauf zeigen Verknüpfungen, Kommentar und Konkordanz — die
+beiden Texte selbst bleiben unangetastet und für sich lesbar.
 
 ## Neu bauen
 
 ```sh
-make          # alles: einlesen, alignieren, prüfen, TEI bauen, validieren, HTML
-make check    # nur die Prüfungen
-```
-
-Ohne `make`:
-
-```sh
-python3 src/observe.py       # Befunde am Text (Grundlage der Anmerkungen)
-python3 src/parse_en.py      # PG-Plaintext  → build/en.json
-python3 src/parse_de.py      # DraCor-TEI    → build/de.json
-python3 src/align.py         # Alignment     → build/align.json
-python3 src/check_notes.py   # jedes Zitat des Kommentars gegen beide Zeugen
-python3 src/build_tei.py     # → othello-bilingual.tei.xml
-python3 src/validate.py      # Wohlgeformtheit, TEI P5, Referenzintegrität
-python3 src/render_html.py     # → othello-bilingual.html
-python3 src/render_befunde.py  # → befunde.html
-python3 src/render_quellen.py  # → quellen.html
-python3 src/concordance.py     # → konkordanz.html, build/konkordanz.json
+make            # alles: einlesen, alignieren, prüfen, TEI bauen, validieren, Seiten
+make check      # nur die Prüfungen
+make schema     # TEI-Schema für die Validierung laden
 ```
 
 Voraussetzungen: Python 3.10+ (nur Standardbibliothek). Für die
-Schemavalidierung zusätzlich `jing` (`brew install jing`) und das Schema:
+Schemavalidierung zusätzlich `jing` (`brew install jing`); fehlt es, überspringt
+`validate.py` diesen Schritt und prüft den Rest.
 
-```sh
-curl -o build/tei_all.rng \
-  https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng
-```
+## Werkstatt
 
-Fehlt eines von beiden, überspringt `validate.py` diesen Schritt und prüft den
-Rest.
+| Datei | Inhalt |
+|---|---|
+| `othello-bilingual.tei.xml` | die Ausgabe |
+| `data/notes.json` | der Kommentar als eigene Datenschicht |
+| `data/bibliographie.json` | die Belegstellen, nummeriert |
+| `data/glossar.json` | die erklärten Fachbegriffe |
+| `data/bezuege.json` | wem eine Nennung gilt — 280 Stellen, einzeln gelesen |
+| `src/observe.py` | Befunde am Text: `ratio`, `word`, `rhyme`, `form`, `share`, `stage`, `songs` |
+| `src/concordance.py` | Wortfelder → Konkordanzseiten |
 
-## Editorische Entscheidungen
-
-**Kein Eingriff in den Wortlaut.** Beide Zeugen stehen unverändert, mit ihrer
-Orthographie und Interpunktion. Für das Alignment werden Apostroph,
-Anführungszeichen, Gedankenstrich und ß normalisiert — nur intern, nicht im Text.
-
-**Auszeichnung statt Klartext.** Die Konventionen des englischen
-Gutenberg-Textes sind aufgelöst: Regieanweisungen in eckigen Klammern werden zu
-`<stage>`, auch wenn sie mitten in der Verszeile stehen (»Good night to
-everyone. `[_To Brabantio._]` And, noble signior«), und die Unterstriche, mit
-denen die Transkription die Lieder kursiv setzt, werden zu `@rend="italic"`.
-Im Text bleibt kein Auszeichnungszeichen der Quelle stehen — es handelt sich
-dabei nicht um Markdown, sondern um die Kursivkonvention von Project
-Gutenberg.
-
-**Alignment.** Szenenweise Needleman-Wunsch über die Sprecherfolge, mit der
-relativen Redelänge als Tiebreak; benachbarte Lücken desselben Sprechers werden
-zu n:m-Verknüpfungen zusammengefasst. Beide Zeugen teilen die Akt- und
-Szenengliederung (5 Akte, 15 Szenen), was das Problem auf je eine Szene
-begrenzt.
-
-**Vers und Prosa.** Der deutsche Zeuge unterscheidet beides in der Auszeichnung,
-der englische nicht. Dort wurde die Unterscheidung aus dem Zeilenmaß der
-Transkription erschlossen: Prosa ist auf rund 70 Zeichen umbrochen, Vers folgt
-der metrischen Zeile und bleibt unter 58. Kurze Reden, bei denen die Typographie
-nichts hergibt, erben die Form ihrer Umgebung; 129 Redegruppen (10,5 %) beruhen
-auf dieser Kontextregel und sind mit `cert="low"` markiert. Der unabhängige
-Abgleich mit dem deutschen Zeugen bestätigt die Zuordnung in 96 % der
-verknüpften Sprechakte — die Heuristik ist also brauchbar, aber nicht mehr als
-das, und sie ist im Header als solche deklariert.
-
-**Kommentar.** Deutsch, bezogen auf beide Fassungen; als eigene Datenschicht in
-`data/notes.json` gehalten und erst beim Bauen in die TEI-Datei eingesetzt. Jede
-Anmerkung nennt ihr Stichwort in beiden Sprachen, und `check_notes.py` weist
-nach, dass jedes Zitat in der Fassung, der es zugeschrieben wird, tatsächlich
-vorkommt. Ein falsch erinnertes Zitat bricht den Bau.
-
-**Belegpflicht.** Jede Anmerkung führt mit, worauf sie beruht — am Wortlaut
-beider Zeugen ablesbar (`textzeuge`), an dieser Ausgabe ausgezählt
-(`auszählung`, mit der reproduzierbaren Abfrage) oder aus der Literatur
-(`literatur`, mit Verweis auf `data/bibliographie.json`). Wo eine Angabe aus
-dem Fachwissen stammt und für diese Ausgabe **nicht** an einer Quelle geprüft
-wurde, sagt das Belegfeld das ausdrücklich. `check_notes.py` besteht auf dem
-Feld und prüft, dass jeder Literaturverweis existiert.
-
-## Erweitern
-
-**Anmerkung hinzufügen** — Eintrag in `data/notes.json`:
+**Anmerkung hinzufügen** — Eintrag in `data/notes.json`, dann `make`:
 
 ```json
 {"id": "3.3-beispiel", "act": 3, "scene": 3, "type": "translation",
@@ -184,89 +123,61 @@ Feld und prüft, dass jeder Literaturverweis existiert.
  "lemma_en": "Stichwort englisch", "lemma_de": "Stichwort deutsch",
  "note": "Kommentartext.",
  "belegart": "textzeuge",
- "beleg": "Beide Fassungen an der bezeichneten Stelle; Zitate maschinell geprüft.",
- "refs": []}
+ "beleg": "Beide Fassungen an der bezeichneten Stelle; Zitate maschinell geprüft."}
 ```
 
-`find` muss innerhalb der Szene eindeutig sein; `lemma_en`/`lemma_de` müssen im
-verknüpften Sprechakt vorkommen. Danach `make`. Kategorien: `textual`,
-`translation`, `realia`, `rhetoric`, `dramaturgy`, `reception`, `source`.
-Belegarten: `textzeuge`, `auszählung`, `literatur`.
+`find` muss in der Szene eindeutig sein, die Lemmata müssen im verknüpften
+Sprechakt vorkommen. Kategorien: `textual`, `translation`, `realia`, `rhetoric`,
+`dramaturgy`, `reception`, `source`.
 
-**Konkordanz.** `src/concordance.py` legt zwölf Wortfelder an und schreibt für
-jedes eine eigene Seite. Jede Stelle steht dort in ihrer Zeile, wie die Quelle
-sie setzt, mit der Zeile davor und danach, der Zeilennummer innerhalb der Szene
-(dieselbe wie `l/@n` im TEI) und einem Sprung auf genau diese Zeile im
-Paralleltext. Gekürzt wird nichts: Wer ein Feld öffnet, sieht alle Belege. Neue
-Felder werden in der Liste `FIELDS` ergänzt.
+## Editorische Entscheidungen
 
-**Auf wen sich eine Nennung bezieht.** Für das Feld »Ehre, Redlichkeit, Name«
-wurde jede der 67 Stellen einzeln gelesen und festgehalten, wem das Wort gilt
-(`data/bezuege.json`) — mit Begründung, wo sie nötig ist. Das Ergebnis steht auf
-der Feldseite und ist der schlagendste Befund dieser Ausgabe: **Jago 25,
-Othello 10, Desdemona 10, Cassio 9**, achtmal ohne Personenbezug. Diese
-Zuordnung ist eine Lektüreentscheidung und als solche gekennzeichnet
-(»über: Jago«). Daneben erkennt das Skript automatisch Figurennamen, die in der
-Zeile selbst stehen; das erscheint schwächer als »nennt: …« und ist reine
-Zeichenkettensuche, keine Deutung.
+**Kein Eingriff in den Wortlaut.** Beide Zeugen stehen unverändert. Für das
+Alignment werden Apostroph, Anführung, Gedankenstrich und ß normalisiert — nur
+intern, nicht im Text.
 
-**Zeilennummern.** In der Leseansicht schaltbar (*Zeilennummern*); sie stehen
-dann in der Marge, ohne den Zeilenfall zu ändern. Jede Zeile hat einen Anker der
-Form `#l-en-1.3.304`, so dass Konkordanz und Zitate auf die Zeile verweisen
-können — wer so einsteigt, bekommt die Nummern automatisch eingeblendet und die
-Zeile hervorgehoben.
+**Auszeichnung statt Klartext.** Die Konventionen des Gutenberg-Textes sind
+aufgelöst: Regieanweisungen in eckigen Klammern werden zu `<stage>`, auch mitten
+in der Verszeile, die Unterstriche der Lieder zu `@rend="italic"`. Es handelt
+sich dabei nicht um Markdown, sondern um die Kursivkonvention von Project
+Gutenberg.
 
-**Befunde suchen, bevor man schreibt.** `src/observe.py` liefert das Material,
-aus dem sich belegbare Anmerkungen machen lassen: `ratio` zeigt, wo Baudissin am
-stärksten kürzt, `word` die Vorkommen eines Leitworts samt deutscher
-Entsprechungen, dazu `rhyme`, `form`, `share`, `stage`, `songs`.
+**Alignment.** Szenenweise Needleman-Wunsch über die Sprecherfolge, mit der
+relativen Redelänge als Tiebreak. Beide Zeugen teilen die Akt- und
+Szenengliederung, was das Problem auf je eine Szene begrenzt.
 
-**Dritte Kolumne.** Wielands Prosaübersetzung von 1766 liegt auf Wikisource
-vollständig transkribiert vor (siehe QUELLEN.md, 2.2). Nötig wären ein
-`parse_wieland.py` und eine Erweiterung des Alignments auf drei Zeugen —
-`align.py` ist paarweise gebaut, ließe sich aber gegen den englischen Text als
-Anker zweimal laufen lassen.
+**Vers und Prosa.** Der deutsche Zeuge unterscheidet beides, der englische
+nicht; dort ist es aus dem Zeilenmaß erschlossen (Prosa auf ~70 Zeichen
+umbrochen, Vers unter 58). 129 Redegruppen (10,5 %) beruhen auf einer
+Kontextregel und sind mit `cert="low"` markiert. Der unabhängige Abgleich mit
+dem deutschen Zeugen bestätigt die Zuordnung in 96 % der Fälle.
 
-**Textkritischer Apparat.** Die Q1/F1-Varianten stehen derzeit nur im Kommentar.
-Mit den ISE-Transkriptionen ließen sie sich als `<app>/<rdg>` in den englischen
-Text einziehen.
-
-## Sekundärliteratur
-
-Der Kommentar zitiert drei gemeinfreie Klassiker der Shakespeare-Kritik, und
-zwar nicht aus dem Gedächtnis: Die Volltexte wurden geladen und die Stellen im
-Wortlaut nachgeschlagen.
-
-- **Coleridge**, *Literary Remains* II (1836) — die Formel vom »motive-hunting
-  of a motiveless malignity«, und der aufschlussreiche Einspruch gegen einen
-  schwarzen Othello, verfasst im selben Jahrzehnt wie Baudissins Übersetzung.
-- **Hazlitt**, *Characters of Shakespear's Plays* (1817) — die Figurenkontraste
-  als »opposition of costume in a picture«, und die Lesart von »the pity of it«.
-- **Bradley**, *Shakespearean Tragedy* (1904) — Othello als »most romantic
-  figure«, Jago als der Empfindungslose, und die Herkunft der Lehre von der
-  doppelten Zeitrechnung bei »Christopher North«.
-
-Damit sind drei zuvor ungeprüfte Anmerkungen belegt. Als nächstes läge nahe:
-Schlegels *Vorlesungen über dramatische Kunst und Litteratur* (1809–11) für die
-deutsche Seite — sie liegen nur als Fraktur-Scan vor und bräuchten
-Nachkorrektur.
+**Bezug der Nennungen.** Für vier Wortfelder wurde jede Stelle einzeln gelesen
+und festgehalten, wem das Wort gilt (`data/bezuege.json`) — eine
+Lektüreentscheidung, in der Anzeige als solche gekennzeichnet (»über: Jago«).
+Daneben erkennt das Skript Figurennamen, die in der Zeile selbst stehen; das
+erscheint schwächer als »nennt: …« und ist reine Zeichenkettensuche.
 
 ## Grenzen
 
-- Der Stellenkommentar ist maschinell verfasst. Zitate und Zahlen sind geprüft,
-  die philologischen Urteile nicht — vor einer Veröffentlichung fachlich
-  durchsehen (siehe QUELLEN.md, 5).
+- Die philologischen Urteile des Kommentars sind maschinell und ungeprüft.
 - Die Vers/Prosa-Zuordnung des englischen Zeugen ist erschlossen, nicht
   überliefert.
-- Die Verknüpfung reicht bis zum Sprechakt, nicht bis zur Zeile. Für ein
-  Alignment auf Verszeilenebene wäre eine andere Methode nötig; Baudissin
+- Die Verknüpfung reicht bis zum Sprechakt, nicht bis zur Verszeile; Baudissin
   verschiebt Zeilengrenzen regelmäßig.
-- Zwei Zurufe aus dem Off (»A sail, a sail!«, II,1) sind im englischen Zeugen
-  Rede, im deutschen Regieanweisung. Sie stehen deshalb als sprecherlose `<sp>`
-  ohne deutsches Gegenstück.
+- Die Bezugsschicht deckt vier der zwölf Wortfelder ab.
+- Zwei Zurufe aus dem Off (II,1) sind englisch Rede, deutsch Regieanweisung.
+
+## Naheliegende Erweiterungen
+
+**Dritte Kolumne:** Wielands Prosaübersetzung von 1766 liegt auf Wikisource
+vollständig transkribiert vor. **Textkritischer Apparat:** Mit den
+ISE-Transkriptionen von Q1 und F1 ließen sich die Varianten als `<app>/<rdg>` in
+den englischen Text ziehen. **Deutsche Rezeption:** Schlegels *Vorlesungen über
+dramatische Kunst und Litteratur* (1809–11) — bisher nur als Fraktur-Scan mit
+unzuverlässiger Texterkennung.
 
 ## Lizenz
 
-Beide Textzeugen sind gemeinfrei. Kodierung, Alignment, Kommentar und die
-Skripte dieser Ausgabe stehen unter
-[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+Beide Textzeugen sind gemeinfrei. Kodierung, Alignment, Kommentar und Skripte
+stehen unter [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).

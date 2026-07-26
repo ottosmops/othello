@@ -2,7 +2,7 @@
 
 Alle Textzeugen dieser Ausgabe sind gemeinfrei. Die Liste verzeichnet, was
 verwendet wurde, was geprüft und verworfen wurde, und worauf sich die
-textkritischen Angaben des Kommentars stützen. Stand: 25. Juli 2026.
+textkritischen Angaben des Kommentars stützen. Stand: 26. Juli 2026.
 
 ---
 
@@ -208,9 +208,10 @@ wird, tatsächlich vorkommen.
 
 | Belegart | Anzahl | Bedeutung |
 |---|---|---|
-| `textzeuge` | 72 | Die Behauptung ist am Wortlaut beider Fassungen ablesbar; die Zitate sind maschinell geprüft. |
-| `auszählung` | 25 | Zahlenangabe, an dieser Ausgabe erhoben; die Abfrage steht im Belegfeld und ist mit `src/observe.py` reproduzierbar. |
-| `literatur` | 18 | Angabe aus der Literatur. Wo eine Quelle eingesehen wurde, steht sie unter `refs`; wo nicht, sagt das Belegfeld ausdrücklich, dass die Angabe nicht nachgeprüft ist. |
+| `textzeuge` | 70 | Die Behauptung ist am Wortlaut beider Fassungen ablesbar; die Zitate sind maschinell geprüft. |
+| `auszählung` | 28 | Zahlenangabe, an dieser Ausgabe erhoben; die Abfrage steht im Belegfeld und ist mit `src/observe.py` reproduzierbar. |
+| `literatur` | 25 | Angabe aus der Literatur. Wo eine Quelle eingesehen wurde, steht sie unter `refs`; wo nicht, sagt das Belegfeld ausdrücklich, dass die Angabe nicht nachgeprüft ist. |
+| `werkstatt` | 1 | Der Editionsbericht: beschreibt die Arbeit an dieser Ausgabe und ist an ihren Bestandteilen nachprüfbar. |
 
 Die Bibliographie steht maschinenlesbar in `data/bibliographie.json`, in der
 TEI-Datei als `listBibl[@xml:id="commentary-bibliography"]` und am Fuß der

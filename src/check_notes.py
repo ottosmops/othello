@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parent.parent
 NOTES = ROOT / "data" / "notes.json"
 BIBLIO = ROOT / "data" / "bibliographie.json"
 
-BELEGARTEN = {"textzeuge", "auszählung", "literatur"}
+BELEGARTEN = {"textzeuge", "auszählung", "literatur", "werkstatt"}
 
 
 def resolve(note: dict) -> tuple[dict | None, str]:

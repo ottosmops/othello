@@ -11,9 +11,9 @@ verknüpft, deutsch kommentiert, als gültiges TEI P5.
 | Deutsch | Wolf Heinrich Graf Baudissin 1832, über DraCor/TextGrid (CC0) |
 | Umfang | 2 354 Sprechakte, 5 889 Verszeilen, 696 Prosaabschnitte, 413 Regieanweisungen |
 | Verknüpfungen | 1 183 — davon 1 168 Parallelstellen und 15 verzeichnete Abweichungen |
-| Kommentar | 123 Anmerkungen, jede mit Beleg |
+| Kommentar | 124 Anmerkungen, jede mit Beleg — darunter ein Editionsbericht |
 | Konkordanz | 12 Wortfelder, 1 475 Belege; für 4 Felder ist geprüft, auf wen sich jede Nennung bezieht |
-| Validierung | wohlgeformt · gültig gegen `tei_all` (RELAX NG) · alle 2 605 Zeiger auflösbar |
+| Validierung | wohlgeformt · gültig gegen `tei_all` (RELAX NG) · alle 2 610 Zeiger auflösbar |
 
 Beide Textzeugen sind gemeinfrei. Herkunft, Rechtsstand und die geprüften
 Alternativen stehen in **[QUELLEN.md](QUELLEN.md)**.
@@ -23,7 +23,7 @@ Alternativen stehen in **[QUELLEN.md](QUELLEN.md)**.
 | | |
 |---|---|
 | [Start](https://ottosmops.github.io/othello/) | Übersicht und Kennzahlen |
-| [Einleitung](https://ottosmops.github.io/othello/einleitung.html) | Überlieferung, Übersetzung, Stoff, Wirkungsgeschichte — neun Texte |
+| [Einleitung](https://ottosmops.github.io/othello/einleitung.html) | Überlieferung, Übersetzung, Stoff, Wirkungsgeschichte — und der Editionsbericht |
 | [Ausgabe](https://ottosmops.github.io/othello/othello-bilingual.html) | der Paralleltext mit Kommentar |
 | [Befunde](https://ottosmops.github.io/othello/befunde.html) | die Auszählungen, jeweils mit der Abfrage, die sie erzeugt |
 | [Konkordanz](https://ottosmops.github.io/othello/konkordanz.html) | Wortfelder, jede Stelle in ihrer Zeile |
@@ -45,6 +45,7 @@ jede Anmerkung eine Belegart:
 | `textzeuge` | 70 | am Wortlaut beider Fassungen ablesbar; jedes Zitat maschinell geprüft |
 | `auszählung` | 28 | am Text dieser Ausgabe erhoben, mit reproduzierbarer Abfrage |
 | `literatur` | 25 | aus der Literatur, im Volltext nachgeschlagen — oder ausdrücklich als *nicht nachgeprüft* gekennzeichnet |
+| `werkstatt` | 1 | aus der Arbeit an dieser Ausgabe selbst — der Editionsbericht |
 
 `src/check_notes.py` besteht auf dem Feld und prüft, dass jedes Zitat in der
 Fassung vorkommt, der es zugeschrieben wird. Ein falsch erinnertes Zitat bricht
@@ -111,7 +112,7 @@ Schemavalidierung zusätzlich `jing` (`brew install jing`); fehlt es, übersprin
 | `data/notes.json` | der Kommentar als eigene Datenschicht |
 | `data/bibliographie.json` | die Belegstellen, nummeriert |
 | `data/glossar.json` | die erklärten Fachbegriffe |
-| `data/bezuege.json` | wem eine Nennung gilt — 280 Stellen, einzeln gelesen |
+| `data/bezuege.json` | wem eine Nennung gilt — 280 Einträge für 297 Belege, einzeln gelesen |
 | `src/observe.py` | Befunde am Text: `ratio`, `word`, `rhyme`, `form`, `share`, `stage`, `songs` |
 | `src/concordance.py` | Wortfelder → Konkordanzseiten |
 
@@ -128,7 +129,7 @@ Schemavalidierung zusätzlich `jing` (`brew install jing`); fehlt es, übersprin
 
 `find` muss in der Szene eindeutig sein, die Lemmata müssen im verknüpften
 Sprechakt vorkommen. Kategorien: `textual`, `translation`, `realia`, `rhetoric`,
-`dramaturgy`, `reception`, `source`.
+`dramaturgy`, `reception`, `source`, `edition`.
 
 ## Editorische Entscheidungen
 
@@ -157,6 +158,16 @@ und festgehalten, wem das Wort gilt (`data/bezuege.json`) — eine
 Lektüreentscheidung, in der Anzeige als solche gekennzeichnet (»über: Jago«).
 Daneben erkennt das Skript Figurennamen, die in der Zeile selbst stehen; das
 erscheint schwächer als »nennt: …« und ist reine Zeichenkettensuche.
+
+## Wie diese Ausgabe entstand
+
+Der Editionsbericht steht in der
+[Einleitung](https://ottosmops.github.io/othello/einleitung.html#note-play-entstehung):
+was die Vorgabe »nur gemeinfreie Quellen« für die Textwahl bedeutete, wie das
+Alignment arbeitet, woran die Prüfschicht beim ersten Durchlauf anschlug — sie
+beanstandete dreißig von sechzig Anmerkungen, durchweg deutsche Wortlaute aus
+der Erinnerung statt aus dem Text — und was auch nach allen Prüfungen
+ungesichert bleibt.
 
 ## Grenzen
 

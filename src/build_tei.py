@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 OUT = ROOT / "othello-bilingual.tei.xml"
 
-EDITION_DATE = "2026-07-25"
+EDITION_DATE = "2026-07-26"
 
 # Canonical cast, with the name each witness prints.
 CAST = [
@@ -77,6 +77,7 @@ TYPE_LABEL = {
     "dramaturgy": "Dramaturgie",
     "reception": "Wirkungsgeschichte",
     "source": "Stoffgeschichte",
+    "edition": "Editionsbericht",
 }
 
 
@@ -325,7 +326,11 @@ def write_header(w: Writer, stats: dict) -> None:
 
     w.open("revisionDesc")
     w.leaf("change", "Erstfassung: Textzeugen eingelesen, aligniert, kommentiert.",
-           when=EDITION_DATE)
+           when="2026-07-25")
+    w.leaf("change", "Belegapparat, Glossar, Bezugsschicht und Konkordanz "
+                     "ergänzt; Sekundärliteratur im Volltext geprüft; "
+                     "Editionsbericht aufgenommen; Veröffentlichung als "
+                     "Website.", when="2026-07-26")
     w.close("revisionDesc")
     w.close("teiHeader")
 
@@ -348,7 +353,7 @@ def write_front(w: Writer, play_notes: list[dict],
                n=str(note.get("rang", "")), xml_id=f"note-{note['id']}",
                ana=f"#type-{note['type']}")
         w.leaf("head", note["title"])
-        w.line(f'<p>{mark_terms(note["note"], terms, set())}</p>')
+        write_paragraphs(w, note["note"], terms)
         write_beleg(w, note)
         w.close("div")
     w.close("div")
@@ -484,7 +489,17 @@ BELEGART_LABEL = {
     "textzeuge": "am Wortlaut beider Textzeugen geprüft",
     "auszählung": "an dieser Ausgabe ausgezählt",
     "literatur": "nach Literatur; siehe Belegangabe",
+    "werkstatt": "aus der Arbeit an dieser Ausgabe",
 }
+
+
+def write_paragraphs(w: Writer, text: str,
+                     terms: list[tuple[re.Pattern, str]]) -> None:
+    """Commentary prose, split at blank lines; a glossary term is marked once
+    per note, not once per paragraph."""
+    used: set[str] = set()
+    for absatz in [a.strip() for a in text.split("\n\n") if a.strip()]:
+        w.line(f"<p>{mark_terms(absatz, terms, used)}</p>")
 
 
 def write_beleg(w: Writer, note: dict) -> None:
@@ -515,6 +530,7 @@ def write_bibliography(w: Writer, biblio: dict) -> None:
     w.leaf("interp", "Am Wortlaut beider Textzeugen geprüft", xml_id="beleg-textzeuge")
     w.leaf("interp", "An dieser Ausgabe ausgezählt", xml_id="beleg-auszaehlung")
     w.leaf("interp", "Nach Literatur", xml_id="beleg-literatur")
+    w.leaf("interp", "Aus der Arbeit an dieser Ausgabe", xml_id="beleg-werkstatt")
     w.close("interpGrp")
 
 
@@ -577,7 +593,7 @@ def write_standoff(w: Writer, align: dict, notes: list[dict], anchors: dict,
             w.leaf("label", note["lemma_en"], xml_lang="en")
         if note.get("lemma_de"):
             w.leaf("label", note["lemma_de"], xml_lang="de")
-        w.line(f'<p>{mark_terms(note["note"], terms, set())}</p>')
+        write_paragraphs(w, note["note"], terms)
         w.close("note")
         write_beleg(w, note)
         w.close("annotation")

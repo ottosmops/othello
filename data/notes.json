@@ -1,0 +1,1617 @@
+{
+ "_format": "Stellenkommentar der zweisprachigen Othello-Ausgabe. Kommentarsprache: Deutsch; kommentiert werden beide Textzeugen. Anker: 'find' (bzw. 'find_de') lokalisiert die Sprechaktgruppe, in der die Zeichenkette vorkommt; 'lemma_en'/'lemma_de' sind die Stichwörter, die in der jeweiligen Fassung nachweisbar sein müssen. build_tei.py prüft alle drei. Jede Anmerkung trägt 'belegart' (textzeuge | auszählung | literatur) und 'beleg'; 'refs' verweist auf data/bibliographie.json. Anmerkungen zum ganzen Stück tragen 'seite' (einleitung | befunde) und 'rang' für die Reihenfolge.",
+ "notes": [
+  {
+   "id": "play-baudissin",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 2,
+   "type": "translation",
+   "title": "Baudissins Übersetzung",
+   "note": "Der deutsche Text stammt von Wolf Heinrich Graf Baudissin und erschien 1832 im achten Band der von August Wilhelm Schlegel begonnenen, von Ludwig Tieck herausgegebenen Ausgabe der dramatischen Werke. Baudissin arbeitet nach Schlegels Verfahren: Blankvers wird durch Blankvers wiedergegeben, Prosa durch Prosa, der Reim, wo er steht, durch Reim. Der maschinelle Abgleich beider Fassungen in dieser Ausgabe bestätigt das quantitativ – bei den 1171 eins-zu-eins verknüpften Sprechakten stimmen Vers- und Prosaform in rund 96 Prozent der Fälle überein. Die Abweichungen liegen fast durchweg dort, wo die englische Vorlage kurze Repliken in einen Vers teilt, die Baudissin als Prosa oder umgekehrt setzt.",
+   "belegart": "auszählung",
+   "beleg": "Vers/Prosa-Übereinstimmung aus dem Alignment dieser Ausgabe: 1125 von 1171 verknüpften Sprechakten (96,1 %); Ausgabe von src/align.py.",
+   "refs": [
+    "eigenes-alignment",
+    "textgrid-vn7q"
+   ]
+  },
+  {
+   "id": "play-bradley-othello",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 8,
+   "type": "reception",
+   "title": "Bradleys Othello",
+   "note": "Die einflussreichste Lesart des 20. Jahrhunderts stammt von A. C. Bradley (1904): »Othello is, in one sense of the word, by far the most romantic figure among Shakespeare's heroes; and he is so partly from the strange life of war and adventure which he has lived from childhood. He does not belong to our world, and he seems to enter it we know not whence — almost as if from wonderland.« Bradley liest die Figur also von ihrer Fremdheit her, nicht von ihrer Hautfarbe; das Wunderbare seiner Erzählungen in I,3 wird zum Schlüssel. Wer den Text dieser Ausgabe daneben hält, findet den Befund bestätigt und zugleich begrenzt: Die Erzählungen sind Othellos Werbung — und genau das Mittel, mit dem Brabantio ihn des Zaubers bezichtigt.",
+   "belegart": "literatur",
+   "beleg": "Zitat im Volltext von Bradleys Shakespearean Tragedy nachgeschlagen und im Wortlaut geprüft.",
+   "refs": [
+    "bradley-1904"
+   ]
+  },
+  {
+   "id": "play-coleridge-negro",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 7,
+   "type": "reception",
+   "title": "Was das 19. Jahrhundert an der Farbe störte",
+   "note": "Baudissins Übersetzung entsteht in einem Jahrzehnt, in dem die Frage, wie schwarz Othello sein dürfe, offen verhandelt wurde. Coleridge schreibt in seinen Othello-Notizen: »it would be something monstrous to conceive this beautiful Venetian girl falling in love with a veritable negro« — und zu Rodrigos »thick-lips«: »here comes one, if not the only, seeming justification of our blackamoor or negro Othello«. Die Argumentation ist bezeichnend: Nicht der Text soll entscheiden, sondern was dem Publikum zuzumuten sei; die einzige Stelle, die Othello eindeutig als Schwarzen zeichnet, wird als bloßer Schein abgetan. Vor diesem Hintergrund ist Baudissins Wortwahl zu lesen — er behält »Mohr« und »schwarz« an den meisten Stellen bei und tilgt die Farbe nur dort, wo der Reim des Herzogs sie zum Lob umbiegt.",
+   "belegart": "literatur",
+   "beleg": "Beide Zitate im Volltext von Coleridges Literary Remains, Bd. 2, nachgeschlagen und im Wortlaut geprüft. Die Beobachtung zu Baudissins Umgang mit »schwarz« beruht auf den Stellen I,3 und III,3 dieser Ausgabe.",
+   "refs": [
+    "coleridge-remains"
+   ]
+  },
+  {
+   "id": "play-doppelte-zeit",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 6,
+   "type": "dramaturgy",
+   "title": "Die doppelte Zeitrechnung",
+   "note": "Die Handlung auf Zypern läuft, nach den Auftritten gerechnet, in gut anderthalb Tagen ab: Ankunft, Wachnacht, ein Morgen, ein Abend, die Mordnacht. Gleichzeitig setzt der Text eine lange Zeit voraus — Jago spricht von tausendfach begangenem Ehebruch, Bianca beklagt eine Woche Abwesenheit, es kommt Post aus Venedig. Der Begriff für diesen Widerspruch stammt aus dem 19. Jahrhundert: »Christopher North« — das Pseudonym John Wilsons — »elaborated a doctrine of Double Time, Short and Long«, wie A. C. Bradley referiert, der die Frage seinerseits ausführlich verhandelt. Die Doppelung ist kein Versehen: Die kurze Zeit hält den Zuschauer im Sog, die lange macht Othellos Verdacht überhaupt erst denkbar. Baudissins Übersetzung ändert daran nichts; sie erbt die Spannung mitsamt dem Text.",
+   "belegart": "literatur",
+   "beleg": "Bradleys Referat der Lehre und die Zuschreibung an »Christopher North« im Volltext nachgeschlagen und im Wortlaut geprüft. Die Angaben zur Handlungsdauer sind am Text dieser Ausgabe nachvollziehbar.",
+   "refs": [
+    "bradley-1904"
+   ]
+  },
+  {
+   "id": "play-gott-und-himmel",
+   "scope": "play",
+   "seite": "befunde",
+   "rang": 6,
+   "type": "textual",
+   "title": "»heaven« und »Gott«",
+   "note": "Der englische Text sagt 72-mal »heaven« und nur 12-mal »God«; der deutsche sagt 43-mal »Gott« und 43-mal »Himmel«. Das Missverhältnis hat einen überlieferungsgeschichtlichen Grund: Das Folio ersetzt Gottesnamen im Gefolge des Act to Restrain Abuses of Players (1606) regelmäßig durch Umschreibungen, während die Quarto die Flüche noch stehen lässt. Baudissin übersetzt, was er vorfindet, ohne diese Rücksicht — im Deutschen wird also wieder ausgesprochen, was der englische Drucktext von 1623 vermieden hatte. An einer Stelle geht es andersherum: Cassios »O God, that men should put an enemy in their mouths« beginnt bei Baudissin ohne Anrufung.",
+   "belegart": "auszählung",
+   "beleg": "Wortzählung an beiden Zeugen: python3 src/observe.py word heaven God. Zur Zensurpraxis des Folios siehe ISE; die Zuordnung einzelner Stellen zu Q1 oder F1 wurde nicht im Einzelnen geprüft.",
+   "refs": [
+    "eigene-auszaehlung",
+    "ise-textintro"
+   ]
+  },
+  {
+   "id": "play-hazlitt-kontraste",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 9,
+   "type": "reception",
+   "title": "Hazlitt über die Figurenkontraste",
+   "note": "William Hazlitt beschreibt 1817, was die Personenliste des Stücks leistet: »The Moor Othello, the gentle Desdemona, the villain Iago, the good-natured Cassio, the fool Roderigo, present a range and variety of character as striking and palpable as that produced by the opposition of costume in a picture.« Die Formulierung trifft die Bauweise: Othello ist kein Charakter unter anderen, sondern der Fluchtpunkt eines Kontrastsystems. Die Redeanteile dieser Ausgabe zeigen dasselbe von der Mengenseite — fünf Figuren teilen sich vier Fünftel des Textes, der Rest ist Chor und Staffage.",
+   "belegart": "literatur",
+   "beleg": "Zitat im Volltext von Hazlitts Characters of Shakespeare's Plays nachgeschlagen und im Wortlaut geprüft; die Angabe zu den Redeanteilen ist an dieser Ausgabe ausgezählt (python3 src/observe.py share).",
+   "refs": [
+    "hazlitt-1817",
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "play-mohr",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 5,
+   "type": "reception",
+   "title": "»Moor« – »Mohr«",
+   "note": "Das englische »Moor« bezeichnet um 1600 keine scharf umrissene Herkunft: es changiert zwischen Nordafrika, Subsahara-Afrika und, über die Reconquista, dem muslimischen Spanien. Der Text selbst hält beides offen – Othello ist »black« (I,1 und III,3), zugleich »fair« genug, dass der Herzog mit dem Gegensatz spielen kann. Baudissin setzt durchgängig »Mohr« (59 Belege gegenüber 57 englischen »Moor«), ein Wort, das im 19. Jahrhundert weitgehend neutral, heute jedoch als rassistisch markiert gilt. Für Bühnenfassungen des 21. Jahrhunderts ist das der Punkt, an dem eine Neuübersetzung unumgänglich wird; für eine historisch-kritische Ausgabe ist Baudissins Wortwahl selbst ein zu kommentierendes Dokument.",
+   "belegart": "auszählung",
+   "beleg": "Wortzählung an beiden Zeugen: »Moor« 57, »Mohr« 59 Belege (python3 src/observe.py word Moor).",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "play-quelle",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 4,
+   "type": "source",
+   "title": "Die Quelle: Cinthios Novelle",
+   "note": "Die Fabel stammt aus Giraldi Cinthios Novellensammlung Gli Hecatommithi (1565), dritte Dekade, siebte Novelle: ein maurischer Hauptmann in venezianischen Diensten, seine Frau Disdemona – die einzige Figur, die bei Cinthio einen Namen trägt –, ein intrigierender Fähnrich, das gestohlene Tuch. Shakespeare erfindet Rodrigo, Brabantio und den Türkenkrieg hinzu, verlegt die Handlung nach Zypern und komprimiert Cinthios Zeitraum von Monaten auf wenige Tage. Vor allem aber gibt er dem Fähnrich ein Motiv, das keines ist: Cinthios Bösewicht handelt aus enttäuschter Liebe zu Disdemona, Jago aus etwas, das er selbst nicht benennen kann.",
+   "belegart": "literatur",
+   "beleg": "Die Novelle wurde für diese Ausgabe nicht ausgewertet; die Digitalisate sind nachgewiesen, die Angaben zum Inhalt nicht an ihnen überprüft.",
+   "refs": [
+    "cinthio-1565",
+    "cinthio-parr-1795"
+   ]
+  },
+  {
+   "id": "play-redeanteile",
+   "scope": "play",
+   "seite": "befunde",
+   "rang": 2,
+   "type": "dramaturgy",
+   "title": "Wer spricht: die Redeanteile",
+   "note": "Die Titelfigur ist nicht die sprechende Hauptfigur. Jago hat 272 Reden mit 8 392 Wörtern und damit 32,5 Prozent des Textes, Othello 274 Reden mit 6 216 Wörtern, also 24,1 Prozent. Desdemona kommt bei 165 Reden auf 2 744 Wörter (10,6 Prozent) — sie spricht oft und kurz, Jago selten kurz. Cassio (7,6 %) und Emilia (7,0 %) folgen; Bianca hat 15 Reden und 266 Wörter. Das Zahlenverhältnis ist die nüchternste Beschreibung dessen, was das Stück tut: es überlässt dem Intriganten das Wort und der Ermordeten am wenigsten.",
+   "belegart": "auszählung",
+   "beleg": "Auszählung am englischen Zeugen dieser Ausgabe: python3 src/observe.py share.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "play-regieanweisungen",
+   "scope": "play",
+   "seite": "befunde",
+   "rang": 5,
+   "type": "dramaturgy",
+   "title": "Mehr Regie im Deutschen",
+   "note": "Der englische Zeuge hat 169 Regieanweisungen, der deutsche 214; in 13 von 15 Szenen steht im Deutschen mehr Regie als im Englischen. Am weitesten gehen die Fassungen in IV,1 auseinander (17 gegenüber 28). Das ist keine Übersetzungsentscheidung im engeren Sinn, sondern die Handschrift einer Ausgabe des 19. Jahrhunderts, die für die Lektüre einrichtet, was auf der elisabethanischen Bühne der Dialog selbst erledigte. Wer Baudissin für die Bühne benutzt, erbt eine Inszenierung mit.",
+   "belegart": "auszählung",
+   "beleg": "Zählung der stage-Elemente je Szene in beiden Zeugen: python3 src/observe.py stage.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "play-schlussreime",
+   "scope": "play",
+   "seite": "befunde",
+   "rang": 4,
+   "type": "translation",
+   "title": "Die Schlussreime",
+   "note": "Neun Szenen enden im Reimpaar — das Signal für den Vorhang auf der offenen Bühne, die keinen Vorhang hatte. Baudissin behält in allen neun Fällen den Reim: »Hell and night / Must bring this monstrous birth to the world's light« wird zu »aus Höll' und Nacht / Sei diese Untat an das Licht gebracht«, »This heavy act with heavy heart relate« zu »Mit schwerem Herzen künden schwere Tat«. Das ist die auffälligste formale Treue dieser Übersetzung: Reim gegen Reim, auch wo er Wortlaut kostet.",
+   "belegart": "auszählung",
+   "beleg": "Vergleich der Szenenschlüsse beider Zeugen: python3 src/observe.py rhyme.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "play-ueberlieferung",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 1,
+   "type": "textual",
+   "title": "Zur Überlieferung des englischen Textes",
+   "note": "Othello ist zuerst am 1. November 1604 bei Hofe (Whitehall) bezeugt; gedruckt liegt das Stück in zwei unabhängigen frühen Fassungen vor: der Quarto von 1622 (Q1) und dem First Folio von 1623 (F1). F1 ist rund 160 Zeilen länger als Q1; Q1 fehlen unter anderem Othellos Pontus-Gleichnis (III,3), Emilias große Rede über die Ehemänner (IV,3) und der volle Text des Weidenlieds. Umgekehrt bewahrt Q1 zahlreiche Flüche (»Sblood«, »Zounds«, »Tush«), die F1 im Gefolge des Act to Restrain Abuses of Players (1606) tilgt oder ersetzt. Der hier abgedruckte englische Text steht in der Tradition der Globe-Ausgabe (1864) und ist ein Mischtext: er bietet sowohl die Q1-Flüche als auch die Folio-Zusätze. Alle drei genannten Folio-Passagen sind vorhanden, ebenso »Tush, never tell me« und »'Sblood« gleich in der ersten Szene.",
+   "belegart": "literatur",
+   "beleg": "Angaben zu Quarto und Folio nach den drei genannten Quellen; die Prüfung, welche Lesarten der hier abgedruckte Text bietet, wurde an ihm selbst vorgenommen.",
+   "refs": [
+    "ise-textintro",
+    "folger-textintro",
+    "shakespeare-documented-q1",
+    "pg1531"
+   ]
+  },
+  {
+   "id": "play-umfang",
+   "scope": "play",
+   "seite": "befunde",
+   "rang": 1,
+   "type": "translation",
+   "title": "Der deutsche Text ist kürzer",
+   "note": "25 800 Wörter englisch stehen 24 696 Wörtern deutsch gegenüber — Baudissin braucht rund vier Prozent weniger, obwohl das Deutsche gegenüber dem Englischen normalerweise auffüllt. Der Grund ist der Blankvers: Wer fünfhebig bleiben will, muss im Deutschen verdichten. Die schärfste Verdichtung trifft in III,3 eine ganze Zeile (siehe die Anmerkung zum ausgelassenen »shrewd doubt«), im Übrigen zeigt sie sich als durchgehende Straffung der Nebensätze.",
+   "belegart": "auszählung",
+   "beleg": "Wortzählung beider Zeugen (Ausgabe von src/parse_en.py und src/parse_de.py); Verhältnis der Einzelreden: python3 src/observe.py ratio.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "play-vers-prosa-figuren",
+   "scope": "play",
+   "seite": "befunde",
+   "rang": 3,
+   "type": "rhetoric",
+   "title": "Vers und Prosa als Figurenzeichnung",
+   "note": "Die Verteilung von Vers und Prosa folgt keiner Standesregel, sondern der Lage. Der Narr spricht ausschließlich Prosa (14 von 14 Reden), Rodrigo zu 37 Prozent, Cassio zu 35, Jago zu 24 — Othello dagegen nur zu 9 Prozent, Emilia zu 4, Montano und Gratiano überhaupt nicht. Jago wechselt also fortwährend das Register, Othello fast nie: seine Prosa steht dort, wo er zusammenbricht (IV,1). Der Befund stützt sich auf die erschlossene Vers/Prosa-Zuordnung des englischen Zeugen und ist deshalb mit dem Vorbehalt zu lesen, der im Header dieser Ausgabe steht.",
+   "belegart": "auszählung",
+   "beleg": "python3 src/observe.py form. Zur Erschließung der Vers/Prosa-Unterscheidung im englischen Zeugen siehe encodingDesc/editorialDecl.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "play-wieland",
+   "scope": "play",
+   "seite": "einleitung",
+   "rang": 3,
+   "type": "reception",
+   "title": "Vor Baudissin: Wieland 1766",
+   "note": "Der erste deutsche Othello ist Christoph Martin Wielands Prosaübersetzung im siebten Band der Shakespear. Theatralischen Werke (Zürich 1766). Wieland übersetzt in Prosa, kürzt und kommentiert in Fußnoten, was ihm anstößig erscheint; sein Text hat die deutsche Shakespeare-Begeisterung des Sturm und Drang ausgelöst. Baudissins Fassung von 1832 hat ihn dann für über ein Jahrhundert von den Bühnen verdrängt. Wielands Übersetzung ist ebenfalls gemeinfrei und über Wikisource zugänglich; sie eignet sich als dritte Kolumne für eine erweiterte Fassung dieser Ausgabe.",
+   "belegart": "literatur",
+   "beleg": "Bibliographische Angaben und Bearbeitungsstand der Wikisource-Transkription eingesehen; der Text selbst wurde nicht ausgewertet.",
+   "refs": [
+    "wikisource-wieland"
+   ]
+  },
+  {
+   "id": "1.1-barbary-horse",
+   "act": 1,
+   "scene": 1,
+   "type": "realia",
+   "find": "Barbary horse",
+   "lemma_en": "a Barbary horse",
+   "lemma_de": "Barberhengst",
+   "note": "»Barbary« ist die Maghrebküste; Berberpferde galten als edelste und teuerste Rasse Europas. Jagos Beschimpfung hat deshalb einen doppelten Boden: er nennt Othello ein Tier und ein kostbares. Baudissins »Barberhengst« bewahrt beides, weil auch das deutsche Wort auf die Zuchtrasse zeigt.",
+   "belegart": "literatur",
+   "beleg": "Sachangabe aus dem Wissensbestand der Shakespeare-Philologie, für diese Ausgabe nicht an einer Quelle nachgeprüft. Der Textbefund selbst — was in beiden Fassungen steht — ist geprüft."
+  },
+  {
+   "id": "1.1-beast-two-backs",
+   "act": 1,
+   "scene": 1,
+   "type": "realia",
+   "find": "beast with two backs",
+   "lemma_en": "making the beast with two backs",
+   "lemma_de": "das Tier mit zwei Rücken zu machen",
+   "note": "Die Wendung ist keine Erfindung Shakespeares, sondern geht auf Rabelais zurück (»faire la beste à deux dos«, Gargantua I,3) und war als derbe Redensart geläufig. Baudissin übersetzt hier wörtlich und ungemildert – bemerkenswert, weil er die Zoten des Narren in III,1 ausspart und die Hurenwörter des vierten Akts durchweg abschwächt.",
+   "belegart": "literatur",
+   "beleg": "Sachangabe aus dem Wissensbestand der Shakespeare-Philologie, für diese Ausgabe nicht an einer Quelle nachgeprüft. Der Textbefund selbst — was in beiden Fassungen steht — ist geprüft. Die Rabelais-Stelle (Gargantua I,3) ist nachschlagbar."
+  },
+  {
+   "id": "1.1-black-ram",
+   "act": 1,
+   "scene": 1,
+   "type": "rhetoric",
+   "find": "an old black ram",
+   "lemma_en": "an old black ram Is tupping your white ewe",
+   "lemma_de": "ein alter schwarzer Schafbock",
+   "note": "Jagos erste Beschreibung der Ehe: Tierbild, Farbgegensatz, Altersgefälle in einem einzigen Satz, dem Vater unter dem Fenster ins Ohr geschrien. Das Muster – Schwarz gegen Weiß, Tier gegen Mensch – kehrt in dieser Szene dreimal wieder (»Barbary horse«, »beast with two backs«) und liefert der Tragödie ihr Vokabular; Othello selbst wird es in IV,2 gegen Desdemona wenden. Baudissins »Schafbock« und »weißes Lämmchen« halten Bild und Antithese; die Alliteration geht verloren.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.1-i-am-not-what-i-am",
+   "act": 1,
+   "scene": 1,
+   "type": "rhetoric",
+   "find": "I am not what I am",
+   "lemma_en": "I am not what I am",
+   "lemma_de": "Ich bin nicht, was ich bin",
+   "note": "Die Umkehrung zweier biblischer Selbstaussagen: Gottes »Ich bin, der ich bin« (2. Mose 3,14) und des Paulus »durch Gottes Gnade bin ich, was ich bin« (1. Kor 15,10). Jago definiert sich als deren Negation und stellt sich damit in die Tradition des Vice der Moralitäten, der dem Publikum sein Wesen offen erklärt und trotzdem ungehindert wirkt. Baudissins Wortstellung hält die Chiasmus-Struktur; das Ausrufezeichen der Vorlage fehlt dort, wo im Englischen der Punkt steht.",
+   "belegart": "literatur",
+   "beleg": "Die Bibelstellen sind nachschlagbar (2. Mose 3,14; 1. Kor 15,10); die Zuordnung zur Vice-Tradition ist Deutung, nicht Befund."
+  },
+  {
+   "id": "1.1-moorship",
+   "act": 1,
+   "scene": 1,
+   "type": "translation",
+   "find": "his Moorship's ancient",
+   "lemma_en": "his Moorship's ancient",
+   "lemma_de": "seiner Mohrschaft Fähndrich",
+   "note": "»Ancient« ist der Fähnrich, der dritte Offiziersrang nach Hauptmann und Leutnant, der Träger der Fahne – Baudissin übersetzt an anderen Stellen korrekt »Fähndrich«. »Moorship« ist eine Neubildung Jagos aus »Worship« (Anrede: Euer Ehren) und »Moor«: die Ehrentitulatur wird dem Mohren im selben Wort zugesprochen und entzogen. Baudissin baut sie nach – »seiner Mohrschaft Fähndrich« – und rettet damit eine der schwierigsten Stellen der Szene; der Rang steht daneben korrekt als »Fähndrich«, während er in derselben Rede »lieutenant« mit »Leutnant« wiedergibt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.1-sagittary",
+   "act": 1,
+   "scene": 1,
+   "type": "realia",
+   "find": "Lead to the Sagittary",
+   "lemma_en": "the Sagittary",
+   "lemma_de": "zum »Schützen«",
+   "note": "Der Sagittary ist der Schütze des Tierkreises beziehungsweise der Kentaur; gemeint ist ein Haus oder Gasthof dieses Namens in Venedig, in dem sich das Paar aufhält. Baudissins Anführungszeichen um »Schützen« machen aus dem Ortsnamen ausdrücklich ein Schild – eine Deutung, die der englische Text nur nahelegt.",
+   "belegart": "literatur",
+   "beleg": "Sachangabe aus dem Wissensbestand der Shakespeare-Philologie, für diese Ausgabe nicht an einer Quelle nachgeprüft. Der Textbefund selbst — was in beiden Fassungen steht — ist geprüft."
+  },
+  {
+   "id": "1.1-thick-lips",
+   "act": 1,
+   "scene": 1,
+   "type": "translation",
+   "find": "the thick-lips owe",
+   "lemma_en": "the thick-lips",
+   "lemma_de": "dem Dickmäul'gen",
+   "note": "Rodrigos Schimpfwort ist die einzige Stelle, an der eine körperliche Beschreibung Othellos jenseits der Hautfarbe fällt — und sie stammt von einem Rivalen, der ihn nie beschreibt, sondern nur herabsetzt. Baudissins »Dickmäul'ge« bildet die Wortform nach; sie war im Deutschen des 19. Jahrhunderts ebenso beleidigend gemeint, wie sie es heute ist. Für Coleridge war gerade diese Zeile der Stein des Anstoßes: »here comes one, if not the only, seeming justification of our blackamoor or negro Othello« — er räumt ein, dass der Text hier gegen seine Lesart spricht, und weist ihn trotzdem ab.",
+   "belegart": "literatur",
+   "beleg": "Coleridge-Zitat im Volltext nachgeschlagen und im Wortlaut geprüft; der Wortlaut beider Fassungen ist maschinell geprüft.",
+   "refs": [
+    "coleridge-remains"
+   ]
+  },
+  {
+   "id": "1.1-tush",
+   "act": 1,
+   "scene": 1,
+   "type": "textual",
+   "find": "Tush, never tell me",
+   "lemma_en": "Tush, never tell me",
+   "lemma_de": "Sag mir nur nichts",
+   "note": "Das Stück beginnt mitten im Streit; der Zuschauer erfährt erst nach hundert Versen, worum es geht. Die Partikel »Tush« steht so in Q1; F1 lässt sie fort und beginnt hart mit »Never tell me«. Der hier abgedruckte Mischtext folgt Q1 – wie gleich darauf auch bei Jagos »'Sblood«, das F1 durch »Why« ersetzt. Baudissins »Sag mir nur nichts« gibt den Gestus der Abwehr, nicht die Interjektion.",
+   "belegart": "literatur",
+   "beleg": "Q1/F1-Verhältnis nach ISE; dass der hier abgedruckte Text »Tush« und »'Sblood« bietet, ist an ihm ausgezählt.",
+   "refs": [
+    "ise-textintro",
+    "pg1531"
+   ]
+  },
+  {
+   "id": "1.2-bright-swords",
+   "act": 1,
+   "scene": 2,
+   "type": "rhetoric",
+   "find": "Keep up your bright swords",
+   "lemma_en": "Keep up your bright swords, for the dew will rust them",
+   "lemma_de": "Die blanken Schwerter fort! Sie möchten rosten",
+   "note": "Der berühmteste Auftritt der Rolle besteht darin, einen Kampf nicht stattfinden zu lassen. Othello entwaffnet zwei Parteien mit einer Bemerkung über den Nachttau — die Ironie liegt in der Beiläufigkeit, mit der er die Waffen zu Gegenständen macht, die verrosten können. Baudissins »Die blanken Schwerter fort! Sie möchten rosten« hält die zwei Sätze und den Ton; »Good signior, you shall more command with years Than with your weapons« wird zu »Das Alter hilft Euch besser, guter Herr, Als Euer Degen«.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.2-royal-siege",
+   "act": 1,
+   "scene": 2,
+   "type": "realia",
+   "find": "men of royal siege",
+   "lemma_en": "I fetch my life and being From men of royal siege",
+   "lemma_de": "Aus königlichem Stamm",
+   "note": "»Siege« bedeutet hier Sitz, Rang (frz. siège), nicht Belagerung. Othello beansprucht königliche Abkunft – die einzige Stelle, an der er seine Herkunft positiv bestimmt, und zugleich eine, die er sofort wieder fallen lässt. Baudissins »Stamm« ist eindeutiger als das englische Wort und nimmt ihm die Doppelbödigkeit.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.2-services",
+   "act": 1,
+   "scene": 2,
+   "type": "rhetoric",
+   "find": "My services, which I have done the signiory",
+   "lemma_en": "My services, which I have done the signiory",
+   "lemma_de": "Der Dienst, den ich geleistet dem Senat",
+   "note": "Othellos erster Satz über sich selbst ist eine Rechnung: Dienst gegen Anklage. Die ganze Figur ist in diesem Auftritt auf Ruhe gestellt – »Keep up your bright swords, for the dew will rust them« –, und der Kontrast zu Jagos Nachtlärm der ersten Szene ist die eigentliche Exposition des Charakters. Baudissin gibt die Kürze der Sätze wieder, muss aber, wie meist, eine Silbe mehr aufwenden.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-anthropophagi",
+   "act": 1,
+   "scene": 3,
+   "type": "realia",
+   "find": "The Anthropophagi",
+   "lemma_en": "the Anthropophagi, and men whose heads Do grow beneath their shoulders",
+   "lemma_de": "Anthropophagen, Völkern, deren Kopf Wächst unter ihrer Schulter",
+   "note": "Menschenfresser und Kopflose gehören zum festen Bestand der antiken und mittelalterlichen Wundervölkerkunde – Plinius, Solinus, der Reisebericht des sogenannten Mandeville; Walter Raleigh hatte sie 1596 für Guayana noch einmal beglaubigt. Für Shakespeares Publikum war das kein Unsinn, sondern Reiseliteratur. Othello wirbt also nicht mit Lügen, sondern mit dem Autoritätswissen seiner Zeit – und Brabantio wird ihm daraus gleich einen Zauberprozess machen. Baudissin behält die Gräzismen bei.",
+   "belegart": "literatur",
+   "beleg": "Sachangabe aus dem Wissensbestand der Shakespeare-Philologie, für diese Ausgabe nicht an einer Quelle nachgeprüft. Der Textbefund selbst — was in beiden Fassungen steht — ist geprüft."
+  },
+  {
+   "id": "1.3-dead-attribution",
+   "act": 1,
+   "scene": 3,
+   "type": "textual",
+   "find": "Dead?",
+   "lemma_en": "Dead?",
+   "lemma_de": "Starb sie?",
+   "note": "Eine der drei Stellen, an denen die beiden Fassungen die Rede verschieden zuweisen: der englische Mischtext lässt Herzog und Senatoren gemeinsam fragen (»DUKE and SENATORS.«), Baudissin gibt die Frage dem Ersten Senator allein. Solche Kollektivsprecher sind in den frühen Drucken uneinheitlich bezeichnet und werden von Herausgebern seit je verschieden aufgelöst; die Ausgabe hält beide Lesarten nebeneinander fest, statt eine zu bevorzugen.",
+   "belegart": "auszählung",
+   "beleg": "Eine der drei Zuweisungsdifferenzen, die das Alignment dieser Ausgabe gefunden hat; in der TEI-Datei als link@type=\"attribution\" verzeichnet.",
+   "refs": [
+    "eigenes-alignment"
+   ]
+  },
+  {
+   "id": "1.3-divided-duty",
+   "act": 1,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "a divided duty",
+   "lemma_en": "I do perceive here a divided duty",
+   "lemma_de": "Ich sehe hier zwiefach geteilte Pflicht",
+   "note": "Desdemonas einziger öffentlicher Auftritt vor dem Senat, und ihre Rede ist juristisch gebaut: Pflicht gegen Pflicht, Vater gegen Gatten, mit dem Präzedenzfall der eigenen Mutter als Beweisstück. Sie gewinnt den Fall. Dass dieselbe Frau in IV,2 kein Wort mehr findet, ist die Fallhöhe, die das Stück braucht.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-done-my-office",
+   "act": 1,
+   "scene": 3,
+   "type": "dramaturgy",
+   "find": "He has done my office",
+   "lemma_en": "it is thought abroad that 'twixt my sheets He has done my office",
+   "lemma_de": "Die Rede geht, er hab' in meinem Bett Mein Amt verwaltet",
+   "note": "Das erste von mehreren Motiven, die Jago für seinen Hass anführt und keines von ihnen festhält: hier der Verdacht gegen Othello, in II,1 derselbe gegen Cassio, dazwischen die übergangene Beförderung. Auf eben diesen Monolog zielt Coleridges berühmte Formel: »The remainder — Iago's soliloquy — the motive-hunting of a motiveless malignity — how awful it is!« Bradley hat ihr ein Jahrhundert später zugestimmt: »'motive-hunting' exactly answers to the impression that Iago's soliloquies produce. He is pondering his design, and unconsciously trying to justify it to himself.« Beachtenswert ist das Vokabular der Stelle: »office« ist das Amt — Jago denkt die Ehe als Dienstverhältnis, und Baudissins »Mein Amt verwaltet« trifft das genau.",
+   "belegart": "literatur",
+   "beleg": "Beide Zitate im Volltext nachgeschlagen und im Wortlaut geprüft; Coleridges Formel bezieht sich ausweislich des Zusammenhangs auf genau diesen Monolog am Ende von I,3. Der Wortlaut beider Fassungen ist maschinell geprüft.",
+   "refs": [
+    "coleridge-remains",
+    "bradley-1904"
+   ]
+  },
+  {
+   "id": "1.3-erring-barbarian",
+   "act": 1,
+   "scene": 3,
+   "type": "translation",
+   "find": "erring barbarian and a supersubtle Venetian",
+   "lemma_en": "an erring barbarian and a supersubtle Venetian",
+   "lemma_de": "einem abenteuernden Afrikaner und einer überlistigen Venetianerin",
+   "note": "In derselben Prosarede, die Rodrigo das Geld abnimmt, erklärt Jago die Ehe zur Verbindung eines umherirrenden Barbaren mit einer überschlauen Venezianerin; kurz zuvor heißt es »These Moors are changeable in their wills« — bei Baudissin »so ein Mohr ist veränderlich in seinen Neigungen«. Bemerkenswert ist die Übersetzung von »barbarian«: Baudissin macht daraus einen »Afrikaner« und ersetzt damit ein Werturteil durch eine Herkunftsangabe. Das englische Wort sagt nichts über Geographie und alles über Verachtung; das deutsche kehrt das um.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-far-more-fair-than-black",
+   "act": 1,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "far more fair than black",
+   "lemma_en": "Your son-in-law is far more fair than black",
+   "lemma_de": "Dürft Ihr nicht häßlich Euern Eidam nennen",
+   "note": "Der Herzog schlichtet mit einem Reimpaar, das die Farbmetaphorik des Stücks in einem Wortspiel bündigen soll: »fair« heißt zugleich hell, schön und gerecht. Der Trost ist zweischneidig – Othello wird gelobt, indem man ihn von seiner Hautfarbe wegrechnet. Baudissin behält den Reim und streicht die Farbe: aus »far more fair than black« wird »Dürft Ihr nicht häßlich Euern Eidam nennen«. Der Gegensatz verschiebt sich von schwarz/weiß auf häßlich/schön – die rassistische Pointe des Trostes verschwindet, und mit ihr die Schärfe, die der englische Vers behält.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-honesty-and-trust",
+   "act": 1,
+   "scene": 3,
+   "type": "translation",
+   "find": "A man he is of honesty and trust",
+   "lemma_en": "A man he is of honesty and trust",
+   "lemma_de": "Er ist ein Mann von Ehr' und Redlichkeit",
+   "note": "Othello übergibt seine Frau der Obhut Jagos und begründet es mit dem Leitwort des Stücks. Die Konkordanz dieser Ausgabe zeigt, wie einseitig das Wort verteilt ist: Von den 67 Stellen des Feldes »honest/honour« richten sich 25 auf Jago, je zehn auf Othello und Desdemona, neun auf Cassio. Kein anderer wird so oft redlich genannt wie der, der es nicht ist — und die Hälfte dieser Nennungen kommt von Othello selbst. Baudissin gibt die Stelle mit »Ehr' und Redlichkeit« wieder und teilt damit auf, was das Englische in einem Wort hält.",
+   "belegart": "auszählung",
+   "beleg": "Verteilung aus der Bezugsschicht der Konkordanz: alle 67 Belege des Feldes wurden einzeln gelesen und zugeordnet (data/bezuege.json, sichtbar auf der Konkordanzseite »Ehre, Redlichkeit, Name«).",
+   "refs": [
+    "eigene-bezugspruefung",
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "1.3-look-to-her-moor",
+   "act": 1,
+   "scene": 3,
+   "type": "dramaturgy",
+   "find": "Look to her, Moor",
+   "lemma_en": "Look to her, Moor, if thou hast eyes to see: She has deceiv'd her father, and may thee",
+   "lemma_de": "Sei wachsam, Mohr! Hast Augen du zu sehn",
+   "note": "Brabantios Abschiedsvers ist der eigentliche Zündsatz der Tragödie: Jago braucht ihn in III,3 nur zu wiederholen (»She did deceive her father, marrying you«), und Othello erinnert sich. Der Vater liefert dem Feind die Waffe, ohne es zu wissen – die erste von mehreren Stellen, an denen Jago fremde Worte weiterverwendet statt eigene zu erfinden.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py). Die Wiederaufnahme durch Jago in III,3 ist im Text nachlesbar."
+  },
+  {
+   "id": "1.3-loved-me-for-dangers",
+   "act": 1,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "She lov'd me for the dangers I had pass'd",
+   "lemma_en": "She lov'd me for the dangers I had pass'd, And I lov'd her that she did pity them",
+   "lemma_de": "Sie liebte mich, weil ich Gefahr bestand; Ich liebte sie um ihres Mitleids willen",
+   "note": "Die Formel ist streng symmetrisch gebaut und definiert die Ehe über eine Erzählung: er liebt ihr Mitleid, sie seine Geschichte. Genau diese Konstruktion greift Jago später an – wenn die Liebe an der Erzählung hängt, genügt eine andere Erzählung. Baudissin hält den Parallelismus, verliert aber die Wiederholung des Verbs an der Versfuge.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-maiden-never-bold",
+   "act": 1,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "A maiden never bold",
+   "lemma_en": "A maiden never bold",
+   "lemma_de": "Ein Mädchen, schüchtern",
+   "note": "Brabantios Beweisführung: Wenn die Tochter still und schüchtern war, kann ihre Wahl nur Zauberei sein. Er beschreibt sie als Wesen ohne eigenen Willen und schließt daraus auf einen fremden. Der Satz »to fall in love with what she fear'd to look on« ist die kürzeste Formel für das, was der Vater nicht denken kann; Baudissins »Das lieben, was ihr Grauen schuf zu sehn« verschiebt die Furcht ins Grauen und macht die Wendung noch härter.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-put-money",
+   "act": 1,
+   "scene": 3,
+   "type": "translation",
+   "find": "Put money in thy purse",
+   "lemma_en": "Put money in thy purse",
+   "lemma_de": "Tu' Geld in deinen Beutel",
+   "note": "Die Formel kehrt in dieser einen Prosarede siebenmal wieder und variiert dabei kaum: sie ist weniger Argument als Suggestion, ein rhythmisches Einhämmern, das Rodrigos Selbstmordabsicht in eine Einkaufsliste verwandelt. Baudissin überträgt sie ebenso oft und ebenso wörtlich (»Tu' Geld in deinen Beutel«, daneben »Schaff' dir Geld«, »fülle deinen Beutel mit Geld«) – der Refrain überlebt die Übersetzung fast unbeschädigt.",
+   "belegart": "auszählung",
+   "beleg": "Sieben Vorkommen der Formel in der Rede, gezählt an beiden Zeugen (python3 src/observe.py word money).",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "1.3-rude-am-i",
+   "act": 1,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "Rude am I in my speech",
+   "lemma_en": "Rude am I in my speech",
+   "lemma_de": "Ich bin von rauhem Wort",
+   "note": "Klassische Bescheidenheitsformel (»rusticitas«): Der Redner bestreitet seine Redekunst und stellt sie eben damit aus. Was folgt, ist die kunstvollste Erzählung des Stücks. Die Ironie liegt nicht in Othellos Absicht – er glaubt, was er sagt –, sondern darin, dass gerade diese Selbstbeschreibung ihn später erreichbar macht: wer sich für sprachlos hält, misstraut den eigenen Worten früher als denen Jagos. Baudissins »von rauhem Wort« hält die Formel; »And little bless'd with the soft phrase of peace« wird zu »schlecht begabt mit milder Friedensrede«.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-sentenzen",
+   "act": 1,
+   "scene": 3,
+   "type": "translation",
+   "find": "lay a sentence",
+   "lemma_en": "Let me speak like yourself, and lay a sentence",
+   "lemma_de": "Ich red' an Eurer Statt und fäll' ein Urteil",
+   "note": "Der Herzog tröstet in gereimten Sentenzen — sechs Verspaare hintereinander, die wie Sprichwörter klingen sollen und es teils sind. Brabantio antwortet in derselben Form und macht damit den Trost lächerlich. Baudissin überträgt die ganze Passage im Reim (»Wem nichts mehr hilft, der muß nicht Gram verschwenden, Und wer das Schlimmste sah, die Hoffnung enden«) und bewahrt so, dass hier zwei Männer in Sprichwörtern gegeneinander reden, während die Sache selbst unentschieden bleibt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-virtue-a-fig",
+   "act": 1,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "Our bodies are gardens",
+   "lemma_en": "Our bodies are gardens, to the which our wills are gardeners",
+   "lemma_de": "Unser Körper ist ein Garten, und unser Wille der Gärtner",
+   "note": "Jagos Weltanschauung in einem Bild: der Mensch als Garten, der Wille als Gärtner, die Liebe als »lust of the blood and a permission of the will«. Das ist konsequenter Voluntarismus – nichts ist gegeben, alles gemacht –, und es ist genau die Position, die Othellos Vertrauen in ein gegebenes Wesen (»My life upon her faith«) unterläuft. Baudissin folgt der Metaphorik satzweise.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "1.3-visage-in-mind",
+   "act": 1,
+   "scene": 3,
+   "type": "translation",
+   "find": "I saw Othello's visage in his mind",
+   "lemma_en": "I saw Othello's visage in his mind",
+   "lemma_de": "Mir war Othellos Antlitz sein Gemüt",
+   "note": "Desdemonas Antwort auf die Farbfrage, die niemand gestellt hat: Sie habe sein Gesicht in seinem Geist gesehen. Der Vers ist die Gegenposition zu Brabantios Beweisführung und zugleich das Eingeständnis, dass es etwas gab, worüber hinwegzusehen war. Baudissins »Mir war Othellos Antlitz sein Gemüt« ist eine der dichtesten Zeilen dieser Übersetzung. Im selben Satz wird »my heart's subdued Even to the very quality of my lord« zu »mein Herz ergab sich Ganz unbedingt an meines Herrn Beruf« — aus »quality«, das Wesen und Stand meint, wird der Beruf, und damit klingt der Kriegsdienst an, dem sie nach Zypern folgen will.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.1-fair-warrior",
+   "act": 2,
+   "scene": 1,
+   "type": "rhetoric",
+   "find": "O my fair warrior",
+   "lemma_en": "O my fair warrior!",
+   "lemma_de": "O meine holde Krieg'rin",
+   "note": "Die Anrede ist ungewöhnlich und programmatisch: Othello begrüßt seine Frau mit dem Wort seines Berufs. Desdemona hatte sich in I,3 selbst so eingeführt, als sie mit nach Zypern verlangte. Baudissins »Krieg'rin« ist eine Neubildung, die im Deutschen genauso auffällt wie das englische Wort – eine der glücklichsten Stellen dieser Übersetzung.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.1-messenger-gentleman",
+   "act": 2,
+   "scene": 1,
+   "type": "textual",
+   "find": "The town is empty",
+   "lemma_en": "The town is empty; on the brow o' the sea",
+   "lemma_de": "Die Stadt ist leer; am Meeresufer steht",
+   "note": "Zweite Zuweisungsdifferenz: Der englische Text gibt die Meldung einem Boten, Baudissin dem Ersten Edelmann. Die frühen Drucke unterscheiden die Nebenfiguren dieser Szene – Gentlemen, Messenger, Sailor – nicht konsequent, was den Herausgebern Spielraum lässt. Für die Bühne ist der Unterschied erheblich: ein Bote kommt von außen, ein Edelmann steht schon auf der Szene.",
+   "belegart": "auszählung",
+   "beleg": "Zweite der drei Zuweisungsdifferenzen des Alignments.",
+   "refs": [
+    "eigenes-alignment"
+   ]
+  },
+  {
+   "id": "2.1-nothing-if-not-critical",
+   "act": 2,
+   "scene": 1,
+   "type": "translation",
+   "find": "I am nothing if not critical",
+   "lemma_en": "For I am nothing if not critical",
+   "lemma_de": "Denn ich bin nichts, wenn ich nicht lästern darf",
+   "note": "Jagos Selbstbeschreibung im Plauderton. »Critical« meint das Urteilen, das Bekritteln, auch das Spotten; Baudissins »lästern« nimmt die Bedeutung, die zur Figur passt, und lässt die andere fallen. Die Zeile steht in unmittelbarer Nähe zu »I am not what I am« (I,1) und ist deren gesellige Variante: Beide Male sagt Jago die Wahrheit über sich und wird nicht gehört.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.1-now-to-die",
+   "act": 2,
+   "scene": 1,
+   "type": "dramaturgy",
+   "find": "If it were now to die",
+   "lemma_en": "If it were now to die, 'Twere now to be most happy",
+   "lemma_de": "Gölt' es, jetzt zu sterben, Jetzt wär' mir's höchste Wonne",
+   "note": "Der Höhepunkt des Glücks steht in der Mitte des Stücks und ist als Todeswunsch formuliert. Desdemonas Antwort – »The heavens forbid but that our loves and comforts should increase« – ist der Versuch, die Formel zu entschärfen; Jagos Beiseite (»O, you are well tun'd now«) macht sie zur Ankündigung. Drei Repliken, drei Zeitebenen: Gegenwart, Zukunft, Plan.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.1-sail-within",
+   "act": 2,
+   "scene": 1,
+   "type": "textual",
+   "find": "A sail, a sail, a sail",
+   "lemma_en": "A sail, a sail, a sail!",
+   "note": "Der Ruf von hinter der Szene ist in der englischen Vorlage als Rede ohne Sprecher gesetzt (»[Within.]«), bei Baudissin dagegen als Regieanweisung. Die Ausgabe hält ihn deshalb auf der englischen Seite als sprecherlosen Sprechakt und auf der deutschen als Bühnenanweisung fest; die Verknüpfung bleibt einseitig. Dieselbe Konstellation wiederholt sich wenige Zeilen später.",
+   "belegart": "auszählung",
+   "beleg": "Befund des Alignments: in der englischen Fassung Rede ohne Sprecher, in der deutschen Regieanweisung; als link@type=\"en-only\" verzeichnet.",
+   "refs": [
+    "eigenes-alignment"
+   ]
+  },
+  {
+   "id": "2.1-set-down-the-pegs",
+   "act": 2,
+   "scene": 1,
+   "type": "rhetoric",
+   "find": "set down the pegs",
+   "lemma_en": "But I'll set down the pegs that make this music",
+   "lemma_de": "dieses Einklangs Wirbel spann' ich ab",
+   "note": "Jagos Bild ist instrumentenbaulich präzise: die Wirbel einer Laute lockern, bis die Saiten falsch stehen. Er beschreibt damit sein Verfahren – er zerstört nichts, er verstimmt. Baudissins »dieses Einklangs Wirbel spann' ich ab« hält die Metapher und ihre Beiläufigkeit; »Einklang« benennt zusätzlich, was zerstört werden soll.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.1-she-that-was-ever-fair",
+   "act": 2,
+   "scene": 1,
+   "type": "translation",
+   "find": "She that was ever fair and never proud",
+   "lemma_en": "She that was ever fair and never proud",
+   "lemma_de": "Die immer schön, doch nicht dem Stolz vertraut",
+   "note": "Jagos Frauenkatalog am Hafen ist in Reimpaaren gebaut, und Baudissin reimt mit. Interessant ist, was dabei hinzukommt: »She never yet was foolish that was fair« wird zu »Hat sie ein weiß Gesicht, so ist sie dumm mit nichten«. Das englische »fair« heißt hell, schön und gerecht zugleich; Baudissin wählt hier die Hautfarbe — ausgerechnet an der Stelle, an der er sie in der Trostformel des Herzogs (I,3) getilgt hatte. Die Farbsemantik des Stücks verteilt sich im Deutschen also anders, nicht schwächer.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.1-small-beer",
+   "act": 2,
+   "scene": 1,
+   "type": "translation",
+   "find": "To suckle fools and chronicle small beer",
+   "lemma_en": "To suckle fools and chronicle small beer",
+   "lemma_de": "Narr'n aufzuziehn und Dünnbier anzuschreiben",
+   "note": "Die Pointe des ganzen Katalogs: Wozu taugt die vollkommene Frau? Kinder stillen und Haushaltsbuch führen. »Small beer« ist das schwache Alltagsbier, »to chronicle« das Anschreiben im Wirtshaus — die Wendung ist als Redensart für Nichtigkeiten ins Englische eingegangen. Baudissins »Narr'n aufzuziehn und Dünnbier anzuschreiben« bildet beides wörtlich nach und trifft die Verächtlichkeit genau.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.1-web-fly",
+   "act": 2,
+   "scene": 1,
+   "type": "dramaturgy",
+   "find": "With as little a web as this",
+   "lemma_en": "With as little a web as this will I ensnare as great a fly as Cassio",
+   "lemma_de": "Mit solchem kleinen Gewebe will ich eine so große Fliege umgarnen, als Cassio",
+   "note": "Jago kommentiert die Höflichkeitsgesten Cassios, während sie geschehen: Regie und Deutung in einem, an das Publikum gerichtet, mitten auf der Bühne. Es ist zugleich eine der nur vier Reden des Stücks, in denen innerhalb einer Rede von Vers in Prosa gewechselt wird — drei dieser vier gehören Jago. Wo er das Geschehen für sich zurechtlegt, verlässt er das Versmaß.",
+   "belegart": "auszählung",
+   "beleg": "Reden mit Formwechsel: python3 src/observe.py form (vier Fälle, davon drei bei Jago). Der Wortlaut beider Fassungen ist geprüft.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "2.3-blood-guides",
+   "act": 2,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "My blood begins my safer guides to rule",
+   "lemma_en": "My blood begins my safer guides to rule",
+   "lemma_de": "Mein Blut beginnt zu meistern die Vernunft",
+   "note": "Die erste Beschreibung des eigenen Zorns — vier Akte vor dem Mord und noch als Selbstbeobachtung: Das Blut übernimmt die Führung von den sichereren Führern. Jago wird genau diese Selbstkenntnis später gegen ihn verwenden. Das darauffolgende »Zounds« hat im Deutschen keine Entsprechung; Baudissin lässt den Fluch weg und setzt den Satz unmittelbar fort.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.3-bradley-jago",
+   "act": 2,
+   "scene": 3,
+   "type": "reception",
+   "find": "Divinity of hell",
+   "lemma_en": "Divinity of hell! When devils will the blackest sins put on",
+   "lemma_de": "Theologie der Hölle",
+   "note": "Bradley beschreibt die Eigenschaft, die diesen Monolog möglich macht: Jago sei »almost destitute of humanity, of sympathetic or social feeling«, und gerade nicht von allgemeinem Übelwollen getrieben — wo er keine Feindschaft empfinde, zeige er auch keine Freude am fremden Leid. Das erklärt die Kälte der Stelle: Jago beschreibt seinen Plan im Tonfall eines Handwerkers, der eine Aufgabe löst. Baudissins »Theologie der Hölle« macht aus dem englischen »Divinity« das Fach; die Blasphemie, dass hier über Gottesgelehrsamkeit gesprochen wird, bleibt hörbar.",
+   "belegart": "literatur",
+   "beleg": "Bradley-Zitat im Volltext nachgeschlagen und geprüft; der Vergleich der beiden Fassungen ist an der Stelle selbst überprüfbar.",
+   "refs": [
+    "bradley-1904"
+   ]
+  },
+  {
+   "id": "2.3-cannikin",
+   "act": 2,
+   "scene": 3,
+   "type": "realia",
+   "find": "let me the cannikin clink",
+   "lemma_en": "And let me the cannikin clink, clink",
+   "lemma_de": "Stoßt an mit dem Gläselein, klingt!",
+   "note": "Trinklied im Ton der englischen Ale-Songs; »cannikin« ist der kleine Becher, bei Baudissin das »Gläselein«. Jago singt zwei Lieder in dieser Szene, das zweite (»King Stephen was a worthy peer«) ist eine Strophe aus der Ballade Take Thy Old Cloak About Thee, die Percy 1765 in die Reliques aufnahm. Beide Lieder gehören zur Inszenierung der Volkstümlichkeit, mit der Jago Cassio betrunken macht: er wird für die Dauer zweier Strophen der ehrliche Kamerad.",
+   "belegart": "literatur",
+   "beleg": "Sachangabe aus dem Wissensbestand der Shakespeare-Philologie, für diese Ausgabe nicht an einer Quelle nachgeprüft. Der Textbefund selbst — was in beiden Fassungen steht — ist geprüft. Dass beide Lieder im Text stehen und wie Baudissin sie überträgt, ist geprüft."
+  },
+  {
+   "id": "2.3-divinity-of-hell",
+   "act": 2,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "Divinity of hell",
+   "lemma_en": "Divinity of hell! When devils will the blackest sins put on",
+   "lemma_de": "Theologie der Hölle",
+   "note": "Jagos Monolog benennt sein Verfahren offen: er wird Desdemonas Güte gegen sie selbst kehren (»out of her own goodness make the net that shall enmesh them all«). Die Tragödie hat damit ihre eigentliche Bosheit definiert – nicht ein Laster wird ausgenutzt, sondern eine Tugend. Baudissins »Theologie der Hölle« ist begrifflicher als das englische »Divinity«, das auch die Gottesgelehrsamkeit meint.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.3-enemy-in-mouths",
+   "act": 2,
+   "scene": 3,
+   "type": "translation",
+   "find": "put an enemy in their mouths",
+   "lemma_en": "O God, that men should put an enemy in their mouths to steal away their brains",
+   "lemma_de": "O daß wir einen bösen Feind in den Mund nehmen, damit er unser Gehirn stehle",
+   "note": "Cassios Katerklage, die als Sentenz über den Alkohol berühmt geworden ist. Zwei Verschiebungen im Deutschen: Die Anrufung »O God« fällt weg, und aus »men« wird »wir« — Baudissin macht aus der Beobachtung über die Männer ein Selbstbekenntnis. Der Ausruf gehört zu den wenigen Stellen, an denen der deutsche Text religiös blasser ist als der englische, während es im Ganzen umgekehrt liegt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.3-generals-wife",
+   "act": 2,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "Our general's wife is now the general",
+   "lemma_en": "Our general's wife is now the general",
+   "lemma_de": "Unsers Generals Frau ist jetzt General",
+   "note": "Der Rat, der Cassio ruiniert, ist sachlich richtig: Desdemona hat Einfluss. Jago sagt die Wahrheit und macht sie tödlich, indem er sie zum Plan macht. Im Deutschen bleibt das Wortspiel erhalten, weil »General« unverändert stehen kann — eine der Stellen, an denen die Fremdwörter der Militärsprache dem Übersetzer entgegenkommen.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.3-officer-of-mine",
+   "act": 2,
+   "scene": 3,
+   "type": "translation",
+   "find": "But never more be officer of mine",
+   "lemma_en": "Cassio, I love thee, But never more be officer of mine",
+   "lemma_de": "Cassio, ich liebe dich; Allein mein Leutnant bist du länger nicht",
+   "note": "Die Absetzung in anderthalb Versen, mit der Liebeserklärung im selben Satz. Bemerkenswert ist die Zeile davor: »Thy honesty and love doth mince this matter« gibt Baudissin mit »Aus Lieb' und Bravheit schmückst du diese Sache« — »honesty« wird hier zu »Bravheit«, eine von einem halben Dutzend deutscher Entsprechungen für das Leitwort des Stücks. Othello lobt Jagos Redlichkeit in dem Augenblick, in dem er ihr aufsitzt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.3-purchase-made",
+   "act": 2,
+   "scene": 3,
+   "type": "translation",
+   "find": "The purchase made, the fruits are to ensue",
+   "lemma_en": "The purchase made, the fruits are to ensue",
+   "lemma_de": "Den Preis erringt sich, wer den Handel schloß",
+   "note": "Othello führt seine Frau ins Bett und spricht dabei vom Kauf, dessen Früchte noch ausstehen. Die Kaufmannssprache ist in diesem Stück nie weit — Jago rechnet in Beuteln, Rodrigo in Juwelen, hier rechnet Othello. Baudissin behält das Bild und den Reim (»Handel schloß« / »Mitgenoß«). Es ist die letzte gemeinsame Szene der Eheleute, in der nichts Unheilvolles geschieht.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.3-reputation",
+   "act": 2,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "Reputation, reputation, reputation",
+   "lemma_en": "Reputation, reputation, reputation!",
+   "lemma_de": "Guter Name! Guter Name! Guter Name!",
+   "note": "Cassios dreifacher Ausruf und Jagos Antwort (»Reputation is an idle and most false imposition«) stehen in direktem Widerspruch zu Jagos eigener Rede in III,3, wo der gute Name »the immediate jewel of their souls« heißt. Er sagt jedem, was ihn trifft. Im Deutschen ist der Widerspruch sogar deutlicher hörbar als im Englischen: Baudissin setzt an beiden Stellen dasselbe Wort – hier »Guter Name! Guter Name! Guter Name!«, dort »Der gute Name ist bei Mann und Frau … das eigentliche Kleinod ihrer Seelen« –, während die Vorlage zwischen »reputation« und »good name« wechselt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py). Der Vergleich mit III,3 ist an beiden Stellen dieser Ausgabe nachlesbar."
+  },
+  {
+   "id": "2.3-turn-turks",
+   "act": 2,
+   "scene": 3,
+   "type": "translation",
+   "find": "Are we turn'd Turks",
+   "lemma_en": "Are we turn'd Turks, and to ourselves do that Which heaven hath forbid the Ottomites?",
+   "lemma_de": "Sind wir denn Türken? Tun uns selber das, Was dem Ungläubigen der Himmel wehrt?",
+   "note": "Der Türkenkrieg, der die Handlung nach Zypern gebracht hat, ist schon vorbei — der Sturm hat die Flotte vernichtet. Othellos Vorwurf holt den Feind daher als Metapher zurück: Der Streit im eigenen Lager tut, was der Krieg nicht mehr kann. Baudissin ersetzt die »Ottomites« durch »den Ungläubigen« und verschiebt die Grenze vom Volk zur Konfession — eine Verallgemeinerung, die den historischen Bezug auf das Osmanische Reich verliert. Die Wendung kehrt in Othellos letzter Rede wieder, wenn er den Türken in sich selbst hinrichtet (V,2).",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "2.3-witchcraft",
+   "act": 2,
+   "scene": 3,
+   "type": "translation",
+   "find": "we work by wit, and not by witchcraft",
+   "lemma_en": "Thou know'st we work by wit, and not by witchcraft",
+   "lemma_de": "Du weißt, man wirkt durch Witz und nicht durch Zauber",
+   "note": "Jago erklärt Rodrigo seine Methode und benutzt dabei das Wort, mit dem Brabantio Othello angeklagt hatte: Zauberei. Der englische Vers lebt vom Gleichklang »wit«/»witchcraft«, den Baudissin nicht nachbauen kann; »Witz und nicht durch Zauber« hält den Gegensatz, verliert das Wortspiel. Sachlich ist der Satz das Programm des Stücks: Es gibt keine Magie, nur Zeit und Berechnung — »And wit depends on dilatory time«.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.1-clown-omission",
+   "act": 3,
+   "scene": 1,
+   "type": "textual",
+   "find": "have your instruments been in Naples",
+   "lemma_en": "have your instruments been in Naples, that they speak i' the nose thus?",
+   "note": "Hier fehlen dem deutschen Text sechs Sprechakte: Der Narr fragt, ob die Instrumente in Neapel gewesen seien – eine Anspielung auf die Syphilis, die im Englischen »the Neapolitan bone-ache« hieß und der der Nasenschaden zugeschrieben wurde –, und treibt das Wortspiel über »wind instruments« bis zu »thereby hangs a tail«. Baudissin setzt an dieser Stelle neu ein und lässt die Zoten aus. Es ist die umfangreichste Auslassung, die der maschinelle Abgleich beider Fassungen zutage fördert, und ein Musterfall der Reinigung, der Shakespeare im 19. Jahrhundert unterzogen wurde.",
+   "belegart": "auszählung",
+   "beleg": "Sechs Sprechakte ohne deutsches Gegenstück; Befund des Alignments, in der TEI-Datei als link@type=\"en-only\" verzeichnet.",
+   "refs": [
+    "eigenes-alignment"
+   ]
+  },
+  {
+   "id": "3.1-emilia-morgen",
+   "act": 3,
+   "scene": 1,
+   "type": "translation",
+   "find": "I am sorry For your displeasure",
+   "lemma_en": "I am sorry For your displeasure, but all will sure be well",
+   "lemma_de": "Euer Unfall Betrübt mich sehr, doch wird noch alles gut",
+   "note": "Emilias Lagebericht gehört zu den drei am stärksten verdichteten Reden des Stücks: 85 englische Wörter werden zu 61 deutschen. Verloren geht dabei nichts an Inhalt, wohl aber die Umständlichkeit, mit der Emilia den Fall referiert — im Deutschen klingt sie zielstrebiger, als sie ist. Die Straffung ist typisch für Baudissins Umgang mit erzählenden Passagen im Blankvers.",
+   "belegart": "auszählung",
+   "beleg": "Wortverhältnis 85 zu 61 aus dem Längenvergleich der verknüpften Reden: python3 src/observe.py ratio.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "3.3-curse-of-marriage",
+   "act": 3,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "O curse of marriage",
+   "lemma_en": "O curse of marriage, That we can call these delicate creatures ours, And not their appetites",
+   "lemma_de": "Oh! Fluch des Ehestands, Daß unser diese zarten Wesen sind, Und nicht ihr Lüsten",
+   "note": "Die Eifersucht formuliert sich hier als Eigentumsproblem: Man besitze die Frau, aber nicht ihr Begehren. Der Gedanke steht in der Mitte zwischen Jagos Zynismus und Emilias Analyse in IV,3, und er ist ausdrücklich sozial gedacht — »'tis the plague of great ones«, das Los der Hochgestellten. Baudissins »Fluch des Ehestands« ist eine Nuance bürgerlicher als das englische »curse of marriage«.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-dians-visage",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "As Dian's visage",
+   "lemma_en": "her name, that was as fresh As Dian's visage, is now begrim'd and black As mine own face",
+   "lemma_de": "Ihr Name, einst so hell Wie Dianens Antlitz, ist nun wüst und schwarz Wie mein Gesicht",
+   "note": "Hier übernimmt Othello die Farbsprache, mit der Jago und Rodrigo in der ersten Szene über ihn geredet hatten, und wendet sie gegen seine Frau und gegen sich selbst: Ihr Name sei nun schwarz wie sein Gesicht. Es ist der Punkt, an dem die Beschimpfungen des Anfangs zur Selbstbeschreibung geworden sind. Baudissin übersetzt »begrim'd and black« mit »wüst und schwarz« und hält damit beide Hälften — das Beschmutzte und das Dunkle.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-eifersucht-verteilung",
+   "act": 3,
+   "scene": 3,
+   "type": "dramaturgy",
+   "find": "Think'st thou I'd make a life of jealousy",
+   "lemma_en": "Think'st thou I'd make a life of jealousy",
+   "lemma_de": "Mein Leben soll aus Eifersucht bestehn",
+   "note": "Othello bestreitet die Eifersucht in dem Augenblick, in dem sie ihn erfasst. Die Konkordanz zeigt, wie einseitig das Wortfeld verteilt ist: Von den achtundzwanzig Nennungen von jealous und jealousy gelten fünfzehn Othello — mehr als die Hälfte —, vier Jago, acht niemandem bestimmten. Othello ist der Gegenstand des Wortes, kaum je sein Sprecher; und wo er es doch gebraucht, wie hier, tut er es, um es von sich zu weisen. Erst in der letzten Rede des Stücks nimmt er es an: »of one not easily jealous, but being wrought…«",
+   "belegart": "auszählung",
+   "beleg": "Bezugsschicht der Konkordanz: alle 79 Belege des Feldes »Eifersucht, Verdacht, Betrug« wurden einzeln gelesen und zugeordnet (data/bezuege.json).",
+   "refs": [
+    "eigene-bezugspruefung"
+   ]
+  },
+  {
+   "id": "3.3-excellent-wretch",
+   "act": 3,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "Excellent wretch",
+   "lemma_en": "Excellent wretch! Perdition catch my soul, But I do love thee!",
+   "lemma_de": "Holdselig Ding! Verdammnis meiner Seele",
+   "note": "Der Satz steht unmittelbar vor Jagos erstem Angriff und formuliert die Bedingung, unter der die Tragödie abläuft: Hört die Liebe auf, kehrt das Chaos wieder. Othello beschreibt seine Ordnung als eine, die auf einer einzigen Person ruht. »Wretch« ist hier Kosewort (etwa: armes Ding), kann aber auch Elender heißen; Baudissins »Holdselig Ding« hält beide Seiten offen, weil »Ding« im Deutschen ebenso zärtlich wie herabsetzend gebraucht werden kann.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-good-name",
+   "act": 3,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "Good name in man and woman",
+   "lemma_en": "Good name in man and woman, dear my lord, Is the immediate jewel of their souls",
+   "lemma_de": "Das eigentliche Kleinod ihrer Seelen",
+   "note": "Wortlaut und Gegenteil dessen, was Jago in II,3 zu Cassio gesagt hatte (»Reputation is an idle and most false imposition«). Zwischen den beiden Reden liegen keine tausend Verse. Wer die Ausgabe parallel liest, kann Jagos Rhetorik als reine Anpassung an den Hörer beschreiben – er hat keine Position, nur Wirkungen.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-green-eyed",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "green-ey'd monster",
+   "lemma_en": "the green-ey'd monster which doth mock The meat it feeds on",
+   "lemma_de": "Dem grüngeaugten Scheusal, das besudelt Die Speise, die es nährt",
+   "note": "Die berühmteste Metapher des Stücks und eine der schwierigsten. »Mock« heißt verhöhnen, verspotten – das Ungeheuer treibt sein Spiel mit dem Fleisch, von dem es lebt, wie die Katze mit der Maus. Baudissin liest offenbar »make« oder deutet frei und schreibt »besudelt«: aus dem Spott wird Beschmutzung. Das ist eine sachliche Verschiebung, kein Klangproblem – und sie nimmt dem Bild die Grausamkeit, die darin liegt, dass die Eifersucht ihr Opfer nicht bloß verdirbt, sondern auslacht. Die Wortprägung selbst, »grüngeaugt«, hat Baudissin dagegen mustergültig gerettet.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-haggard-falke",
+   "act": 3,
+   "scene": 3,
+   "type": "realia",
+   "find": "If I do prove her haggard",
+   "lemma_en": "If I do prove her haggard, Though that her jesses were my dear heartstrings",
+   "lemma_de": "Find' ich dich verwildert, Falk, Und sei dein Fußriem mir ums Herz geschlungen",
+   "note": "Ein Bild aus der Beizjagd: Der »haggard« ist der wild gefangene, nie ganz zahme Falke, die »jesses« sind die Fußriemen, an denen er gehalten wird; wer ihn »down the wind« fliegen lässt, gibt ihn endgültig auf. Othello denkt seine Ehe als Falknerei — Besitz an einem Tier, das jederzeit fortfliegen kann. Baudissin überträgt die Fachbegriffe genau (»verwildert«, »Fußriem«) und fügt die Anrede »Falk« hinzu, damit das Bild im Deutschen sofort verständlich wird.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-honest",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "My lord, you know I love you",
+   "lemma_en": "you know I love you",
+   "lemma_de": "Ihr wißt, ich lieb' Euch, Herr!",
+   "note": "Das Leitwort des Stücks ist »honest«: 42 Belege im englischen Text, dazu zehnmal »honesty«, in der Mehrzahl auf Jago gemünzt. Das Wort deckt im Englischen um 1600 mehr ab als das deutsche »ehrlich« – Aufrichtigkeit, Standesehre, bei Frauen zudem Keuschheit. Baudissin verteilt es notgedrungen auf ein halbes Dutzend Wörter: »ehrlich« (17), »redlich« (12), daneben »treu«, »brav«, »bieder«. Die Ironie, dass immer dasselbe Wort fällt, wenn von Jago die Rede ist, lässt sich im Deutschen nur stellenweise halten – ein Verlust, den keine Übersetzung dieser Zeit vermeidet.",
+   "belegart": "auszählung",
+   "beleg": "»honest« 42, »honesty« 10 Belege im englischen Zeugen; deutsche Entsprechungen: ehrlich 17, redlich 12, treu 23, brav 6, bieder 1 (python3 src/observe.py word honest).",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "3.3-honest-redlichkeit",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "This fellow's of exceeding honesty",
+   "lemma_en": "This fellow's of exceeding honesty",
+   "lemma_de": "Das ist ein Mensch von höchster Redlichkeit",
+   "note": "Der Satz steht am Anfang des Monologs, in dem Othello sich selbst überredet, und er ist die reine Ironie der Anlage: Das Leitwort »honesty« fällt genau dann, wenn die Täuschung greift. Baudissin wählt hier »Redlichkeit«, an anderen Stellen »ehrlich«, »treu«, »brav« oder »bieder« — der englische Text hat für alle diese Fälle ein einziges Wort. Wer die Wiederholung sucht, muss den englischen Text lesen; wer die Nuance sucht, den deutschen.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py). Zur Verteilung der deutschen Entsprechungen siehe die Anmerkung zum Leitwort »honest« in derselben Szene.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "3.3-i-am-black",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "Haply, for I am black",
+   "lemma_en": "Haply, for I am black, And have not those soft parts of conversation",
+   "lemma_de": "Vielleicht wohl, weil ich schwarz bin Und mir des leichten Umgangs Gabe fehlt",
+   "note": "Zum ersten Mal nennt Othello selbst seine Hautfarbe, und er nennt sie als Erklärung für ein Versagen. Die drei Gründe, die er sich zurechtlegt — schwarz, ungewandt, alternd —, sind sämtlich von außen an ihn herangetragen; Jago hat keinen davon aussprechen müssen. Baudissin übersetzt »schwarz« hier unverstellt, obwohl er im Trostreim des Herzogs (I,3) auf »häßlich« ausgewichen war: Die Tilgung dort ist also eine Entscheidung im Einzelfall, keine Regel.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-i-am-your-own",
+   "act": 3,
+   "scene": 3,
+   "type": "dramaturgy",
+   "find": "I am your own for ever",
+   "lemma_en": "I am your own for ever",
+   "lemma_de": "Ich bin auf ewig Euer",
+   "note": "Der Schlusssatz der Szene, gesprochen nach dem gemeinsamen Kniefall und dem Racheschwur. Die Formel gehört in die Ehe; sie steht hier zwischen zwei Männern, von denen der eine eben die Ermordung seiner Frau angeordnet hat. Die Szene ist als Trauung gebaut — Kniefall, Anrufung der Zeugen, Gelöbnis, Antwort — und schließt mit dem Ja-Wort. Baudissins »Ich bin auf ewig Euer« lässt die Doppeldeutigkeit unangetastet.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-mandragora",
+   "act": 3,
+   "scene": 3,
+   "type": "realia",
+   "find": "Not poppy, nor mandragora",
+   "lemma_en": "Not poppy, nor mandragora, Nor all the drowsy syrups of the world",
+   "lemma_de": "Mohnsaft nicht, noch Mandragora, Noch alle Schlummerkräfte der Natur",
+   "note": "Mohn und Alraune sind die beiden Schlafmittel der antiken und frühneuzeitlichen Pharmakopöe; die Alraune galt zudem als Zauberwurzel. Jago spricht sie aus, während er dem eben Vergifteten zusieht — die Rede beginnt mit »The Moor already changes with my poison« und macht den Zuschauer zum Mitwisser einer Diagnose. Baudissins »Schlummerkräfte der Natur« ersetzt die »drowsy syrups« durch etwas Allgemeineres und verliert das Apothekenhafte des Bildes.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-men-should-be",
+   "act": 3,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "would they might seem none",
+   "lemma_en": "Men should be what they seem; Or those that be not, would they might seem none!",
+   "lemma_de": "Man sollte sein das, was man scheint",
+   "note": "Jago formuliert die Moral, deren lebender Gegenbeweis er ist — und Othello wiederholt sie zwei Reden später als eigene Einsicht (»Certain, men should be what they seem«). Der Satz ist die dritte Fassung von »I am not what I am« (I,1) und »I am nothing if not critical« (II,1): Dreimal beschreibt Jago sein Verfahren offen, dreimal hört niemand hin. Baudissins Wortstellung hält den Chiasmus.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-occupation-gone",
+   "act": 3,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "Othello's occupation's gone",
+   "lemma_en": "Farewell! Othello's occupation's gone",
+   "lemma_de": "Othellos Tagwerk ist getan",
+   "note": "Die Abschiedsrede an den Krieg – Trommeln, Fahnen, Trompeten – ist eine Liste, kein Argument; Othello verliert nicht Desdemona, sondern seinen Beruf, und mit ihm die Sprache, in der er sich beschreiben konnte. Baudissins »Othellos Tagwerk ist getan« ist bürgerlicher als »occupation«, das den militärischen Dienst meint – und es klingt nach Feierabend, wo das Englische den Beruf selbst enden lässt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-ocular-proof",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "the ocular proof",
+   "lemma_en": "Give me the ocular proof",
+   "lemma_de": "schaff' mir den sichtlichen Beweis",
+   "note": "Die Forderung, die Jago erwartet hat: Othello verlangt Sehen statt Glauben, und genau darauf ist die Intrige eingerichtet – auf ein Tuch, das man sehen kann. »Prove my love a whore« gibt Baudissin mit »Beweise mir, daß mein Weib verbuhlt« wieder und vermeidet damit das Hurenwort, das der englische Text zwölfmal setzt; im vierten Akt erscheinen dafür »Metze«, »Dirne« und »Buhlerin«.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-pontic-sea",
+   "act": 3,
+   "scene": 3,
+   "type": "textual",
+   "find": "Like to the Pontic Sea",
+   "lemma_en": "Like to the Pontic Sea, Whose icy current and compulsive course",
+   "lemma_de": "So wie des Pontus Meer",
+   "note": "Das Gleichnis vom Schwarzen Meer, dessen Strom nie zurückläuft, steht nur im Folio; Q1 hat es nicht. Es ist Othellos letzte große Redefigur im alten Stil – geographisch, weiträumig, aus der Welt seiner Erzählungen in I,3 – und sie dient jetzt dazu, die Unwiderruflichkeit des Entschlusses zu behaupten. Unmittelbar danach kniet er, und Jago kniet mit: die Umkehrung der Ehe in einen Racheschwur.",
+   "belegart": "literatur",
+   "beleg": "Dass die Passage in Q1 fehlt, nach ISE; dass sie im hier abgedruckten Text steht, ist an ihm geprüft.",
+   "refs": [
+    "ise-textintro",
+    "pg1531"
+   ]
+  },
+  {
+   "id": "3.3-shrewd-doubt",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "'Tis a shrewd doubt, though it be but a dream",
+   "lemma_en": "But this denoted a foregone conclusion. 'Tis a shrewd doubt, though it be but a dream",
+   "lemma_de": "Doch er bewies vorhergegangne Tat",
+   "note": "Die stärkste Kürzung der ganzen Übersetzung: Aus sechzehn englischen Wörtern werden fünf deutsche. Der zweite Satz — es sei ein triftiger Verdacht, wenn auch nur ein Traum — fällt ersatzlos weg. Damit verschwindet die Stelle, an der Othello ausspricht, dass er einen Traum als Beweis nimmt: im Englischen weiß er, worauf er seinen Verdacht gründet, im Deutschen behauptet er nur noch die vorangegangene Tat.",
+   "belegart": "auszählung",
+   "beleg": "Extremwert des Längenvergleichs (16 zu 5 Wörter, Verhältnis 0,31): python3 src/observe.py ratio. Beide Wortlaute sind geprüft.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "3.3-toad-dungeon",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "I had rather be a toad",
+   "lemma_en": "I had rather be a toad, And live upon the vapour of a dungeon",
+   "lemma_de": "Lieber Kröte sein Und von den Dünsten eines Kerkers leben",
+   "note": "Das Bild ist der Umschlagpunkt des Monologs: Vom Falken zur Kröte, von der Jagd zum Kerker. Wenige Zeilen später steht »this forked plague« — der gehörnte Fluch des betrogenen Ehemanns, den Baudissin wörtlich überträgt. Die deutsche Fassung folgt der Bildkette Schritt für Schritt und behält auch das Schwierigste: »Schon im Entstehn schwebt der gehörnte Fluch Auf unsrer Scheitel«.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.3-trifles-holy-writ",
+   "act": 3,
+   "scene": 3,
+   "type": "translation",
+   "find": "As proofs of holy writ",
+   "lemma_en": "Trifles light as air Are to the jealous confirmations strong As proofs of holy writ",
+   "lemma_de": "Dinge, leicht wie Luft, Sind für die Eifersucht Beweis, so stark Wie Bibelsprüche",
+   "note": "Jagos Erkenntnistheorie in drei Zeilen: Für den Eifersüchtigen hat das Nichtige die Beweiskraft der Schrift. »Holy writ« ist die Heilige Schrift als Instanz; Baudissins »Bibelsprüche« macht daraus einzelne Zitate und damit etwas Handlicheres — treffend, denn genau so wird das Tuch benutzt: als Beleg, den man vorzeigt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "3.4-egyptian",
+   "act": 3,
+   "scene": 4,
+   "type": "textual",
+   "find": "Did an Egyptian to my mother give",
+   "lemma_en": "That handkerchief Did an Egyptian to my mother give",
+   "lemma_de": "dieses Tuch Gab meiner Mutter ein Zigeunerweib",
+   "note": "In V,2 erzählt Othello die Geschichte des Tuches anders: dort ist es »an antique token My father gave my mother«. Ob Widerspruch, Gedächtnisfehler der Figur oder Zeichen dafür, dass Othello die Magie in III,4 erfindet, um Desdemona zu erschrecken, ist seit dem 18. Jahrhundert strittig; die Ausgabe verzeichnet beide Stellen und entscheidet nicht. Baudissins »Zigeunerweib« übersetzt »Egyptian« zeitüblich – das englische Wort meint dasselbe: eine Angehörige der Roma, die man aus Ägypten stammend glaubte.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py). Die abweichende Fassung der Geschichte in V,2 steht in dieser Ausgabe."
+  },
+  {
+   "id": "3.4-handkerchief-stichomythia",
+   "act": 3,
+   "scene": 4,
+   "type": "textual",
+   "find": "I pray, talk me of Cassio",
+   "lemma_en": "I pray, talk me of Cassio",
+   "note": "Der englische Text führt den Wechsel dreimal durch – »The handkerchief!« gegen Desdemonas Versuche, von Cassio zu sprechen –, Baudissin nur zweimal (»Das Tuch –«). Der Abgleich weist die fehlende Runde als Auslassung auf der deutschen Seite aus. Dramaturgisch ist der Unterschied hörbar: die dritte Wiederholung ist die, nach der Othello nichts mehr sagt, sondern hinausgeht.",
+   "belegart": "auszählung",
+   "beleg": "Befund des Alignments: zwei englische Sprechakte ohne deutsches Gegenstück.",
+   "refs": [
+    "eigenes-alignment"
+   ]
+  },
+  {
+   "id": "3.4-stomachs",
+   "act": 3,
+   "scene": 4,
+   "type": "translation",
+   "find": "They are all but stomachs",
+   "lemma_en": "They are all but stomachs and we all but food",
+   "lemma_de": "Sie alle sind nur Magen, wir nur Kost",
+   "note": "Emilias Bilanz der Ehe in einem Bild aus der Küche: Männer sind Mägen, Frauen Speise; gegessen und wieder ausgespien. Der Satz steht in Prosa und wirkt deshalb wie eine Feststellung, nicht wie eine Klage — Emilia hat die wenigsten Prosareden aller Hauptfiguren (4 Prozent), und diese ist eine davon. Baudissins Verknappung »Sie alle sind nur Magen, wir nur Kost« ist schärfer als das Original.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py). Der Prosaanteil Emilias ist ausgezählt (python3 src/observe.py form).",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "3.4-year-or-two",
+   "act": 3,
+   "scene": 4,
+   "type": "rhetoric",
+   "find": "'Tis not a year or two shows us a man",
+   "lemma_en": "'Tis not a year or two shows us a man",
+   "lemma_de": "Man lernt den Mann nicht aus in einem Jahr",
+   "note": "Emilias Prosa-Kommentar steht in der Mitte des Stücks und formuliert dessen Erfahrung: Männer sind Mägen, Frauen Speise. Sie sagt es, bevor irgendetwas geschehen ist, und behält recht. Emilia ist die einzige Figur, die über die Ehe spricht, ohne sie zu idealisieren oder zu verhöhnen.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "4.1-civil-monster",
+   "act": 4,
+   "scene": 1,
+   "type": "translation",
+   "find": "many a civil monster",
+   "lemma_en": "There's many a beast, then, in a populous city, And many a civil monster",
+   "lemma_de": "So gibt es manches Vieh in großen Städten, Und manch vornehmes Untier",
+   "note": "Das Wort »monster« fällt im Stück sechsmal, immer an entscheidender Stelle: das Ungeheuer in Jagos Gedanken (III,3), das grünäugige Ungeheuer der Eifersucht, das Ungeheuer, das sich selbst zeugt (III,4), und hier das »civil monster«, das gehörnte Stadtvieh. Baudissin braucht dafür drei verschiedene Wörter — »Ungeheu'r«, »Scheusal«, »Untier« — und zerlegt damit ein Leitwort in seine Bedeutungen. Was der englische Text durch Wiederholung zusammenhält, hält die Übersetzung durch Nuance auseinander.",
+   "belegart": "auszählung",
+   "beleg": "Sechs Belege für monster im englischen Zeugen; deutsche Entsprechungen Scheusal (3), Untier (2), Ungeheuer (1): python3 src/observe.py word monster.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "4.1-hoerner",
+   "act": 4,
+   "scene": 1,
+   "type": "translation",
+   "find": "Cuckold me",
+   "lemma_en": "Cuckold me!",
+   "lemma_de": "Mir Hörner aufsetzen!",
+   "note": "Das englische »cuckold« hat kein deutsches Wort von gleicher Geläufigkeit: »Hahnrei« kommt in Baudissins Text kein einziges Mal vor. Er behilft sich durchweg mit dem Bild — »Mir Hörner aufsetzen!«, »Gehörnter Mann ist nur ein Vieh, ein Untier«, »der gehörnte Fluch« (III,3). Der englische Text braucht das Substantiv viermal und das Bild einmal; der deutsche kehrt das Verhältnis um. Für die Wirkung heißt das: Im Deutschen ist der Hörnerträger sichtbar, im Englischen benannt.",
+   "belegart": "auszählung",
+   "beleg": "Zählung an beiden Zeugen: englisch cuckold 4, horned 1, forked 1; deutsch Hahnrei 0, Hörner 3, gehörnt 2 (python3 src/observe.py word cuckold horn).",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "4.1-lie-with-her",
+   "act": 4,
+   "scene": 1,
+   "type": "rhetoric",
+   "find": "lie on her when they belie her",
+   "lemma_en": "Lie with her! lie on her!—We say lie on her when they belie her.",
+   "lemma_de": "Bei ihr gelegen! auf ihr!",
+   "note": "Othellos Sprache bricht hier zusammen: Wortwiederholung, Ellipse, schließlich der Anfall. »Lie« kippt vom Beischlaf ins Lügen (»we say lie on her when they belie her«) – das Wortspiel ist der letzte Rest von Syntax, bevor die Prosa in Ausrufe zerfällt. Genau dieser Halbsatz fehlt bei Baudissin: er setzt »Bei ihr gelegen! auf ihr!« und springt sofort zum Tuch. Das Deutsche kann das Wortspiel nicht nachbilden, aber es verliert damit auch den Beweis, dass Othello im Zusammenbruch noch denkt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py). Die Auslassung im Deutschen ist durch Vergleich der verknüpften Reden belegt."
+  },
+  {
+   "id": "4.1-noble-moor",
+   "act": 4,
+   "scene": 1,
+   "type": "dramaturgy",
+   "find": "Is this the noble Moor",
+   "lemma_en": "Is this the noble Moor, whom our full senate Call all in all sufficient?",
+   "lemma_de": "Ist dies der edle Mohr, den der Senat Sein eins und alles nennt?",
+   "note": "Lodovico spricht aus, was das Publikum sieht: der Mann aus I,3 ist nicht mehr da. Die Frage steht unmittelbar nach dem Schlag ins Gesicht – dem einzigen Moment offener Gewalt vor der Mordnacht – und markiert den Punkt, an dem Venedig selbst die Ernennung zu widerrufen beginnt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "4.1-pity-of-it",
+   "act": 4,
+   "scene": 1,
+   "type": "reception",
+   "find": "the pity of it, Iago",
+   "lemma_en": "But yet the pity of it, Iago! O Iago, the pity of it, Iago!",
+   "lemma_de": "wie schade dennoch, Jago! – Oh, Jago! wie schade, Jago!",
+   "note": "Der Satz steht mitten in der Aufzählung der Todesarten, die Othello für seine Frau erwägt, und bricht sie ab. Hazlitt liest ihn als den Moment, in dem der Vorsatz einknickt: Die »intolerable bitterness of his feelings« bringe ihn dazu, ihre Vorzüge zu rühmen und »relapse into a momentary fit of weakness«. Baudissins »wie schade« ist schwächer als das englische »pity« — im Deutschen klingt Bedauern, im Englischen der Rest des Mitleids, das den Mord noch einmal aufhält.",
+   "belegart": "literatur",
+   "beleg": "Hazlitts Formulierungen im Volltext nachgeschlagen und geprüft; der Wortlaut beider Fassungen ist maschinell geprüft.",
+   "refs": [
+    "hazlitt-1817"
+   ]
+  },
+  {
+   "id": "4.1-regie-dichte",
+   "act": 4,
+   "scene": 1,
+   "type": "dramaturgy",
+   "find": "Work on, My medicine, work",
+   "lemma_en": "Work on, My medicine, work! Thus credulous fools are caught",
+   "lemma_de": "Sei wirksam, Gift, Sei wirksam! Also fängt man gläub'ge Narren",
+   "note": "In keiner Szene gehen die beiden Fassungen in der Regie so weit auseinander wie hier: 17 Anweisungen im englischen Zeugen, 28 im deutschen. Der Grund liegt in der Szene selbst — Othello fällt in Ohnmacht, versteckt sich, belauscht ein Gespräch, das er falsch versteht, und schlägt am Ende seine Frau. Wer das für die Lektüre einrichtet, muss dazuschreiben, was auf der Bühne zu sehen wäre. Jagos Beiseite über dem ohnmächtigen Feldherrn lautet im Englischen »Work on, My medicine, work!« — Arznei, nicht Gift. Baudissin setzt »Sei wirksam, Gift, sei wirksam!« und nimmt der Stelle den Zynismus, mit dem Jago sein Werk als Heilmittel bezeichnet.",
+   "belegart": "auszählung",
+   "beleg": "Zählung der Regieanweisungen je Szene: python3 src/observe.py stage (IV,1: englisch 17, deutsch 28).",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "4.2-cunning-whore",
+   "act": 4,
+   "scene": 2,
+   "type": "translation",
+   "find": "that cunning whore of Venice",
+   "lemma_en": "I took you for that cunning whore of Venice That married with Othello",
+   "lemma_de": "Ich nahm Euch für die Dirne von Venedig, Die den Othello freite",
+   "note": "Othello behandelt seine Frau als Prostituierte und Emilia als Wirtin des Hauses. Baudissin ersetzt »whore« durch »Dirne« und streicht »cunning« — im Englischen ist die Beschimpfung doppelt, sie unterstellt Gewerbe und Berechnung, im Deutschen bleibt das Gewerbe. Die ganze Szene ist im Deutschen um eine Stufe gedämpft: »Hure« steht im gesamten Text nur zweimal, wo das Englische zwölfmal »whore« und zehnmal »strumpet« setzt.",
+   "belegart": "auszählung",
+   "beleg": "Zählung an beiden Zeugen: englisch whore 12, strumpet 10; deutsch Metze 14, Dirne 7, Hure 2, Buhlerin 2 (python3 src/observe.py word whore strumpet).",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "4.2-eternal-villain",
+   "act": 4,
+   "scene": 2,
+   "type": "dramaturgy",
+   "find": "some eternal villain",
+   "lemma_en": "if some eternal villain, Some busy and insinuating rogue",
+   "lemma_de": "wenn ein Erzverleumder nicht, Irgendein schmeichelnder, geschäft'ger Schuft",
+   "note": "Emilia beschreibt den Täter genau und steht dabei neben ihm. Die Szene ist die schärfste dramatische Ironie des Stücks: Jago muss zuhören, wie seine Frau ihn beschreibt, und antwortet mit einem Satz über die Unwahrscheinlichkeit solcher Menschen. In V,2 wird dieselbe Figur die Aufklärung erzwingen und dafür sterben.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "4.2-pleased-heaven",
+   "act": 4,
+   "scene": 2,
+   "type": "translation",
+   "find": "Had it pleas'd heaven To try me with affliction",
+   "lemma_en": "Had it pleas'd heaven To try me with affliction",
+   "lemma_de": "Gefiel' es Gott, Durch Trübsal mich zu prüfen",
+   "note": "Die Hiob-Rede: Krankheit, Schande, Armut, Gefangenschaft hätte er ertragen, nicht aber, zum feststehenden Bild des Spotts gemacht zu werden. Baudissin übersetzt »heaven« hier mit »Gott« — eine von 43 Stellen, an denen im Deutschen der Gottesname steht, während der englische Text ihn nur zwölfmal nennt und 72-mal »heaven« schreibt. Die Übersetzung macht rückgängig, was der Folio-Druck an Umschreibungen eingeführt hatte.",
+   "belegart": "auszählung",
+   "beleg": "Zählung an beiden Zeugen (heaven 72, God 12; Gott 43, Himmel 43): python3 src/observe.py word heaven God. Siehe die Anmerkung »heaven und Gott« in der Einleitung.",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "4.2-schimpfwoerter",
+   "act": 4,
+   "scene": 2,
+   "type": "translation",
+   "find": "Impudent strumpet",
+   "lemma_en": "Impudent strumpet!",
+   "lemma_de": "O du ganz freche Buhlerin",
+   "note": "Die Hurenwörter des Stücks — whore, strumpet, bawd — fallen vierundzwanzigmal. Sechzehn davon treffen Desdemona, fünf Bianca, zwei Emilia; gesprochen werden dreizehn von Othello, vier von Jago und, bemerkenswert, vier von Emilia und zwei von Desdemona selbst, die das Wort nur zitieren kann, um es von sich zu weisen. Die einzige Frau des Stücks, auf die es zuträfe, bekommt es fünfmal zu hören; die, auf die es nicht zutrifft, sechzehnmal. Baudissin dämpft durchweg: »Hure« steht im ganzen deutschen Text nur zweimal, an seine Stelle treten »Metze«, »Dirne« und »Buhlerin«.",
+   "belegart": "auszählung",
+   "beleg": "Bezugsschicht der Konkordanz: alle 24 Belege von whore, strumpet und bawd wurden einzeln gelesen und zugeordnet (data/bezuege.json, Feldseite »Frau, Ehe, Unzucht«). Die deutschen Zahlen aus python3 src/observe.py word whore strumpet.",
+   "refs": [
+    "eigene-bezugspruefung",
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "4.2-wedding-sheets",
+   "act": 4,
+   "scene": 2,
+   "type": "dramaturgy",
+   "find": "Lay on my bed my wedding sheets",
+   "lemma_en": "Prithee, tonight Lay on my bed my wedding sheets",
+   "lemma_de": "Bitt' dich, diese Nacht Leg' auf mein Bett mein Brauttuch",
+   "note": "Desdemonas erste eigene Handlung nach der Beschimpfung ist eine Regieanweisung an das eigene Sterbebett. Das Brautlaken wird in V,2 das Leichentuch sein, und beide wissen das nicht. Es ist die stärkste Vorausdeutung des Stücks und zugleich seine leiseste: ein Satz über Bettwäsche. Baudissins »Brauttuch« zieht das Tuchmotiv des Stücks — Taschentuch, Laken, Leichentuch — noch enger zusammen, als das Englische es tut.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "4.2-write-whore-upon",
+   "act": 4,
+   "scene": 2,
+   "type": "translation",
+   "find": "Made to write \"whore\" upon",
+   "lemma_en": "this most goodly book, Made to write \"whore\" upon",
+   "lemma_de": "dies schöne Buch nur dazu, Um »Metze« drauf zu schreiben",
+   "note": "Die sogenannte Bordellszene: Othello behandelt seine Frau als Hure und Emilia als Kupplerin. Der englische Text setzt hier die härtesten Wörter des Stücks (»whore«, »strumpet«, »impudent strumpet«); Baudissin weicht auf »Metze«, »Buhlerin« und »Dirne« aus – Wörter, die im Deutschen des 19. Jahrhunderts literarisch, nicht straßenläufig waren. Die Szene verliert dadurch an Brutalität, was bei der Beurteilung von Bühnenfassungen zu berücksichtigen ist, die Baudissin folgen.",
+   "belegart": "auszählung",
+   "beleg": "»whore« 12, »strumpet« 10 Belege englisch; deutsch Metze 14, Dirne 7, Hure 2, Buhlerin 2 (python3 src/observe.py word whore strumpet).",
+   "refs": [
+    "eigene-auszaehlung"
+   ]
+  },
+  {
+   "id": "4.3-barbary",
+   "act": 4,
+   "scene": 3,
+   "type": "translation",
+   "find": "My mother had a maid call'd Barbary",
+   "lemma_en": "My mother had a maid call'd Barbary",
+   "lemma_de": "Meine Mutter hatt' ein Mädchen – Bärbel hieß sie",
+   "note": "Die Magd, von der Desdemona das Weidenlied hat, heißt im englischen Text »Barbary« — dasselbe Wort, mit dem Jago in I,1 Othello als »Barbary horse« beschimpft und das die Küste Nordafrikas bezeichnet. Wer das Lied singt, ruft also unhörbar die Herkunft des Mannes auf, der es hört. Baudissins »Bärbel« ist ein guter deutscher Mädchenname und schneidet die Verbindung durch: Im Deutschen gibt es kein Wort, das beide Stellen zusammenhält.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py). Die englische Wortgleichheit mit »Barbary horse« (I,1) ist an beiden Stellen dieser Ausgabe nachlesbar; dass sie auch beabsichtigt ist, ist Deutung."
+  },
+  {
+   "id": "4.3-for-all-the-world",
+   "act": 4,
+   "scene": 3,
+   "type": "rhetoric",
+   "find": "The world's a huge thing",
+   "lemma_en": "The world's a huge thing. It is a great price For a small vice",
+   "lemma_de": "Die Welt ist mächtig weit; der Lohn wär' groß, Klein der Verstoß",
+   "note": "Desdemona fragt zweimal dasselbe — »Wouldst thou do such a deed for all the world?« —, und Emilia rechnet zweimal nach: Die Welt sei ein großer Lohn für ein kleines Vergehen. Es ist das einzige Gespräch des Stücks, das zwei Frauen ohne Männer führen, und der Unterschied der beiden Antworten ist der Unterschied der beiden Figuren: Desdemona versteht die Frage moralisch, Emilia als Preisfrage. In V,2 entscheidet genau das darüber, wer redet und wer schweigt. Baudissin hält den Reim der Replik (»groß« / »Verstoß«), der Emilias Rechnung wie einen Spruch klingen lässt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "4.3-let-husbands-know",
+   "act": 4,
+   "scene": 3,
+   "type": "textual",
+   "find": "Let husbands know",
+   "lemma_en": "Let husbands know Their wives have sense like them",
+   "lemma_de": "Sie sollen's wissen, Wir haben Sinne auch",
+   "note": "Emilias große Rede über die doppelte Moral steht nur im Folio; Q1 lässt sie fort. Sie ist die einzige zusammenhängende weibliche Verteidigungsrede des Stücks und argumentiert nicht moralisch, sondern symmetrisch: Frauen haben dieselben Sinne, dieselben Schwächen, dieselbe Rachsucht. Dass ausgerechnet dieser Text in der Quarto fehlt, hat der Forschung viel zu denken gegeben – vermutlich Kürzung für die Bühne, doch die Wirkung ist die einer Zensur.",
+   "belegart": "literatur",
+   "beleg": "Fehlen in Q1 nach ISE (dort 4.3.82–99); Vorhandensein im hier abgedruckten Text geprüft.",
+   "refs": [
+    "ise-textintro",
+    "pg1531"
+   ]
+  },
+  {
+   "id": "4.3-lodovico",
+   "act": 4,
+   "scene": 3,
+   "type": "dramaturgy",
+   "find": "This Lodovico is a proper man",
+   "lemma_en": "This Lodovico is a proper man",
+   "lemma_de": "Der Lodovico ist ein feiner Mann",
+   "note": "Der einzige Satz, in dem Desdemona einen anderen Mann bemerkt — sechs Wörter, beim Ausziehen gesprochen, ohne Folgen. Shakespeare setzt ihn genau dort, wo das Publikum die Anklage bereits kennt, und lässt ihn unkommentiert stehen: kein Beweis, sondern die Erinnerung daran, dass Unschuld nicht Leblosigkeit heißt. Baudissins »feiner Mann« trifft die Beiläufigkeit.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "4.3-willow",
+   "act": 4,
+   "scene": 3,
+   "type": "textual",
+   "find": "Sing all a green willow",
+   "lemma_en": "Sing all a green willow must be my garland",
+   "lemma_de": "Singt Weide, grüne Weide",
+   "note": "Das Weidenlied ist eine populäre Ballade, die Shakespeare in Bruchstücken zitiert und Desdemona in der falschen Reihenfolge singen lässt (»Nay, that's not next«) – ein Realismuseffekt, der die Szene datiert: sie singt, was ihr einfällt. In Q1 fehlt der Liedtext weitgehend, F1 bietet ihn vollständig; der hier abgedruckte Mischtext folgt dem Folio. Die Weide ist seit dem Mittelalter das Zeichen der verlassenen Liebenden.",
+   "belegart": "literatur",
+   "beleg": "Zum Befund in Q1 siehe Shakespeare Documented; die Balladentradition ist nicht eigens nachgeprüft. Dass Desdemona die Strophen in falscher Folge singt, steht im Text.",
+   "refs": [
+    "shakespeare-documented-q1"
+   ]
+  },
+  {
+   "id": "5.1-gratiano-lodovico",
+   "act": 5,
+   "scene": 1,
+   "type": "textual",
+   "find": "Here's one comes in his shirt",
+   "lemma_en": "Here's one comes in his shirt, with light and weapons",
+   "note": "Dritte Zuweisungsdifferenz: Im englischen Text ruft Lodovico »Hark!« und Gratiano meldet den Ankommenden; Baudissin fasst beides zu einer Rede Lodovicos zusammen. Die Nachtszene mit ihren Rufen aus dem Dunkel ist in den frühen Drucken besonders unsicher überliefert, weil die Sprecher einander nicht sehen – der Text selbst macht die Zuweisung schwer.",
+   "belegart": "auszählung",
+   "beleg": "Dritte Zuweisungsdifferenz des Alignments.",
+   "refs": [
+    "eigenes-alignment"
+   ]
+  },
+  {
+   "id": "5.2-aleppo",
+   "act": 5,
+   "scene": 2,
+   "type": "realia",
+   "find": "that in Aleppo once",
+   "lemma_en": "in Aleppo once, Where a malignant and a turban'd Turk",
+   "lemma_de": "daß in Aleppo, wo Ein gift'ger Türk' in hohem Turban einst",
+   "note": "Aleppo war Sitz einer englischen Handelsniederlassung der Levant Company; Christen durften dort keine Waffe tragen, ein Angriff auf einen Türken bedeutete den Tod. Othello erzählt also eine Hinrichtungsgeschichte – und vollstreckt sie mit dem letzten Wort an sich selbst, indem er in der Erzählung zugleich der Venezianer und der beschnittene Hund ist. Der Satzbau der Vorlage lässt den Schlag mit »thus« und dem Stoß zusammenfallen; Baudissins »Und traf ihn – so!« hält das.",
+   "belegart": "literatur",
+   "beleg": "Sachangabe aus dem Wissensbestand der Shakespeare-Philologie, für diese Ausgabe nicht an einer Quelle nachgeprüft. Der Textbefund selbst — was in beiden Fassungen steht — ist geprüft."
+  },
+  {
+   "id": "5.2-base-judean",
+   "act": 5,
+   "scene": 2,
+   "type": "textual",
+   "find": "Like the base Judean",
+   "lemma_en": "Like the base Judean, threw a pearl away Richer than all his tribe",
+   "lemma_de": "Dem niedern Juden gleich, die Perle wegwarf, Mehr wert als all sein Volk",
+   "note": "Die berühmteste Crux des Stücks. F1 liest »Iudean«, Q1 »Indian«; in der Antiqua des 17. Jahrhunderts sind I und J dasselbe Zeichen, n und u leicht zu verwechseln. »Indian« gibt den Wilden der Neuen Welt, der den Wert des Edelsteins nicht kennt; »Judean« zielt auf Judas, der das Kostbarste verriet, oder auf Herodes, der Mariamne tötete. Der hier abgedruckte Text folgt dem Folio, und Baudissin ebenfalls: »Dem niedern Juden gleich«. Für heutige Ausgaben ist die Entscheidung heikel, weil die Judas-Lesart in der deutschen Formulierung Baudissins zur pauschalen Ethnie wird, wo das Englische eine einzelne Person meint.",
+   "belegart": "literatur",
+   "beleg": "Q1 »Indian« / F1 »Judean« und die typographische Erklärung nach ISE und Folger; die Lesart des hier abgedruckten Textes und Baudissins Übersetzung sind geprüft.",
+   "refs": [
+    "ise-textintro",
+    "folger-textintro"
+   ]
+  },
+  {
+   "id": "5.2-demand-me-nothing",
+   "act": 5,
+   "scene": 2,
+   "type": "dramaturgy",
+   "find": "Demand me nothing",
+   "lemma_en": "Demand me nothing. What you know, you know. From this time forth I never will speak word.",
+   "lemma_de": "Fragt mich um nichts",
+   "note": "Jagos letzte Worte verweigern die Erklärung, auf die das ganze Stück zuläuft. Die Tragödie endet mit einem Schweigen, das keine Auflösung zulässt – und mit der Ankündigung von Folter, die daran nichts ändern wird. Baudissins Kürze trifft den Ton; im Englischen steht ein Doppelpunkt, wo er einen Punkt setzt.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-devils-feet",
+   "act": 5,
+   "scene": 2,
+   "type": "realia",
+   "find": "I look down towards his feet",
+   "lemma_en": "I look down towards his feet; but that's a fable",
+   "lemma_de": "Ich seh' ihm auf den Fuß; doch das ist Fabel",
+   "note": "Othello sucht an Jago den Pferdefuß, das Erkennungszeichen des Teufels in der volkstümlichen Vorstellung, und verwirft im selben Vers den Aberglauben. Der Halbsatz ist die letzte Erkenntnis der Figur: Es gibt keine übernatürliche Erklärung. Danach fällt der Satz »If that thou be'st a devil, I cannot kill thee«, und der Stich misslingt. Baudissins »doch das ist Fabel« hält die Nüchternheit.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-half-an-hour",
+   "act": 5,
+   "scene": 2,
+   "type": "translation",
+   "find": "But half an hour",
+   "lemma_en": "But half an hour!",
+   "lemma_de": "Nur ein Stündchen!",
+   "note": "Der Feilschen um Zeit — »Kill me tomorrow, let me live tonight«, dann »But half an hour«, dann »But while I say one prayer« — ist in drei absteigenden Schritten gebaut: eine Nacht, eine halbe Stunde, ein Gebet. Baudissins »Nur ein Stündchen!« vergrößert die mittlere Stufe und schwächt damit die Verkürzung, von der die Stelle lebt; das Diminutiv fügt außerdem einen Ton von Bitte hinzu, den das nackte englische Halbstundenmaß nicht hat.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-heavenly-true",
+   "act": 5,
+   "scene": 2,
+   "type": "translation",
+   "find": "O, she was heavenly true",
+   "lemma_en": "O, she was heavenly true",
+   "lemma_de": "oh, sie war himmlischtreu",
+   "note": "Emilia gegen Othello, in der Sekunde, in der sie begreift. Baudissins Zusammenziehung »himmlischtreu« bildet die englische Fügung als ein Wort nach — im Deutschen ungewöhnlich genug, um aufzufallen, und darin dem Original gewachsen. Die Zeile davor, »Thou art rash as fire«, wird zu »du bist wild wie Feuer«.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-honourable-murderer",
+   "act": 5,
+   "scene": 2,
+   "type": "rhetoric",
+   "find": "An honourable murderer",
+   "lemma_en": "An honourable murderer, if you will",
+   "lemma_de": "Daß ich ein ehrenvoller Mörder sei",
+   "note": "Das Oxymoron, an dem die Verteidigung der Figur hängt: Er habe nichts aus Hass getan, alles aus Ehre. Der Satz beantwortet Lodovicos Frage, wie man ihn nun nennen solle, und er ist keine Ausrede, sondern die Beschreibung dessen, was Othello in V,2 zu tun glaubt — ein Urteil vollstrecken. Baudissins »ehrenvoller Mörder« bildet den Widerspruch exakt nach.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-ill-starred-wench",
+   "act": 5,
+   "scene": 2,
+   "type": "translation",
+   "find": "O ill-starr'd wench",
+   "lemma_en": "O ill-starr'd wench, Pale as thy smock",
+   "lemma_de": "o Kind des Jammers, Bleich, wie dein Tuch",
+   "note": "»Ill-starr'd« heißt unter einem schlechten Stern geboren — und deckt sich mit dem, was Cinthios Erzählerin über den Namen Disdemona sagt, der im Griechischen an »unglückselig« anklingt. Ob Shakespeare den Anklang gesucht hat, ist nicht zu entscheiden; dass an dieser Stelle das englische Wort und der Name zusammentreffen, steht im Text. Baudissins »Kind des Jammers« deutet in dieselbe Richtung, verliert aber den Stern und damit den Anklang an das Schicksalsvokabular des Stücks.",
+   "belegart": "literatur",
+   "beleg": "Der englische Wortlaut und Baudissins Wiedergabe sind geprüft. Die Angabe zur griechischen Bedeutung des Namens und zu Cinthios Bemerkung ist nicht an der Novelle nachgeprüft.",
+   "refs": [
+    "cinthio-1565"
+   ]
+  },
+  {
+   "id": "5.2-it-is-the-cause",
+   "act": 5,
+   "scene": 2,
+   "type": "rhetoric",
+   "find": "It is the cause, it is the cause",
+   "lemma_en": "It is the cause, it is the cause, my soul",
+   "lemma_de": "Die Sache will's, die Sache will's, mein Herz",
+   "note": "»Cause« ist der Rechtsfall, die Sache vor Gericht: Othello tritt als Richter auf, nicht als Ehemann, und weigert sich, die Anklage zu benennen. Baudissins »Die Sache will's« macht daraus eine Notwendigkeit und verschiebt damit die Rolle – im Englischen spricht ein Richter, im Deutschen ein Vollstrecker. Die Anrede »my soul« wird zu »mein Herz«.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-liberal-as-the-north",
+   "act": 5,
+   "scene": 2,
+   "type": "translation",
+   "find": "as liberal as the north",
+   "lemma_en": "I will speak as liberal as the north",
+   "lemma_de": "ich will reden, ungehemmt, wie Nordwind",
+   "note": "Emilias Weigerung zu schweigen, im Bild des Nordwinds, der ungehindert bläst. Sie sagt dies zu ihrem Ehemann, der ihr eben befohlen hat, nach Hause zu gehen, und sie stirbt dafür. Baudissins »ungehemmt, wie Nordwind« macht das Adjektiv »liberal« — freimütig, ungebunden, auch freigebig — auf die Freiheit hin eindeutig.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-nobody-i-myself",
+   "act": 5,
+   "scene": 2,
+   "type": "dramaturgy",
+   "find": "Nobody; I myself",
+   "lemma_en": "Nobody; I myself. Farewell",
+   "lemma_de": "Niemand – ich selbst, – leb wohl!",
+   "note": "Desdemonas letzte Worte sind eine Lüge zum Schutz des Mörders – die einzige Unwahrheit, die sie im Stück ausspricht, und sie belastet sie mit dem eigenen Tod. Emilia zieht daraus sofort den Schluss, den das Stück braucht: »O, the more angel she, And you the blacker devil.« Baudissin behält den Halbvers und die Zäsur.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-play-the-swan",
+   "act": 5,
+   "scene": 2,
+   "type": "translation",
+   "find": "I will play the swan",
+   "lemma_en": "I will play the swan, And die in music",
+   "lemma_de": "Ich will dem Schwane gleich In Wohllaut sterben",
+   "note": "Emilia stirbt singend und zitiert dabei das Weidenlied der Toten — der Schwanengesang, der als Bild schon damals abgegriffen war, wird hier eingelöst. In derselben Rede steht »Moor, she was chaste. She lov'd thee, cruel Moor«; Baudissin übersetzt die zweite Anrede nicht mit »Mohr«, sondern mit »Barbar«. Im Augenblick der Anklage tauscht der deutsche Text die Herkunftsbezeichnung gegen ein Urteil.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-promethean-heat",
+   "act": 5,
+   "scene": 2,
+   "type": "realia",
+   "find": "that Promethean heat",
+   "lemma_en": "I know not where is that Promethean heat That can thy light relume",
+   "lemma_de": "Nie find' ich den Prometheusfunken wieder",
+   "note": "Prometheus stiehlt das Feuer und belebt damit den Menschen aus Lehm. Othello weiß, dass er nicht zurücknehmen kann, was er tut, und tut es trotzdem – das Bild markiert den Moment, in dem der Mord nicht mehr als Gerechtigkeit erscheint, sondern als Zerstörung. Baudissins »Prometheusfunken« ist griffiger als das englische »heat« und in der deutschen Rezeption geflügelt geworden.",
+   "belegart": "literatur",
+   "beleg": "Der Mythos ist Allgemeingut; die Behauptung zur deutschen Rezeption von »Prometheusfunken« ist nicht nachgeprüft."
+  },
+  {
+   "id": "5.2-put-out-the-light",
+   "act": 5,
+   "scene": 2,
+   "type": "rhetoric",
+   "find": "Put out the light, and then put out the light",
+   "lemma_en": "Put out the light, and then put out the light",
+   "lemma_de": "Tu' aus das Licht und dann – Tu' aus das Licht",
+   "note": "Derselbe Satz zweimal, beim zweiten Mal metaphorisch: erst die Fackel, dann das Leben. Baudissin setzt einen Gedankenstrich zwischen die Hälften und macht die Zäsur, die im Englischen nur der Rhythmus trägt, typographisch sichtbar – eine Interpretation, aber eine, die sich auf der Bühne bewährt hat.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-think-on-thy-sins",
+   "act": 5,
+   "scene": 2,
+   "type": "translation",
+   "find": "Think on thy sins",
+   "lemma_en": "Think on thy sins",
+   "lemma_de": "Denk' deiner Sünde",
+   "note": "Zwei Zeilen, in denen alles auseinandergeht: Othello fordert Sündenbekenntnis, Desdemona antwortet »They are loves I bear to you« — meine Sünden sind die Lieben, die ich für dich hege. Der englische Plural »sins« erlaubt die Antwort im Plural »loves«; Baudissins »Denk' deiner Sünde!« steht im Singular, die Antwort lautet »Das ist zu dir die Herzensliebe!«. Aus dem grammatischen Echo wird im Deutschen eine Erklärung — das Missverständnis bleibt, das Wortspiel nicht.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-tragic-loading",
+   "act": 5,
+   "scene": 2,
+   "type": "dramaturgy",
+   "find": "the tragic loading of this bed",
+   "lemma_en": "Look on the tragic loading of this bed. This is thy work. The object poisons sight, Let it be hid",
+   "lemma_de": "Schau dort die trag'sche Bürde dieses Betts",
+   "note": "Das Stück schließt mit einer Anweisung, nicht hinzusehen: Der Bettvorhang wird geschlossen, das Bild dem Publikum entzogen. Lodovicos Befehl »Let it be hid« ist zugleich die letzte Regieanweisung und die Deutung – das Gesehene ist nicht darstellbar. Baudissins »trag'sche Bürde« hält das Bild der Last; der englische Ausdruck »loading« ist konkreter – es ist die Fracht, die auf ein Schiff geladen wird, und das Bett am Ende so beladen wie das Deck eines Schiffs.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-unnatural-death",
+   "act": 5,
+   "scene": 2,
+   "type": "translation",
+   "find": "That death's unnatural that kills for loving",
+   "lemma_en": "That death's unnatural that kills for loving",
+   "lemma_de": "Grausamer Tod, der nur um Liebe tötet",
+   "note": "Desdemona benennt die Widernatürlichkeit dessen, was geschieht — ein Tod, der aus Liebe tötet, ist gegen die Natur. Baudissin macht daraus »grausam«, ein moralisches statt eines ordnungsbezogenen Urteils. Das englische »unnatural« gehört zum Wortfeld, mit dem Brabantio in I,3 die Ehe seiner Tochter beschrieben hatte (»against all rules of nature«); im Deutschen fällt diese Verbindung fort.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-weapon-schwert",
+   "act": 5,
+   "scene": 2,
+   "type": "translation",
+   "find": "Behold, I have a weapon",
+   "lemma_en": "Behold, I have a weapon",
+   "lemma_de": "Sieh her, ich hab' ein Schwert",
+   "note": "Der letzte Auftritt des Soldaten: Othello zeigt die Waffe und erklärt im selben Atemzug, dass sie nichts mehr nützt — »Here is my journey's end, here is my butt, And very sea-mark of my utmost sail«. Baudissin macht aus dem unbestimmten »weapon« ein »Schwert« und nimmt der Zeile damit die Beiläufigkeit; die Seefahrerbilder dagegen überträgt er genau (»mein Reiseziel, mein Ankerplatz, Die fernste Seemark für mein ruhend Schiff«).",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  },
+  {
+   "id": "5.2-whip-me-ye-devils",
+   "act": 5,
+   "scene": 2,
+   "type": "rhetoric",
+   "find": "Whip me, ye devils",
+   "lemma_en": "Whip me, ye devils, From the possession of this heavenly sight",
+   "lemma_de": "Peitscht mich, ihr Teufel, Weg von dem Anblick dieser Himmelsschönheit",
+   "note": "Othello verlangt die Hölle, und zwar in ihrer bildlichen Vollausstattung: Peitschen, Wind, Schwefel, Feuerströme. Die Rede ist der einzige Ort, an dem er die Strafe formuliert, die das Stück ihm nicht gibt — er nimmt sie sich selbst, aber mit dem Degen, nicht mit der Verdammnis. Baudissin folgt der Aufzählung Glied für Glied.",
+   "belegart": "textzeuge",
+   "beleg": "Beide Fassungen an der bezeichneten Stelle; die Zitate sind maschinell gegen die Textzeugen geprüft (src/check_notes.py)."
+  }
+ ]
+}

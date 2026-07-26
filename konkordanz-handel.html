@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Othello — Konkordanz: Handel, Geld, Besitz</title>
+<style>
+:root {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+          --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820; }
+}
+:root[data-theme="dark"] {
+  --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+  --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820;
+}
+:root[data-theme="light"] {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.4rem 6rem; }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; margin: 0 0 .3rem; font-weight: 600; }
+.sub { margin: 0; color: var(--muted); font-style: italic; }
+.sans { font-family: system-ui, -apple-system, sans-serif; }
+
+header.title { padding: 3rem 0 1.6rem; }
+header.title dl { display: grid; grid-template-columns: max-content 1fr;
+                  gap: .3rem 1.2rem; margin: 1.5rem 0 0; font-size: .82rem;
+                  color: var(--muted); }
+header.title dt { font-variant: small-caps; letter-spacing: .04em; }
+header.title dd { margin: 0; }
+
+nav.pages { display: flex; gap: 1.1rem; padding: .7rem 0; font-size: .78rem;
+            font-family: system-ui, sans-serif; border-bottom: 1px solid var(--rule);
+            border-top: 1px solid var(--rule); }
+nav.pages a { color: var(--muted); text-decoration: none; }
+nav.pages a.here { color: var(--accent); font-weight: 600; }
+nav.pages a:hover { color: var(--accent); }
+
+.hinweis { background: var(--note-bg); border-left: 3px solid var(--accent);
+           padding: .8rem 1rem; margin: 1.6rem 0; font-size: .85rem;
+           max-width: 52em; }
+.hinweis b { font-weight: 600; }
+
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+         font-size: .78rem; color: var(--muted); }
+
+/* Popups: die erste Regel versteckt auch dort, wo popover unbekannt ist. */
+[popover] { display: none; border: 1px solid var(--rule); background: var(--bg);
+            color: var(--fg); border-radius: 5px; padding: 1.2rem 1.4rem;
+            max-width: 36rem; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            font-size: .87rem; }
+[popover]:popover-open { display: block; }
+[popover].fallback-open { display: block !important; position: fixed; top: 50%;
+                          left: 50%; transform: translate(-50%, -50%); z-index: 60; }
+[popover]::backdrop { background: rgba(0,0,0,.4); }
+[popover] .close { position: absolute; top: .3rem; right: .55rem; border: 0;
+                   background: none; color: var(--muted); font-size: 1.2rem;
+                   cursor: pointer; line-height: 1; }
+
+/* Glossar: Erklärung beim Überfahren */
+.gloss { border-bottom: 1px dotted var(--accent); cursor: help; position: relative; }
+.gloss > .tip { display: none; position: absolute; left: 0; top: 1.5em; z-index: 70;
+                width: max(18rem, 22vw); max-width: 90vw; background: var(--bg);
+                color: var(--fg); border: 1px solid var(--accent); border-radius: 4px;
+                padding: .6rem .8rem; font-size: .78rem; line-height: 1.45;
+                font-style: normal; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.gloss > .tip b { display: block; font-variant: small-caps; letter-spacing: .06em;
+                  color: var(--accent); margin-bottom: .2rem; }
+.gloss:hover > .tip, .gloss:focus > .tip, .gloss:focus-within > .tip { display: block; }
+@media (max-width: 700px) { .gloss > .tip { left: auto; right: 0; } }
+
+.felder { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+          gap: 1rem; margin: 1.6rem 0; }
+.felder a { display: block; padding: .9rem 1rem; border: 1px solid var(--rule);
+            border-radius: 4px; text-decoration: none; color: inherit;
+            background: var(--note-bg); }
+.felder a:hover { border-color: var(--accent); }
+.felder .t { font-weight: 600; color: var(--accent); }
+.felder .z { font-size: .78rem; color: var(--muted);
+             font-family: system-ui, sans-serif; }
+.felder .w { font-size: .78rem; color: var(--muted); margin-top: .3rem; }
+
+section.wort { margin: 2.2rem 0; padding-top: 1rem; border-top: 1px solid var(--rule); }
+section.wort h2 { font-size: 1rem; margin: 0 0 .8rem; }
+section.wort h2 span { color: var(--muted); font-weight: 400; font-size: .82rem;
+                       font-family: system-ui, sans-serif; }
+.stelle { margin: 0 0 .9rem; padding-left: 5.6rem; position: relative;
+          max-width: 52em; }
+.stelle .ref { position: absolute; left: 0; top: .1rem; width: 5.2rem;
+               font-size: .7rem; font-family: system-ui, sans-serif;
+               color: var(--muted); line-height: 1.4; }
+.stelle .ref a { text-decoration: none; }
+.stelle .ref b { display: block; font-weight: 600; color: var(--fg); }
+.stelle .ctx { color: var(--muted); font-size: .86em; }
+.stelle .zeile { margin: .05rem 0; }
+.stelle em { font-style: normal; font-weight: 600; color: var(--accent); }
+.stelle .prosa { font-size: .95em; }
+.bezug { display: inline-block; margin-top: .2rem; font-size: .7rem;
+         font-family: system-ui, sans-serif; padding: .05rem .5rem;
+         border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); }
+.bezug.geprueft { border-color: var(--accent); color: var(--accent); }
+.bezug.auto { font-style: italic; }
+.zahlen { font-size: .8rem; color: var(--muted); font-family: system-ui, sans-serif;
+          background: var(--note-bg); padding: .7rem .9rem; border-radius: 4px;
+          margin: 1.2rem 0; }
+.zahlen b { color: var(--fg); font-weight: 600; }
+.zurueck { font-size: .8rem; font-family: system-ui, sans-serif; margin: 1.2rem 0; }
+@media (max-width: 700px) {
+  .stelle { padding-left: 0; }
+  .stelle .ref { position: static; width: auto; margin-bottom: .2rem; }
+  .stelle .ref b { display: inline; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="title">
+  <h1>Handel, Geld, Besitz</h1>
+  <p class="sub">Jago rechnet, Rodrigo zahlt, Othello spricht von seiner Ehe als Kauf. Die Kaufmannssprache ist in diesem venezianischen Stück nie weit.</p>
+</header>
+<nav class="pages"><a href="index.html">Start</a><a href="einleitung.html">Einleitung</a><a href="othello-bilingual.html">Ausgabe</a><a href="befunde.html">Befunde</a><a href="konkordanz.html" class="here">Konkordanz</a><a href="quellen.html">Quellen</a></nav>
+<p class="zurueck"><a href="konkordanz.html">← alle Wortfelder</a></p><div class="zahlen">Englisch: 61 Belege · Deutsch in den verknüpften Reden: <b>Geld</b> 17 · <b>Beutel</b> 8 · <b>Gold</b> 2 · <b>Kleinod</b> 2 · <b>Preis</b> 4 · <b>Handel</b> 1 · <b>Gewinn</b> 1 · <b>Dieb</b> 8 · <b>stehl</b> 2 · <b>raub</b> 3</div><section class="wort" id="w-money"><h2>money <span>· 14 Belege, alle aufgeführt</span></h2><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.353"><b>1,3</b>Z. 353<br>IAGO</a></span><div class="zeile ctx">perdurable toughness; I could never better stead thee than now. Put</div><div class="zeile"><em>money</em> in thy purse; follow thou the wars; defeat thy favour with an</div><div class="zeile ctx">usurped beard; I say, put money in thy purse. It cannot be that</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.354"><b>1,3</b>Z. 354<br>IAGO</a></span><div class="zeile ctx">money in thy purse; follow thou the wars; defeat thy favour with an</div><div class="zeile">usurped beard; I say, put <em>money</em> in thy purse. It cannot be that</div><div class="zeile ctx">Desdemona should long continue her love to the Moor,—put money in thy</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.355"><b>1,3</b>Z. 355<br>IAGO</a></span><div class="zeile ctx">usurped beard; I say, put money in thy purse. It cannot be that</div><div class="zeile">Desdemona should long continue her love to the Moor,—put <em>money</em> in thy</div><div class="zeile ctx">purse,—nor he his to her. It was a violent commencement, and thou shalt</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Desdemona</span></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.357"><b>1,3</b>Z. 357<br>IAGO</a></span><div class="zeile ctx">purse,—nor he his to her. It was a violent commencement, and thou shalt</div><div class="zeile">see an answerable sequestration—put but <em>money</em> in thy purse. These Moors</div><div class="zeile ctx">are changeable in their wills. Fill thy purse with money. The food that</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.358"><b>1,3</b>Z. 358<br>IAGO</a></span><div class="zeile ctx">see an answerable sequestration—put but money in thy purse. These Moors</div><div class="zeile">are changeable in their wills. Fill thy purse with <em>money</em>. The food that</div><div class="zeile ctx">to him now is as luscious as locusts shall be to him shortly as acerb</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.362"><b>1,3</b>Z. 362<br>IAGO</a></span><div class="zeile ctx">his body, she will find the error of her choice. She must have change,</div><div class="zeile">she must. Therefore put <em>money</em> in thy purse. If thou wilt needs damn</div><div class="zeile ctx">thyself, do it a more delicate way than drowning. Make all the money</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.363"><b>1,3</b>Z. 363<br>IAGO</a></span><div class="zeile ctx">she must. Therefore put money in thy purse. If thou wilt needs damn</div><div class="zeile">thyself, do it a more delicate way than drowning. Make all the <em>money</em></div><div class="zeile ctx">thou canst. If sanctimony and a frail vow betwixt an erring barbarian</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.366"><b>1,3</b>Z. 366<br>IAGO</a></span><div class="zeile ctx">and a supersubtle Venetian be not too hard for my wits and all the</div><div class="zeile">tribe of hell, thou shalt enjoy her; therefore make <em>money</em>. A pox of</div><div class="zeile ctx">drowning thyself! It is clean out of the way: seek thou rather to be</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.370"><b>1,3</b>Z. 370<br>IAGO</a></span><div class="zeile ctx">Wilt thou be fast to my hopes if I depend on the issue?</div><div class="zeile">Thou art sure of me. Go, make <em>money</em>. I have told thee often, and I</div><div class="zeile ctx">retell thee again and again, I hate the Moor. My cause is hearted;</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.375"><b>1,3</b>Z. 375<br>IAGO</a></span><div class="zeile ctx">sport. There are many events in the womb of time which will be</div><div class="zeile">delivered. Traverse, go, provide thy <em>money</em>. We will have more of this</div><div class="zeile ctx">tomorrow. Adieu.</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.335"><b>2,3</b>Z. 335<br>RODERIGO</a></span><div class="zeile ctx">I do follow here in the chase, not like a hound that hunts, but one</div><div class="zeile">that fills up the cry. My <em>money</em> is almost spent, I have been tonight</div><div class="zeile ctx">exceedingly well cudgelled; and I think the issue will be, I shall have</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.337"><b>2,3</b>Z. 337<br>RODERIGO</a></span><div class="zeile ctx">exceedingly well cudgelled; and I think the issue will be, I shall have</div><div class="zeile">so much experience for my pains, and so, with no <em>money</em> at all and a</div><div class="zeile ctx">little more wit, return again to Venice.</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-3.1.11"><b>3,1</b>Z. 11<br>CLOWN</a></span><div class="zeile ctx">Marry, sir, by many a wind instrument that I know. But, masters, here’s</div><div class="zeile"><em>money</em> for you: and the general so likes your music, that he desires</div><div class="zeile ctx">you, for love’s sake, to make no more noise with it.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.2.106"><b>4,2</b>Z. 106<br>OTHELLO</a></span><div class="zeile ctx">And keeps the gate of hell. You, you, ay, you!</div><div class="zeile">We have done our course; there’s <em>money</em> for your pains.</div><div class="zeile ctx">I pray you turn the key, and keep our counsel.</div></div></section><section class="wort" id="w-purse"><h2>purse <span>· 11 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.2"><b>1,1</b>Z. 2<br>RODERIGO</a></span><div class="zeile ctx">Tush, never tell me, I take it much unkindly</div><div class="zeile">That thou, Iago, who hast had my <em>purse</em>,</div><div class="zeile ctx">As if the strings were thine, shouldst know of this.</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Jago</span></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.353"><b>1,3</b>Z. 353<br>IAGO</a></span><div class="zeile ctx">perdurable toughness; I could never better stead thee than now. Put</div><div class="zeile">money in thy <em>purse</em>; follow thou the wars; defeat thy favour with an</div><div class="zeile ctx">usurped beard; I say, put money in thy purse. It cannot be that</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.354"><b>1,3</b>Z. 354<br>IAGO</a></span><div class="zeile ctx">money in thy purse; follow thou the wars; defeat thy favour with an</div><div class="zeile">usurped beard; I say, put money in thy <em>purse</em>. It cannot be that</div><div class="zeile ctx">Desdemona should long continue her love to the Moor,—put money in thy</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.356"><b>1,3</b>Z. 356<br>IAGO</a></span><div class="zeile ctx">Desdemona should long continue her love to the Moor,—put money in thy</div><div class="zeile"><em>purse</em>,—nor he his to her. It was a violent commencement, and thou shalt</div><div class="zeile ctx">see an answerable sequestration—put but money in thy purse. These Moors</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.357"><b>1,3</b>Z. 357<br>IAGO</a></span><div class="zeile ctx">purse,—nor he his to her. It was a violent commencement, and thou shalt</div><div class="zeile">see an answerable sequestration—put but money in thy <em>purse</em>. These Moors</div><div class="zeile ctx">are changeable in their wills. Fill thy purse with money. The food that</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.358"><b>1,3</b>Z. 358<br>IAGO</a></span><div class="zeile ctx">see an answerable sequestration—put but money in thy purse. These Moors</div><div class="zeile">are changeable in their wills. Fill thy <em>purse</em> with money. The food that</div><div class="zeile ctx">to him now is as luscious as locusts shall be to him shortly as acerb</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.362"><b>1,3</b>Z. 362<br>IAGO</a></span><div class="zeile ctx">his body, she will find the error of her choice. She must have change,</div><div class="zeile">she must. Therefore put money in thy <em>purse</em>. If thou wilt needs damn</div><div class="zeile ctx">thyself, do it a more delicate way than drowning. Make all the money</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.384"><b>1,3</b>Z. 384<br>IAGO</a></span><div class="zeile ctx">I am changed. I’ll sell all my land.</div><div class="zeile">Thus do I ever make my fool my <em>purse</em>.</div><div class="zeile ctx">For I mine own gain’d knowledge should profane</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.128"><b>3,3</b>Z. 128<br>OTHELLO</a></span><div class="zeile ctx">In my whole course of wooing, thou criedst, “Indeed?”</div><div class="zeile">And didst contract and <em>purse</em> thy brow together,</div><div class="zeile ctx">As if thou then hadst shut up in thy brain</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.178"><b>3,3</b>Z. 178<br>IAGO</a></span><div class="zeile ctx">Is the immediate jewel of their souls.</div><div class="zeile">Who steals my <em>purse</em> steals trash. ’Tis something, nothing;</div><div class="zeile ctx">’Twas mine, ’tis his, and has been slave to thousands.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.4.19"><b>3,4</b>Z. 19<br>DESDEMONA</a></span><div class="zeile ctx">I know not, madam.</div><div class="zeile">Believe me, I had rather have lost my <em>purse</em></div><div class="zeile ctx">Full of crusadoes. And but my noble Moor</div></div></section><section class="wort" id="w-gold"><h2>gold <span>· 3 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-2.1.162"><b>2,1</b>Z. 162<br>IAGO</a></span><div class="zeile ctx">Had tongue at will and yet was never loud,</div><div class="zeile">Never lack’d <em>gold</em> and yet went never gay,</div><div class="zeile ctx">Fled from her wish, and yet said, “Now I may”;</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-3.1.21"><b>3,1</b>Z. 21<br>CASSIO</a></span><div class="zeile ctx">No, I hear not your honest friend. I hear you.</div><div class="zeile">Prithee, keep up thy quillets. There’s a poor piece of <em>gold</em> for thee:</div><div class="zeile ctx">if the gentlewoman that attends the general’s wife be stirring, tell</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.1.16"><b>5,1</b>Z. 16<br>IAGO</a></span><div class="zeile ctx">He calls me to a restitution large</div><div class="zeile">Of <em>gold</em> and jewels that I bobb’d from him,</div><div class="zeile ctx">As gifts to Desdemona.</div></div></section><section class="wort" id="w-jewel"><h2>jewel <span>· 5 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.212"><b>1,3</b>Z. 212<br>BRABANTIO</a></span><div class="zeile ctx">Which, but thou hast already, with all my heart</div><div class="zeile">I would keep from thee.—For your sake, <em>jewel</em>,</div><div class="zeile ctx">I am glad at soul I have no other child,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.177"><b>3,3</b>Z. 177<br>IAGO</a></span><div class="zeile ctx">Good name in man and woman, dear my lord,</div><div class="zeile">Is the immediate <em>jewel</em> of their souls.</div><div class="zeile ctx">Who steals my purse steals trash. ’Tis something, nothing;</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-4.2.206"><b>4,2</b>Z. 206<br>RODERIGO</a></span><div class="zeile ctx">You charge me most unjustly.</div><div class="zeile">With naught but truth. I have wasted myself out of my means. The <em>jewels</em></div><div class="zeile ctx">you have had from me to deliver to Desdemona would half have corrupted</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-4.2.216"><b>4,2</b>Z. 216<br>RODERIGO</a></span><div class="zeile ctx">I tell you ’tis not very well. I will make myself known to Desdemona.</div><div class="zeile">If she will return me my <em>jewels</em>, I will give over my suit and repent my</div><div class="zeile ctx">unlawful solicitation. If not, assure yourself I will seek satisfaction</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.1.16"><b>5,1</b>Z. 16<br>IAGO</a></span><div class="zeile ctx">He calls me to a restitution large</div><div class="zeile">Of gold and <em>jewels</em> that I bobb’d from him,</div><div class="zeile ctx">As gifts to Desdemona.</div></div></section><section class="wort" id="w-price"><h2>price <span>· 2 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.11"><b>1,1</b>Z. 11<br>IAGO</a></span><div class="zeile ctx">Off-capp’d to him; and by the faith of man,</div><div class="zeile">I know my <em>price</em>, I am worth no worse a place.</div><div class="zeile ctx">But he, as loving his own pride and purposes,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.3.78"><b>4,3</b>Z. 78<br>EMILIA</a></span><div class="zeile ctx">Wouldst thou do such a deed for all the world?</div><div class="zeile">The world’s a huge thing. It is a great <em>price</em></div><div class="zeile ctx">For a small vice.</div></div></section><section class="wort" id="w-purchase"><h2>purchase <span>· 1 Belege, alle aufgeführt</span></h2><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.10"><b>2,3</b>Z. 10<br>OTHELLO</a></span><div class="zeile ctx">Let me have speech with you. Come, my dear love,</div><div class="zeile">The <em>purchase</em> made, the fruits are to ensue;</div><div class="zeile ctx">That profit’s yet to come ’tween me and you.—</div></div></section><section class="wort" id="w-profit"><h2>profit <span>· 7 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.35"><b>1,3</b>Z. 35<br>FIRST SENATOR</a></span><div class="zeile ctx">Neglecting an attempt of ease and gain,</div><div class="zeile">To wake and wage a danger <em>profitless</em>.</div><div class="zeile ctx">Nay, in all confidence, he’s not for Rhodes.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.387"><b>1,3</b>Z. 387<br>IAGO</a></span><div class="zeile ctx">If I would time expend with such a snipe</div><div class="zeile">But for my sport and <em>profit</em>. I hate the Moor,</div><div class="zeile ctx">And it is thought abroad that ’twixt my sheets</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.1.274"><b>2,1</b>Z. 274<br>IAGO</a></span><div class="zeile ctx">shall you have a shorter journey to your desires by the means I shall</div><div class="zeile">then have to prefer them, and the impediment most <em>profitably</em> removed,</div><div class="zeile ctx">without the which there were no expectation of our prosperity.</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.11"><b>2,3</b>Z. 11<br>OTHELLO</a></span><div class="zeile ctx">The purchase made, the fruits are to ensue;</div><div class="zeile">That <em>profit</em>’s yet to come ’tween me and you.—</div><div class="zeile ctx">Good night.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.88"><b>3,3</b>Z. 88<br>DESDEMONA</a></span><div class="zeile ctx">Or feed on nourishing dishes, or keep you warm,</div><div class="zeile">Or sue to you to do a peculiar <em>profit</em></div><div class="zeile ctx">To your own person: nay, when I have a suit</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.419"><b>3,3</b>Z. 419<br>IAGO</a></span><div class="zeile ctx">To be direct and honest is not safe.</div><div class="zeile">I thank you for this <em>profit</em>, and from hence</div><div class="zeile ctx">I’ll love no friend, sith love breeds such offence.</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-4.2.243"><b>4,2</b>Z. 243<br>IAGO</a></span><div class="zeile ctx">And that you would have me to do?</div><div class="zeile">Ay, if you dare do yourself a <em>profit</em> and a right. He sups tonight with</div><div class="zeile ctx">a harlotry, and thither will I go to him. He knows not yet of his</div></div></section><section class="wort" id="w-thief"><h2>thief <span>· 3 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.2.69"><b>1,2</b>Z. 69<br>BRABANTIO</a></span><div class="zeile ctx">Signior, it is the Moor.</div><div class="zeile">Down with him, <em>thief</em>!</div><div class="zeile ctx">You, Roderigo! Come, sir, I am for you.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.2.74"><b>1,2</b>Z. 74<br>BRABANTIO</a></span><div class="zeile ctx">Than with your weapons.</div><div class="zeile">O thou foul <em>thief</em>, where hast thou stow’d my daughter?</div><div class="zeile ctx">Damn’d as thou art, thou hast enchanted her,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.225"><b>1,3</b>Z. 225<br>DUKE</a></span><div class="zeile ctx">Patience her injury a mockery makes.</div><div class="zeile">The robb’d that smiles steals something from the <em>thief</em>;</div><div class="zeile ctx">He robs himself that spends a bootless grief.</div></div></section><section class="wort" id="w-steal"><h2>steal <span>· 8 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.225"><b>1,3</b>Z. 225<br>DUKE</a></span><div class="zeile ctx">Patience her injury a mockery makes.</div><div class="zeile">The robb’d that smiles <em>steals</em> something from the thief;</div><div class="zeile ctx">He robs himself that spends a bootless grief.</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.272"><b>2,3</b>Z. 272<br>CASSIO</a></span><div class="zeile ctx">nothing wherefore. O God, that men should put an enemy in their mouths</div><div class="zeile">to <em>steal</em> away their brains! That we should with joy, pleasance, revel,</div><div class="zeile ctx">and applause, transform ourselves into beasts!</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.42"><b>3,3</b>Z. 42<br>IAGO</a></span><div class="zeile ctx">Cassio, my lord? No, sure, I cannot think it,</div><div class="zeile">That he would <em>steal</em> away so guilty-like,</div><div class="zeile ctx">Seeing you coming.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.178"><b>3,3</b>Z. 178<br>IAGO</a></span><div class="zeile ctx">Is the immediate jewel of their souls.</div><div class="zeile">Who <em>steals</em> my purse steals trash. ’Tis something, nothing;</div><div class="zeile ctx">’Twas mine, ’tis his, and has been slave to thousands.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.178"><b>3,3</b>Z. 178<br>IAGO</a></span><div class="zeile ctx">Is the immediate jewel of their souls.</div><div class="zeile">Who steals my purse <em>steals</em> trash. ’Tis something, nothing;</div><div class="zeile ctx">’Twas mine, ’tis his, and has been slave to thousands.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.326"><b>3,3</b>Z. 326<br>EMILIA</a></span><div class="zeile ctx">My wayward husband hath a hundred times</div><div class="zeile">Woo’d me to <em>steal</em> it. But she so loves the token,</div><div class="zeile ctx">For he conjur’d her she should ever keep it,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.343"><b>3,3</b>Z. 343<br>EMILIA</a></span><div class="zeile ctx">Why, that the Moor first gave to Desdemona,</div><div class="zeile">That which so often you did bid me <em>steal</em>.</div><div class="zeile ctx">Hast stol’n it from her?</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.2.265"><b>5,2</b>Z. 265<br>EMILIA</a></span><div class="zeile ctx">More than indeed belong’d to such a trifle,</div><div class="zeile">He begg’d of me to <em>steal</em> it.</div><div class="zeile ctx">Villanous whore!</div></div></section><section class="wort" id="w-rob"><h2>rob <span>· 7 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.89"><b>1,1</b>Z. 89<br>IAGO</a></span><div class="zeile ctx">Why, wherefore ask you this?</div><div class="zeile">Zounds, sir, you’re <em>robb</em>’d, for shame put on your gown,</div><div class="zeile ctx">Your heart is burst, you have lost half your soul;</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.112"><b>1,1</b>Z. 112<br>BRABANTIO</a></span><div class="zeile ctx">Patience, good sir.</div><div class="zeile">What tell’st thou me of <em>robbing</em>?</div><div class="zeile ctx">This is Venice. My house is not a grange.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.225"><b>1,3</b>Z. 225<br>DUKE</a></span><div class="zeile ctx">Patience her injury a mockery makes.</div><div class="zeile">The <em>robb</em>’d that smiles steals something from the thief;</div><div class="zeile ctx">He robs himself that spends a bootless grief.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.226"><b>1,3</b>Z. 226<br>DUKE</a></span><div class="zeile ctx">The robb’d that smiles steals something from the thief;</div><div class="zeile">He <em>robs</em> himself that spends a bootless grief.</div><div class="zeile ctx">So let the Turk of Cyprus us beguile,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.181"><b>3,3</b>Z. 181<br>IAGO</a></span><div class="zeile ctx">But he that filches from me my good name</div><div class="zeile"><em>Robs</em> me of that which not enriches him</div><div class="zeile ctx">And makes me poor indeed.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.380"><b>3,3</b>Z. 380<br>OTHELLO</a></span><div class="zeile ctx">I found not Cassio’s kisses on her lips.</div><div class="zeile">He that is <em>robb</em>’d, not wanting what is stol’n,</div><div class="zeile ctx">Let him not know’t, and he’s not robb’d at all.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.381"><b>3,3</b>Z. 381<br>OTHELLO</a></span><div class="zeile ctx">He that is robb’d, not wanting what is stol’n,</div><div class="zeile">Let him not know’t, and he’s not <em>robb</em>’d at all.</div><div class="zeile ctx">I am sorry to hear this.</div></div></section>
+<footer>Erzeugt mit <code>src/concordance.py</code>. Die Zeilennummer zählt innerhalb der Szene und entspricht <code>l/@n</code> in der TEI-Datei. Alle Belege auch in <code>build/konkordanz.json</code>.</footer>
+</div>
+<script>
+// Popups: die Popover-API, wo vorhanden, sonst eine schlichte Rückfallebene.
+const supportsPopover = HTMLElement.prototype.hasOwnProperty('togglePopover');
+if (!supportsPopover) {
+  document.querySelectorAll('[data-pop]').forEach(btn => {
+    const pop = document.getElementById(btn.dataset.pop);
+    if (!pop) return;
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('[popover].fallback-open')
+              .forEach(p => p.classList.remove('fallback-open'));
+      pop.classList.add('fallback-open');
+    });
+  });
+}
+document.querySelectorAll('[popover] .close').forEach(b => {
+  b.addEventListener('click', () => {
+    const pop = b.closest('[popover]');
+    if (supportsPopover && pop.hidePopover) { pop.hidePopover(); }
+    else { pop.classList.remove('fallback-open'); }
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('[popover].fallback-open')
+            .forEach(p => p.classList.remove('fallback-open'));
+  }
+});
+</script>
+</body>
+</html>

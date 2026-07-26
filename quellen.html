@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Othello — Quellen</title>
+<style>
+:root {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+          --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820; }
+}
+:root[data-theme="dark"] {
+  --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+  --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820;
+}
+:root[data-theme="light"] {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.4rem 6rem; }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; margin: 0 0 .3rem; font-weight: 600; }
+.sub { margin: 0; color: var(--muted); font-style: italic; }
+.sans { font-family: system-ui, -apple-system, sans-serif; }
+
+header.title { padding: 3rem 0 1.6rem; }
+header.title dl { display: grid; grid-template-columns: max-content 1fr;
+                  gap: .3rem 1.2rem; margin: 1.5rem 0 0; font-size: .82rem;
+                  color: var(--muted); }
+header.title dt { font-variant: small-caps; letter-spacing: .04em; }
+header.title dd { margin: 0; }
+
+nav.pages { display: flex; gap: 1.1rem; padding: .7rem 0; font-size: .78rem;
+            font-family: system-ui, sans-serif; border-bottom: 1px solid var(--rule);
+            border-top: 1px solid var(--rule); }
+nav.pages a { color: var(--muted); text-decoration: none; }
+nav.pages a.here { color: var(--accent); font-weight: 600; }
+nav.pages a:hover { color: var(--accent); }
+
+.hinweis { background: var(--note-bg); border-left: 3px solid var(--accent);
+           padding: .8rem 1rem; margin: 1.6rem 0; font-size: .85rem;
+           max-width: 52em; }
+.hinweis b { font-weight: 600; }
+
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+         font-size: .78rem; color: var(--muted); }
+
+/* Popups: die erste Regel versteckt auch dort, wo popover unbekannt ist. */
+[popover] { display: none; border: 1px solid var(--rule); background: var(--bg);
+            color: var(--fg); border-radius: 5px; padding: 1.2rem 1.4rem;
+            max-width: 36rem; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            font-size: .87rem; }
+[popover]:popover-open { display: block; }
+[popover].fallback-open { display: block !important; position: fixed; top: 50%;
+                          left: 50%; transform: translate(-50%, -50%); z-index: 60; }
+[popover]::backdrop { background: rgba(0,0,0,.4); }
+[popover] .close { position: absolute; top: .3rem; right: .55rem; border: 0;
+                   background: none; color: var(--muted); font-size: 1.2rem;
+                   cursor: pointer; line-height: 1; }
+
+/* Glossar: Erklärung beim Überfahren */
+.gloss { border-bottom: 1px dotted var(--accent); cursor: help; position: relative; }
+.gloss > .tip { display: none; position: absolute; left: 0; top: 1.5em; z-index: 70;
+                width: max(18rem, 22vw); max-width: 90vw; background: var(--bg);
+                color: var(--fg); border: 1px solid var(--accent); border-radius: 4px;
+                padding: .6rem .8rem; font-size: .78rem; line-height: 1.45;
+                font-style: normal; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.gloss > .tip b { display: block; font-variant: small-caps; letter-spacing: .06em;
+                  color: var(--accent); margin-bottom: .2rem; }
+.gloss:hover > .tip, .gloss:focus > .tip, .gloss:focus-within > .tip { display: block; }
+@media (max-width: 700px) { .gloss > .tip { left: auto; right: 0; } }
+
+section.q { margin: 2.4rem 0; padding-top: 1.1rem; border-top: 2px solid var(--rule); }
+section.q h2 { font-size: 1.05rem; font-variant: small-caps; letter-spacing: .06em;
+               color: var(--accent); margin: 0 0 .4rem; }
+section.q > p { max-width: 46em; }
+.eintrag { margin: 1.3rem 0; max-width: 52em; }
+.eintrag .kurz { font-weight: 600; }
+.eintrag .voll { display: block; margin-top: .15rem; }
+.eintrag .status { display: block; margin-top: .25rem; font-size: .8rem;
+                   color: var(--muted); font-style: italic; }
+.eintrag a.url { font-size: .8rem; font-family: system-ui, sans-serif;
+                 word-break: break-all; }
+.zeuge { background: var(--note-bg); border-left: 3px solid var(--accent);
+         padding: .9rem 1.1rem; margin: 1.2rem 0; max-width: 52em; }
+.zeuge h3 { margin: 0 0 .3rem; font-size: .95rem; }
+.zeuge dl { display: grid; grid-template-columns: max-content 1fr; gap: .2rem 1rem;
+            margin: .5rem 0 0; font-size: .84rem; }
+.zeuge dt { color: var(--muted); font-variant: small-caps; letter-spacing: .04em; }
+.zeuge dd { margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="title">
+  <h1>Quellen</h1>
+  <p class="sub">Was diese Ausgabe abdruckt, was ihr Kommentar zitiert, und was
+     geprüft und beiseitegelegt wurde</p>
+</header>
+<nav class="pages"><a href="index.html">Start</a><a href="einleitung.html">Einleitung</a><a href="othello-bilingual.html">Ausgabe</a><a href="befunde.html">Befunde</a><a href="konkordanz.html">Konkordanz</a><a href="quellen.html" class="here">Quellen</a></nav>
+
+<div class="hinweis"><b>Alles hier Abgedruckte ist gemeinfrei.</b> Beide
+Textzeugen wie auch die zitierte Sekundärliteratur stehen frei zur Verfügung;
+Kodierung, Alignment und Kommentar dieser Ausgabe stehen unter
+<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>.
+Die ausführliche Fassung dieser Liste mit allen Begründungen steht in
+<code>QUELLEN.md</code>.</div>
+
+<section class="q" id="zeugen">
+  <h2>Die abgedruckten Textzeugen</h2>
+  <p>Zwei unabhängig überlieferte Fassungen, unverändert wiedergegeben;
+     eingegriffen wurde ausschließlich in der Auszeichnung.</p>
+  <div class="zeuge">
+  <h3>Englisch: Othello</h3>
+  <dl>
+    <dt>Verfasser</dt><dd>William Shakespeare</dd>
+    <dt>Herausgeber</dt><dd>Project Gutenberg,
+        1998</dd>
+    <dt>Nachweis</dt><dd><a href="https://www.gutenberg.org/ebooks/1531">https://www.gutenberg.org/ebooks/1531</a></dd>
+    <dt>Herkunft</dt><dd>Elektronischer Text in der Nachfolge der Globe-Ausgabe (1864) bzw. des Moby-Shakespeare; Mischtext aus Quarto 1622 und First Folio 1623. In den Vereinigten Staaten gemeinfrei; die Transkription selbst wurde von Project Gutenberg gemeinfrei gestellt.</dd>
+    <dt>Rechtsstand</dt><dd>Public domain (USA). Project Gutenberg License; die Marken-Klausel betrifft den Namen »Project Gutenberg«, nicht den Text.</dd>
+  </dl>
+</div>
+  <div class="zeuge">
+  <h3>Deutsch: Othello</h3>
+  <dl>
+    <dt>Verfasser</dt><dd>William Shakespeare</dd>
+    <dt>Herausgeber</dt><dd>TextGrid Repository / DraCor (German Shakespeare Drama Corpus),
+        1832</dd>
+    <dt>Nachweis</dt><dd><a href="http://www.textgridrep.org/textgrid:vn7q.0">http://www.textgridrep.org/textgrid:vn7q.0</a> · <a href="https://dracor.org/gersh/othello">https://dracor.org/gersh/othello</a></dd>
+    <dt>Herkunft</dt><dd>Erstdruck der Übersetzung: Shakspeare&#x27;s dramatische Werke. Übersetzt von August Wilhelm Schlegel, ergänzt und erläutert von Ludwig Tieck, Band 8, Berlin: Georg Andreas Reimer 1832. Die digitale Fassung folgt: Sämtliche Werke in vier Bänden, hrsg. von Anselm Schlösser, Band 4: Tragödien, 3. Auflage, Berlin und Weimar: Aufbau-Verlag 1975, S. 389–496; deren Seitenzählung ist als pb-Marken erhalten.</dd>
+    <dt>Rechtsstand</dt><dd>Gemeinfrei (Baudissin gest. 1878). Die TEI-Fassung von DraCor steht unter CC0 1.0.</dd>
+  </dl>
+</div>
+</section>
+
+<section class="q" id="literatur">
+  <h2>Belegstellen des Kommentars</h2>
+  <p>Worauf sich die Anmerkungen stützen. Die Nummern in eckigen Klammern
+     werden in den Belegkarten der Anmerkungen zitiert; der Zusatz in Kursive
+     sagt jeweils, ob und wofür die Quelle für diese Ausgabe tatsächlich
+     eingesehen wurde.</p>
+  <div class="eintrag" id="bib-bib-pg1531"><span class="kurz">[1] Project Gutenberg #1531</span><span class="voll">William Shakespeare: Othello. Transkribiert vom PG Shakespeare Team. Project Gutenberg, EBook #1531, 1998, zuletzt aktualisiert 2025.</span><a class="url" href="https://www.gutenberg.org/ebooks/1531">https://www.gutenberg.org/ebooks/1531</a><span class="status">eingesehen: der Text dieser Ausgabe</span></div><div class="eintrag" id="bib-bib-dracor-gersh"><span class="kurz">[2] DraCor, German Shakespeare Drama Corpus</span><span class="voll">William Shakespeare: Othello, übersetzt von Wolf Heinrich Graf Baudissin. German Shakespeare Drama Corpus (gersh), hrsg. von Frank Fischer. DraCor, CC0 1.0.</span><a class="url" href="https://dracor.org/gersh/othello">https://dracor.org/gersh/othello</a><span class="status">eingesehen: der Text dieser Ausgabe</span></div><div class="eintrag" id="bib-bib-textgrid-vn7q"><span class="kurz">[3] TextGrid Repository, Othello (Baudissin)</span><span class="voll">Digitalisat der Aufbau-Ausgabe (Sämtliche Werke in vier Bänden, hrsg. Anselm Schlösser, Bd. 4, 3. Aufl., Berlin/Weimar 1975, S. 389–496) im TextGrid Repository; Grundlage der DraCor-Fassung.</span><a class="url" href="http://www.textgridrep.org/textgrid:vn7q.0">http://www.textgridrep.org/textgrid:vn7q.0</a><span class="status">eingesehen: Metadaten und Text über DraCor</span></div><div class="eintrag" id="bib-bib-ise-textintro"><span class="kurz">[4] ISE, Othello: Textual Introduction</span><span class="voll">Internet Shakespeare Editions: Othello — Textual Introduction. University of Victoria.</span><a class="url" href="https://internetshakespeare.uvic.ca/m/doc/Oth_TextIntro/section/The%20text/">https://internetshakespeare.uvic.ca/m/doc/Oth_TextIntro/section/The%20text/</a><span class="status">eingesehen für: Umfang der Q1/F1-Differenz, die nur im Folio überlieferten Passagen</span></div><div class="eintrag" id="bib-bib-folger-textintro"><span class="kurz">[5] Folger, An Introduction to This Text: Othello</span><span class="voll">Folger Shakespeare Library: An Introduction to This Text — Othello.</span><a class="url" href="https://www.folger.edu/explore/shakespeares-works/othello/an-introduction-to-this-text/">https://www.folger.edu/explore/shakespeares-works/othello/an-introduction-to-this-text/</a><span class="status">eingesehen für: Verhältnis Q1 (1622), F1 (1623), Q2 (1630)</span></div><div class="eintrag" id="bib-bib-shakespeare-documented-q1"><span class="kurz">[6] Shakespeare Documented: Othello, first edition</span><span class="voll">Shakespeare Documented (Folger Shakespeare Library): Othello, first edition, 1622.</span><a class="url" href="https://shakespearedocumented.folger.edu/resource/document/othello-first-edition">https://shakespearedocumented.folger.edu/resource/document/othello-first-edition</a><span class="status">eingesehen für: das Weidenlied steht in Q1 nur teilweise</span></div><div class="eintrag" id="bib-bib-cinthio-1565"><span class="kurz">[7] Giraldi Cinthio, De gli Hecatommithi (1565)</span><span class="voll">Giovanni Battista Giraldi Cinthio: De gli Hecatommithi, Parte prima. Monte Regale 1565. Die Novelle vom Mohren von Venedig steht in der dritten Dekade als siebte Novelle.</span><a class="url" href="https://archive.org/details/de-gli-hecatommithi-parte-prima">https://archive.org/details/de-gli-hecatommithi-parte-prima</a><span class="status">Digitalisat gesichtet; der Novellentext wurde für diese Ausgabe nicht ausgewertet</span></div><div class="eintrag" id="bib-bib-cinthio-parr-1795"><span class="kurz">[8] Parr, The Story of the Moor of Venice (1795)</span><span class="voll">Wolstenholme Parr: The Story of the Moor of Venice. Translated from the Italian. With two essays on Shakespeare. London: Cadell &amp; Davies 1795. Die früheste englische Übersetzung der Novelle.</span><a class="url" href="https://archive.org/details/bim_eighteenth-century_the-story-of-the-moor-of_parr-wolstenholme_1795">https://archive.org/details/bim_eighteenth-century_the-story-of-the-moor-of_parr-wolstenholme_1795</a><span class="status">Digitalisat gesichtet; die Volltexterkennung des Scans ist für Zitate unbrauchbar</span></div><div class="eintrag" id="bib-bib-wikisource-wieland"><span class="kurz">[9] Wieland, Othello (1766), Wikisource</span><span class="voll">William Shakespeare: Othello, der Mohr von Venedig, übersetzt von Christoph Martin Wieland. In: Shakespear. Theatralische Werke, Bd. 7, Zürich: Orell, Geßner &amp; Comp. 1766, S. 177–403. Transkription auf Wikisource, Bearbeitungsstand »fertig«.</span><a class="url" href="https://de.wikisource.org/wiki/Othello,_der_Mohr_von_Venedig">https://de.wikisource.org/wiki/Othello,_der_Mohr_von_Venedig</a><span class="status">eingesehen: Textdaten und Umfang; für diese Ausgabe nicht ausgewertet</span></div><div class="eintrag" id="bib-bib-eigene-auszaehlung"><span class="kurz">[10] Eigene Auszählung am Text dieser Ausgabe</span><span class="voll">Zahlenangaben, die mit src/observe.py an den beiden Textzeugen dieser Ausgabe erhoben wurden. Die jeweils verwendete Abfrage steht im Belegfeld der Anmerkung; sie ist reproduzierbar.</span><span class="status">reproduzierbar mit dem Analyseskript dieser Ausgabe</span></div><div class="eintrag" id="bib-bib-eigenes-alignment"><span class="kurz">[11] Alignment dieser Ausgabe</span><span class="voll">Befunde aus der maschinellen Verknüpfung beider Textzeugen (src/align.py); die Abweichungen sind im standOff der TEI-Datei als typisierte Verknüpfungen verzeichnet.</span><span class="status">reproduzierbar mit dem Alignment dieser Ausgabe</span></div><div class="eintrag" id="bib-bib-coleridge-remains"><span class="kurz">[12] Coleridge, Literary Remains II (1836)</span><span class="voll">Samuel Taylor Coleridge: The Literary Remains, Bd. 2, hrsg. von Henry Nelson Coleridge, London 1836. Enthält die Notizen und Vorlesungsnachschriften zu Othello (Vorlesungen 1818/19).</span><a class="url" href="https://www.gutenberg.org/ebooks/8533">https://www.gutenberg.org/ebooks/8533</a><span class="status">Volltext eingesehen und die zitierten Stellen im Wortlaut geprüft</span></div><div class="eintrag" id="bib-bib-hazlitt-1817"><span class="kurz">[13] Hazlitt, Characters of Shakespear&#x27;s Plays (1817)</span><span class="voll">William Hazlitt: Characters of Shakespeare&#x27;s Plays. London 1817; hier nach der Ausgabe mit der Einleitung von Arthur Quiller-Couch (1916).</span><a class="url" href="https://www.gutenberg.org/ebooks/5085">https://www.gutenberg.org/ebooks/5085</a><span class="status">Volltext eingesehen und die zitierten Stellen im Wortlaut geprüft</span></div><div class="eintrag" id="bib-bib-bradley-1904"><span class="kurz">[14] Bradley, Shakespearean Tragedy (1904)</span><span class="voll">Andrew Cecil Bradley: Shakespearean Tragedy. Lectures on Hamlet, Othello, King Lear, Macbeth. London: Macmillan 1904.</span><a class="url" href="https://www.gutenberg.org/ebooks/16966">https://www.gutenberg.org/ebooks/16966</a><span class="status">Volltext eingesehen und die zitierten Stellen im Wortlaut geprüft</span></div><div class="eintrag" id="bib-bib-eigene-bezugspruefung"><span class="kurz">[15] Bezugsprüfung dieser Ausgabe</span><span class="voll">Für das Wortfeld »Ehre, Redlichkeit, Name« wurde jede der 67 Belegstellen einzeln gelesen und festgehalten, auf wen sich die Nennung richtet (data/bezuege.json). Die Zuordnung ist eine Lektüreentscheidung, keine Berechnung; sie steht mit Begründung bei jeder Stelle.</span><span class="status">am Text gelesen, Stelle für Stelle</span></div>
+</section>
+
+<section class="q" id="cinthio">
+  <h2>Die Stoffquelle: Cinthios Novelle</h2>
+  <p>Shakespeares Vorlage — die siebte Novelle der dritten Dekade der
+     <i>Hecatommithi</i>, Venedig 1565 — ist gemeinfrei und mehrfach
+     digitalisiert. Für diese Ausgabe wurde sie nicht ausgewertet; die Angaben
+     zum Inhalt im Kommentar sind entsprechend als ungeprüft gekennzeichnet.</p>
+  <div class="eintrag"><span class="kurz">De gli Hecatommithi, Erstausgabe 1565 (italienisch)</span><span class="voll">Scan mit Volltexterkennung; die Type macht die Erkennung für Zitate unbrauchbar.</span><a class="url" href="https://archive.org/details/de-gli-hecatommithi-parte-prima">https://archive.org/details/de-gli-hecatommithi-parte-prima</a></div><div class="eintrag"><span class="kurz">Gli Ecatommiti, Ausgaben 1833–1854 (italienisch)</span><span class="voll">Jüngere Drucke, besser lesbar — der praktikable Weg zum Wortlaut.</span><a class="url" href="https://archive.org/details/bub_gb_py6CLg9ISTAC">https://archive.org/details/bub_gb_py6CLg9ISTAC</a></div><div class="eintrag"><span class="kurz">Wolstenholme Parr: The Story of the Moor of Venice, London 1795</span><span class="voll">Älteste englische Übersetzung der Novelle, gemeinfrei; die Texterkennung des Scans ist für Zitate unbrauchbar.</span><a class="url" href="https://archive.org/details/bim_eighteenth-century_the-story-of-the-moor-of_parr-wolstenholme_1795">https://archive.org/details/bim_eighteenth-century_the-story-of-the-moor-of_parr-wolstenholme_1795</a></div><div class="eintrag"><span class="kurz">Internet Shakespeare Editions: Cinthio's Tale</span><span class="voll">Moderne englische Übersetzung, gut lesbar; Lizenz gesondert zu klären.</span><a class="url" href="https://internetshakespeare.uvic.ca/doc/Cinthio_M/index.html">https://internetshakespeare.uvic.ca/doc/Cinthio_M/index.html</a></div>
+</section>
+
+<section class="q" id="verworfen">
+  <h2>Geprüft und nicht verwendet</h2>
+  <p>Diese Liste gehört zur Ausgabe wie die vorige: Sie zeigt, welche
+     Alternativen bestanden und woran sie scheiterten.</p>
+  <div class="eintrag"><span class="kurz">Folger Shakespeare / DraCor-Korpus <code>shake</code></span><span class="voll">Technisch die beste englische Quelle — TEI mit ausgezeichneter Vers/Prosa-Unterscheidung und Folger-Zeilenzählung. Steht unter einer CC-BY-NC-Lizenz und ist damit nicht gemeinfrei; die Anfrage verlangte ausdrücklich Public-Domain-Quellen.</span><a class="url" href="https://shakespeare.folger.edu">https://shakespeare.folger.edu</a></div><div class="eintrag"><span class="kurz">Wieland, <i>Othello</i> 1766 (Wikisource)</span><span class="voll">Der erste deutsche Othello, gemeinfrei, vollständig transkribiert. Nicht als Haupttext verwendet, weil Wieland in Prosa übersetzt, kürzt und einer anderen englischen Vorlage folgt. Für eine dritte Kolumne erste Wahl.</span><a class="url" href="https://de.wikisource.org/wiki/Othello,_der_Mohr_von_Venedig">https://de.wikisource.org/wiki/Othello,_der_Mohr_von_Venedig</a></div><div class="eintrag"><span class="kurz">Internet Shakespeare Editions: Q1 1622 und F1 1623</span><span class="voll">Diplomatische Transkriptionen beider Frühdrucke — die einzige Möglichkeit, die Quarto/Folio-Differenzen unmittelbar am Text zu prüfen statt aus der Sekundärliteratur. Nicht eingebunden, weil die Nutzungsbedingungen zu klären wären. Der nächste Schritt für einen echten textkritischen Apparat.</span><a class="url" href="https://internetshakespeare.uvic.ca/Library/Texts/Oth/">https://internetshakespeare.uvic.ca/Library/Texts/Oth/</a></div><div class="eintrag"><span class="kurz">Zeno.org</span><span class="voll">Bietet denselben Baudissin-Text, war beim Aufbau dieser Ausgabe aber nicht erreichbar. TextGrid stellt dieselbe Textgrundlage besser ausgezeichnet bereit.</span><a class="url" href="https://www.zeno.org/Literatur/M/Shakespeare,+William">https://www.zeno.org/Literatur/M/Shakespeare,+William</a></div><div class="eintrag"><span class="kurz">Digitalisate auf archive.org</span><span class="voll">Scans der historischen Drucke, gemeinfrei, aber nur mit maschineller Texterkennung. Für zeichengenaues Arbeiten ohne Nachkorrektur unbrauchbar; als Faksimile-Beleg für Einzelstellen wertvoll.</span><a class="url" href="https://archive.org">https://archive.org</a></div><div class="eintrag"><span class="kurz">projekt-gutenberg.org / Gutenberg-DE</span><span class="voll">Enthält Baudissins Übersetzung; die Nutzungsbedingungen der Website sind restriktiver als der gemeinfreie Text darunter. Mit DraCor liegt eine ausdrücklich CC0-lizenzierte Fassung vor.</span><a class="url" href="https://www.projekt-gutenberg.org">https://www.projekt-gutenberg.org</a></div>
+</section>
+
+<section class="q" id="glossar">
+  <h2>Glossar</h2>
+  <p>25 Fachbegriffe sind im Kommentar erklärt; sie erscheinen dort
+     unterstrichen und zeigen ihre Erläuterung, sobald die Maus darauf ruht.
+     Maschinenlesbar stehen sie in <code>data/glossar.json</code> und in der
+     TEI-Datei als <code>list[@type="gloss"]</code>.</p>
+</section>
+<footer>Die vollständige, kommentierte Quellenliste steht in <code>QUELLEN.md</code>; die Zahlen dieser Ausgabe unter <a href="befunde.html">Befunde</a>.</footer>
+</div>
+<script>
+// Popups: die Popover-API, wo vorhanden, sonst eine schlichte Rückfallebene.
+const supportsPopover = HTMLElement.prototype.hasOwnProperty('togglePopover');
+if (!supportsPopover) {
+  document.querySelectorAll('[data-pop]').forEach(btn => {
+    const pop = document.getElementById(btn.dataset.pop);
+    if (!pop) return;
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('[popover].fallback-open')
+              .forEach(p => p.classList.remove('fallback-open'));
+      pop.classList.add('fallback-open');
+    });
+  });
+}
+document.querySelectorAll('[popover] .close').forEach(b => {
+  b.addEventListener('click', () => {
+    const pop = b.closest('[popover]');
+    if (supportsPopover && pop.hidePopover) { pop.hidePopover(); }
+    else { pop.classList.remove('fallback-open'); }
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('[popover].fallback-open')
+            .forEach(p => p.classList.remove('fallback-open'));
+  }
+});
+</script>
+</body>
+</html>

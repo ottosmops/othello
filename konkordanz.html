@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Othello — Konkordanz</title>
+<style>
+:root {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+          --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820; }
+}
+:root[data-theme="dark"] {
+  --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+  --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820;
+}
+:root[data-theme="light"] {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.4rem 6rem; }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; margin: 0 0 .3rem; font-weight: 600; }
+.sub { margin: 0; color: var(--muted); font-style: italic; }
+.sans { font-family: system-ui, -apple-system, sans-serif; }
+
+header.title { padding: 3rem 0 1.6rem; }
+header.title dl { display: grid; grid-template-columns: max-content 1fr;
+                  gap: .3rem 1.2rem; margin: 1.5rem 0 0; font-size: .82rem;
+                  color: var(--muted); }
+header.title dt { font-variant: small-caps; letter-spacing: .04em; }
+header.title dd { margin: 0; }
+
+nav.pages { display: flex; gap: 1.1rem; padding: .7rem 0; font-size: .78rem;
+            font-family: system-ui, sans-serif; border-bottom: 1px solid var(--rule);
+            border-top: 1px solid var(--rule); }
+nav.pages a { color: var(--muted); text-decoration: none; }
+nav.pages a.here { color: var(--accent); font-weight: 600; }
+nav.pages a:hover { color: var(--accent); }
+
+.hinweis { background: var(--note-bg); border-left: 3px solid var(--accent);
+           padding: .8rem 1rem; margin: 1.6rem 0; font-size: .85rem;
+           max-width: 52em; }
+.hinweis b { font-weight: 600; }
+
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+         font-size: .78rem; color: var(--muted); }
+
+/* Popups: die erste Regel versteckt auch dort, wo popover unbekannt ist. */
+[popover] { display: none; border: 1px solid var(--rule); background: var(--bg);
+            color: var(--fg); border-radius: 5px; padding: 1.2rem 1.4rem;
+            max-width: 36rem; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            font-size: .87rem; }
+[popover]:popover-open { display: block; }
+[popover].fallback-open { display: block !important; position: fixed; top: 50%;
+                          left: 50%; transform: translate(-50%, -50%); z-index: 60; }
+[popover]::backdrop { background: rgba(0,0,0,.4); }
+[popover] .close { position: absolute; top: .3rem; right: .55rem; border: 0;
+                   background: none; color: var(--muted); font-size: 1.2rem;
+                   cursor: pointer; line-height: 1; }
+
+/* Glossar: Erklärung beim Überfahren */
+.gloss { border-bottom: 1px dotted var(--accent); cursor: help; position: relative; }
+.gloss > .tip { display: none; position: absolute; left: 0; top: 1.5em; z-index: 70;
+                width: max(18rem, 22vw); max-width: 90vw; background: var(--bg);
+                color: var(--fg); border: 1px solid var(--accent); border-radius: 4px;
+                padding: .6rem .8rem; font-size: .78rem; line-height: 1.45;
+                font-style: normal; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.gloss > .tip b { display: block; font-variant: small-caps; letter-spacing: .06em;
+                  color: var(--accent); margin-bottom: .2rem; }
+.gloss:hover > .tip, .gloss:focus > .tip, .gloss:focus-within > .tip { display: block; }
+@media (max-width: 700px) { .gloss > .tip { left: auto; right: 0; } }
+
+.felder { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+          gap: 1rem; margin: 1.6rem 0; }
+.felder a { display: block; padding: .9rem 1rem; border: 1px solid var(--rule);
+            border-radius: 4px; text-decoration: none; color: inherit;
+            background: var(--note-bg); }
+.felder a:hover { border-color: var(--accent); }
+.felder .t { font-weight: 600; color: var(--accent); }
+.felder .z { font-size: .78rem; color: var(--muted);
+             font-family: system-ui, sans-serif; }
+.felder .w { font-size: .78rem; color: var(--muted); margin-top: .3rem; }
+
+section.wort { margin: 2.2rem 0; padding-top: 1rem; border-top: 1px solid var(--rule); }
+section.wort h2 { font-size: 1rem; margin: 0 0 .8rem; }
+section.wort h2 span { color: var(--muted); font-weight: 400; font-size: .82rem;
+                       font-family: system-ui, sans-serif; }
+.stelle { margin: 0 0 .9rem; padding-left: 5.6rem; position: relative;
+          max-width: 52em; }
+.stelle .ref { position: absolute; left: 0; top: .1rem; width: 5.2rem;
+               font-size: .7rem; font-family: system-ui, sans-serif;
+               color: var(--muted); line-height: 1.4; }
+.stelle .ref a { text-decoration: none; }
+.stelle .ref b { display: block; font-weight: 600; color: var(--fg); }
+.stelle .ctx { color: var(--muted); font-size: .86em; }
+.stelle .zeile { margin: .05rem 0; }
+.stelle em { font-style: normal; font-weight: 600; color: var(--accent); }
+.stelle .prosa { font-size: .95em; }
+.bezug { display: inline-block; margin-top: .2rem; font-size: .7rem;
+         font-family: system-ui, sans-serif; padding: .05rem .5rem;
+         border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); }
+.bezug.geprueft { border-color: var(--accent); color: var(--accent); }
+.bezug.auto { font-style: italic; }
+.zahlen { font-size: .8rem; color: var(--muted); font-family: system-ui, sans-serif;
+          background: var(--note-bg); padding: .7rem .9rem; border-radius: 4px;
+          margin: 1.2rem 0; }
+.zahlen b { color: var(--fg); font-weight: 600; }
+.zurueck { font-size: .8rem; font-family: system-ui, sans-serif; margin: 1.2rem 0; }
+@media (max-width: 700px) {
+  .stelle { padding-left: 0; }
+  .stelle .ref { position: static; width: auto; margin-bottom: .2rem; }
+  .stelle .ref b { display: inline; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="title">
+  <h1>Konkordanz</h1>
+  <p class="sub">Zentrale Wortfelder des englischen Textes — jede Stelle in ihrer
+     Zeile, mit Verweis in den Paralleltext</p>
+</header>
+<nav class="pages"><a href="index.html">Start</a><a href="einleitung.html">Einleitung</a><a href="othello-bilingual.html">Ausgabe</a><a href="befunde.html">Befunde</a><a href="konkordanz.html" class="here">Konkordanz</a><a href="quellen.html">Quellen</a></nav>
+<div class="hinweis"><b>Wie diese Zahlen entstehen.</b> Gezählt wird am englischen Text dieser Ausgabe, mit einem Wortgrenzen-Muster je Stichwort (<code>\bhonest\w*\b</code>): Es werden also auch Ableitungen erfasst — <i>honesty</i> unter <i>honest</i>, <i>seeing</i> unter <i>see</i>. Jede Stelle steht in ihrer Zeile, wie die Quelle sie setzt, mit der Zeile davor und danach; die Zeilennummer zählt innerhalb der Szene. Die deutsche Spalte zählt Wortformen in der <i>verknüpften</i> Rede — sie zeigt, was in der Nachbarschaft steht, nicht was das englische Wort übersetzt. Baudissins »treu« etwa gibt sowohl <i>honest</i> als auch <i>true</i> wieder. Verlässlich ist die englische Seite samt Stellenangabe; die deutsche ist ein Fingerzeig.</div><p>12 Wortfelder, 1475 Belege. Jedes Feld hat seine eigene Seite; dort stehen alle Stellen, nichts ist gekürzt.</p><div class="felder"><a href="konkordanz-farbe.html"><span class="t">Farbe, Licht, Dunkel</span> <span class="z">101 Belege</span><div class="w">black, fair, white, dark, light, night</div></a><a href="konkordanz-ehre.html"><span class="t">Ehre, Redlichkeit, Name</span> <span class="z">98 Belege</span><div class="w">honest, honour, reputation, name, virtue</div></a><a href="konkordanz-teufel.html"><span class="t">Teufel, Hölle, Himmel</span> <span class="z">217 Belege</span><div class="w">devil, hell, heaven, damn, soul, God, angel, sin</div></a><a href="konkordanz-sehen.html"><span class="t">Sehen, Zeugnis, Beweis</span> <span class="z">159 Belege</span><div class="w">see, eye, proof, prove, witness, ocular, sight, show</div></a><a href="konkordanz-tier.html"><span class="t">Tier, Jagd, Ungeheuer</span> <span class="z">29 Belege</span><div class="w">beast, monster, toad, goat, dog, horse, raven, fly, haggard</div></a><a href="konkordanz-eifersucht.html"><span class="t">Eifersucht, Verdacht, Betrug</span> <span class="z">79 Belege</span><div class="w">jealous, jealousy, suspect, suspicion, cuckold, horn, false, deceive, abuse</div></a><a href="konkordanz-zauber.html"><span class="t">Zauber, Gift, Krankheit</span> <span class="z">35 Belege</span><div class="w">witch, charm, magic, spell, poison, medicine, drug, plague, sick</div></a><a href="konkordanz-handel.html"><span class="t">Handel, Geld, Besitz</span> <span class="z">61 Belege</span><div class="w">money, purse, gold, jewel, price, purchase, profit, thief, steal, rob</div></a><a href="konkordanz-fremde.html"><span class="t">Fremde: Mohr, Türke, Venedig</span> <span class="z">129 Belege</span><div class="w">Moor, Turk, Ottomite, Venice, Venetian, Cyprus, stranger, barbarian, Barbary</div></a><a href="konkordanz-frau.html"><span class="t">Frau, Ehe, Unzucht</span> <span class="z">136 Belege</span><div class="w">wife, woman, maid, whore, strumpet, bawd, chaste, husband, marry, marriage</div></a><a href="konkordanz-krieg.html"><span class="t">Krieg, Dienst, Rang</span> <span class="z">141 Belege</span><div class="w">war, soldier, captain, lieutenant, ancient, general, service, sword, arms</div></a><a href="konkordanz-reden.html"><span class="t">Reden, Schweigen, Wissen</span> <span class="z">290 Belege</span><div class="w">speak, word, tongue, silence, know, think, believe, swear, confess</div></a></div>
+<footer>Erzeugt mit <code>src/concordance.py</code> aus den beiden Textzeugen dieser Ausgabe; vollständige Daten in <code>build/konkordanz.json</code>.</footer>
+</div>
+<script>
+// Popups: die Popover-API, wo vorhanden, sonst eine schlichte Rückfallebene.
+const supportsPopover = HTMLElement.prototype.hasOwnProperty('togglePopover');
+if (!supportsPopover) {
+  document.querySelectorAll('[data-pop]').forEach(btn => {
+    const pop = document.getElementById(btn.dataset.pop);
+    if (!pop) return;
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('[popover].fallback-open')
+              .forEach(p => p.classList.remove('fallback-open'));
+      pop.classList.add('fallback-open');
+    });
+  });
+}
+document.querySelectorAll('[popover] .close').forEach(b => {
+  b.addEventListener('click', () => {
+    const pop = b.closest('[popover]');
+    if (supportsPopover && pop.hidePopover) { pop.hidePopover(); }
+    else { pop.classList.remove('fallback-open'); }
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('[popover].fallback-open')
+            .forEach(p => p.classList.remove('fallback-open'));
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Othello — Konkordanz: Tier, Jagd, Ungeheuer</title>
+<style>
+:root {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+          --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820; }
+}
+:root[data-theme="dark"] {
+  --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+  --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820;
+}
+:root[data-theme="light"] {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.4rem 6rem; }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; margin: 0 0 .3rem; font-weight: 600; }
+.sub { margin: 0; color: var(--muted); font-style: italic; }
+.sans { font-family: system-ui, -apple-system, sans-serif; }
+
+header.title { padding: 3rem 0 1.6rem; }
+header.title dl { display: grid; grid-template-columns: max-content 1fr;
+                  gap: .3rem 1.2rem; margin: 1.5rem 0 0; font-size: .82rem;
+                  color: var(--muted); }
+header.title dt { font-variant: small-caps; letter-spacing: .04em; }
+header.title dd { margin: 0; }
+
+nav.pages { display: flex; gap: 1.1rem; padding: .7rem 0; font-size: .78rem;
+            font-family: system-ui, sans-serif; border-bottom: 1px solid var(--rule);
+            border-top: 1px solid var(--rule); }
+nav.pages a { color: var(--muted); text-decoration: none; }
+nav.pages a.here { color: var(--accent); font-weight: 600; }
+nav.pages a:hover { color: var(--accent); }
+
+.hinweis { background: var(--note-bg); border-left: 3px solid var(--accent);
+           padding: .8rem 1rem; margin: 1.6rem 0; font-size: .85rem;
+           max-width: 52em; }
+.hinweis b { font-weight: 600; }
+
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+         font-size: .78rem; color: var(--muted); }
+
+/* Popups: die erste Regel versteckt auch dort, wo popover unbekannt ist. */
+[popover] { display: none; border: 1px solid var(--rule); background: var(--bg);
+            color: var(--fg); border-radius: 5px; padding: 1.2rem 1.4rem;
+            max-width: 36rem; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            font-size: .87rem; }
+[popover]:popover-open { display: block; }
+[popover].fallback-open { display: block !important; position: fixed; top: 50%;
+                          left: 50%; transform: translate(-50%, -50%); z-index: 60; }
+[popover]::backdrop { background: rgba(0,0,0,.4); }
+[popover] .close { position: absolute; top: .3rem; right: .55rem; border: 0;
+                   background: none; color: var(--muted); font-size: 1.2rem;
+                   cursor: pointer; line-height: 1; }
+
+/* Glossar: Erklärung beim Überfahren */
+.gloss { border-bottom: 1px dotted var(--accent); cursor: help; position: relative; }
+.gloss > .tip { display: none; position: absolute; left: 0; top: 1.5em; z-index: 70;
+                width: max(18rem, 22vw); max-width: 90vw; background: var(--bg);
+                color: var(--fg); border: 1px solid var(--accent); border-radius: 4px;
+                padding: .6rem .8rem; font-size: .78rem; line-height: 1.45;
+                font-style: normal; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.gloss > .tip b { display: block; font-variant: small-caps; letter-spacing: .06em;
+                  color: var(--accent); margin-bottom: .2rem; }
+.gloss:hover > .tip, .gloss:focus > .tip, .gloss:focus-within > .tip { display: block; }
+@media (max-width: 700px) { .gloss > .tip { left: auto; right: 0; } }
+
+.felder { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+          gap: 1rem; margin: 1.6rem 0; }
+.felder a { display: block; padding: .9rem 1rem; border: 1px solid var(--rule);
+            border-radius: 4px; text-decoration: none; color: inherit;
+            background: var(--note-bg); }
+.felder a:hover { border-color: var(--accent); }
+.felder .t { font-weight: 600; color: var(--accent); }
+.felder .z { font-size: .78rem; color: var(--muted);
+             font-family: system-ui, sans-serif; }
+.felder .w { font-size: .78rem; color: var(--muted); margin-top: .3rem; }
+
+section.wort { margin: 2.2rem 0; padding-top: 1rem; border-top: 1px solid var(--rule); }
+section.wort h2 { font-size: 1rem; margin: 0 0 .8rem; }
+section.wort h2 span { color: var(--muted); font-weight: 400; font-size: .82rem;
+                       font-family: system-ui, sans-serif; }
+.stelle { margin: 0 0 .9rem; padding-left: 5.6rem; position: relative;
+          max-width: 52em; }
+.stelle .ref { position: absolute; left: 0; top: .1rem; width: 5.2rem;
+               font-size: .7rem; font-family: system-ui, sans-serif;
+               color: var(--muted); line-height: 1.4; }
+.stelle .ref a { text-decoration: none; }
+.stelle .ref b { display: block; font-weight: 600; color: var(--fg); }
+.stelle .ctx { color: var(--muted); font-size: .86em; }
+.stelle .zeile { margin: .05rem 0; }
+.stelle em { font-style: normal; font-weight: 600; color: var(--accent); }
+.stelle .prosa { font-size: .95em; }
+.bezug { display: inline-block; margin-top: .2rem; font-size: .7rem;
+         font-family: system-ui, sans-serif; padding: .05rem .5rem;
+         border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); }
+.bezug.geprueft { border-color: var(--accent); color: var(--accent); }
+.bezug.auto { font-style: italic; }
+.zahlen { font-size: .8rem; color: var(--muted); font-family: system-ui, sans-serif;
+          background: var(--note-bg); padding: .7rem .9rem; border-radius: 4px;
+          margin: 1.2rem 0; }
+.zahlen b { color: var(--fg); font-weight: 600; }
+.zurueck { font-size: .8rem; font-family: system-ui, sans-serif; margin: 1.2rem 0; }
+@media (max-width: 700px) {
+  .stelle { padding-left: 0; }
+  .stelle .ref { position: static; width: auto; margin-bottom: .2rem; }
+  .stelle .ref b { display: inline; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="title">
+  <h1>Tier, Jagd, Ungeheuer</h1>
+  <p class="sub">Jago beschreibt Menschen als Tiere, Othello übernimmt es. Dazu die Beizjagd (haggard, jesses) und das »monster«, für das Baudissin drei verschiedene Wörter braucht.</p>
+</header>
+<nav class="pages"><a href="index.html">Start</a><a href="einleitung.html">Einleitung</a><a href="othello-bilingual.html">Ausgabe</a><a href="befunde.html">Befunde</a><a href="konkordanz.html" class="here">Konkordanz</a><a href="quellen.html">Quellen</a></nav>
+<p class="zurueck"><a href="konkordanz.html">← alle Wortfelder</a></p><div class="zahlen">Englisch: 29 Belege · Deutsch in den verknüpften Reden: <b>Vieh</b> 4 · <b>Untier</b> 2 · <b>Scheusal</b> 3 · <b>Ungeheu</b> 2 · <b>Kröte</b> 2 · <b>Ziege</b> 1 · <b>Affe</b> 3 · <b>Hund</b> 9 · <b>Roß</b> 1 · <b>Fliege</b> 2 · <b>Falk</b> 1</div><p class="zurueck">Ohne Beleg in diesem Text: ape, wolf.</p><section class="wort" id="w-beast"><h2>beast <span>· 5 Belege, alle aufgeführt</span></h2><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.123"><b>1,1</b>Z. 123<br>IAGO</a></span><div class="zeile ctx">I am one, sir, that comes to tell you your daughter and the Moor are</div><div class="zeile">now making the <em>beast</em> with two backs.</div><div class="zeile ctx">Thou art a villain.</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.273"><b>2,3</b>Z. 273<br>CASSIO</a></span><div class="zeile ctx">to steal away their brains! That we should with joy, pleasance, revel,</div><div class="zeile">and applause, transform ourselves into <em>beasts</em>!</div><div class="zeile ctx">Why, but you are now well enough: how came you thus recovered?</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.282"><b>2,3</b>Z. 282<br>CASSIO</a></span><div class="zeile ctx">Had I as many mouths as Hydra, such an answer would stop them all. To</div><div class="zeile">be now a sensible man, by and by a fool, and presently a <em>beast</em>! O</div><div class="zeile ctx">strange! Every inordinate cup is unbless’d, and the ingredient is a</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.72"><b>4,1</b>Z. 72<br>OTHELLO</a></span><div class="zeile ctx">Would you would bear your fortune like a man!</div><div class="zeile">A horned man’s a monster and a <em>beast</em>.</div><div class="zeile ctx">There’s many a beast, then, in a populous city,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.73"><b>4,1</b>Z. 73<br>IAGO</a></span><div class="zeile ctx">A horned man’s a monster and a beast.</div><div class="zeile">There’s many a <em>beast</em>, then, in a populous city,</div><div class="zeile ctx">And many a civil monster.</div></div></section><section class="wort" id="w-monster"><h2>monster <span>· 6 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.122"><b>3,3</b>Z. 122<br>OTHELLO</a></span><div class="zeile ctx">Think, my lord? By heaven, he echoes me,</div><div class="zeile">As if there were some <em>monster</em> in his thought</div><div class="zeile ctx">Too hideous to be shown. Thou dost mean something.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.188"><b>3,3</b>Z. 188<br>IAGO</a></span><div class="zeile ctx">O, beware, my lord, of jealousy;</div><div class="zeile">It is the green-ey’d <em>monster</em> which doth mock</div><div class="zeile ctx">The meat it feeds on. That cuckold lives in bliss</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.4.171"><b>3,4</b>Z. 171<br>EMILIA</a></span><div class="zeile ctx">They are not ever jealous for the cause,</div><div class="zeile">But jealous for they are jealous: ’tis a <em>monster</em></div><div class="zeile ctx">Begot upon itself, born on itself.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.4.173"><b>3,4</b>Z. 173<br>DESDEMONA</a></span><div class="zeile ctx">Begot upon itself, born on itself.</div><div class="zeile">Heaven keep that <em>monster</em> from Othello’s mind!</div><div class="zeile ctx">Lady, amen.</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Othello</span></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.72"><b>4,1</b>Z. 72<br>OTHELLO</a></span><div class="zeile ctx">Would you would bear your fortune like a man!</div><div class="zeile">A horned man’s a <em>monster</em> and a beast.</div><div class="zeile ctx">There’s many a beast, then, in a populous city,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.74"><b>4,1</b>Z. 74<br>IAGO</a></span><div class="zeile ctx">There’s many a beast, then, in a populous city,</div><div class="zeile">And many a civil <em>monster</em>.</div><div class="zeile ctx">Did he confess it?</div></div></section><section class="wort" id="w-toad"><h2>toad <span>· 2 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.300"><b>3,3</b>Z. 300<br>OTHELLO</a></span><div class="zeile ctx">That we can call these delicate creatures ours,</div><div class="zeile">And not their appetites! I had rather be a <em>toad</em>,</div><div class="zeile ctx">And live upon the vapour of a dungeon,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.2.69"><b>4,2</b>Z. 69<br>OTHELLO</a></span><div class="zeile ctx">Or else dries up, to be discarded thence,</div><div class="zeile">Or keep it as a cistern for foul <em>toads</em></div><div class="zeile ctx">To knot and gender in!—turn thy complexion there,</div></div></section><section class="wort" id="w-goat"><h2>goat <span>· 3 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.203"><b>3,3</b>Z. 203<br>OTHELLO</a></span><div class="zeile ctx">With fresh suspicions? No. To be once in doubt</div><div class="zeile">Is once to be resolv’d: exchange me for a <em>goat</em></div><div class="zeile ctx">When I shall turn the business of my soul</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.446"><b>3,3</b>Z. 446<br>IAGO</a></span><div class="zeile ctx">It is impossible you should see this,</div><div class="zeile">Were they as prime as <em>goats</em>, as hot as monkeys,</div><div class="zeile ctx">As salt as wolves in pride, and fools as gross</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.270"><b>4,1</b>Z. 270<br>OTHELLO</a></span><div class="zeile ctx">I do entreat that we may sup together.</div><div class="zeile">You are welcome, sir, to Cyprus. <em>Goats</em> and monkeys!</div><div class="zeile ctx">Is this the noble Moor, whom our full senate</div></div></section><section class="wort" id="w-dog"><h2>dog <span>· 7 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.42"><b>2,3</b>Z. 42<br>IAGO</a></span><div class="zeile ctx">He’ll be as full of quarrel and offence</div><div class="zeile">As my young mistress’ <em>dog</em>. Now my sick fool Roderigo,</div><div class="zeile ctx">Whom love hath turn’d almost the wrong side out,</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Rodrigo</span></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.260"><b>2,3</b>Z. 260<br>IAGO</a></span><div class="zeile ctx">again: you are but now cast in his mood, a punishment more in policy</div><div class="zeile">than in malice, even so as one would beat his offenceless <em>dog</em> to</div><div class="zeile ctx">affright an imperious lion: sue to him again, and he’s yours.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.400"><b>3,3</b>Z. 400<br>OTHELLO</a></span><div class="zeile ctx">Or, by the worth of man’s eternal soul,</div><div class="zeile">Thou hadst been better have been born a <em>dog</em></div><div class="zeile ctx">Than answer my wak’d wrath.</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.152"><b>4,1</b>Z. 152<br>OTHELLO</a></span><div class="zeile ctx">Now he tells how she plucked him to my chamber. O, I see that nose of</div><div class="zeile">yours, but not that <em>dog</em> I shall throw it to.</div><div class="zeile ctx">Well, I must leave her company.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.1.69"><b>5,1</b>Z. 69<br>RODERIGO</a></span><div class="zeile ctx">O murderous slave! O villain!</div><div class="zeile">O damn’d Iago! O inhuman <em>dog</em>!</div><div class="zeile ctx">Kill men i’ the dark! Where be these bloody thieves?</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Jago</span></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.2.404"><b>5,2</b>Z. 404<br>OTHELLO</a></span><div class="zeile ctx">Beat a Venetian and traduc’d the state,</div><div class="zeile">I took by the throat the circumcised <em>dog</em>,</div><div class="zeile ctx">And smote him, thus.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.2.412"><b>5,2</b>Z. 412<br>LODOVICO</a></span><div class="zeile ctx">For he was great of heart.</div><div class="zeile">O Spartan <em>dog</em>,</div><div class="zeile ctx">More fell than anguish, hunger, or the sea,</div></div></section><section class="wort" id="w-horse"><h2>horse <span>· 2 Belege, alle aufgeführt</span></h2><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.118"><b>1,1</b>Z. 118<br>IAGO</a></span><div class="zeile ctx">bid you. Because we come to do you service, and you think we are</div><div class="zeile">ruffians, you’ll have your daughter cover’d with a Barbary <em>horse</em>;</div><div class="zeile ctx">you’ll have your nephews neigh to you; you’ll have coursers for cousins</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.161"><b>4,1</b>Z. 161<br>BIANCA</a></span><div class="zeile ctx">your chamber and not know who left it there! This is some minx’s token,</div><div class="zeile">and I must take out the work? There, give it your hobby-<em>horse</em>.</div><div class="zeile ctx">Wheresoever you had it, I’ll take out no work on’t.</div></div></section><section class="wort" id="w-raven"><h2>raven <span>· 1 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.24"><b>4,1</b>Z. 24<br>OTHELLO</a></span><div class="zeile ctx">Thou said’st (O, it comes o’er my memory,</div><div class="zeile">As doth the <em>raven</em> o’er the infected house,</div><div class="zeile ctx">Boding to all) he had my handkerchief.</div></div></section><section class="wort" id="w-fly"><h2>fly <span>· 2 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-2.1.165"><b>2,1</b>Z. 165<br>IAGO</a></span><div class="zeile ctx">She that, being anger’d, her revenge being nigh,</div><div class="zeile">Bade her wrong stay and her displeasure <em>fly</em>;</div><div class="zeile ctx">She that in wisdom never was so frail</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-2.1.179"><b>2,1</b>Z. 179<br>IAGO</a></span><div class="zeile ctx">He takes her by the palm. Ay, well said, whisper. With as</div><div class="zeile">little a web as this will I ensnare as great a <em>fly</em> as Cassio. Ay, smile</div><div class="zeile ctx">upon her, do. I will gyve thee in thine own courtship. You say true,</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Cassio</span></div></section><section class="wort" id="w-haggard"><h2>haggard <span>· 1 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.290"><b>3,3</b>Z. 290<br>OTHELLO</a></span><div class="zeile ctx">And knows all qualities, with a learned spirit,</div><div class="zeile">Of human dealings. If I do prove her <em>haggard</em>,</div><div class="zeile ctx">Though that her jesses were my dear heartstrings,</div></div></section>
+<footer>Erzeugt mit <code>src/concordance.py</code>. Die Zeilennummer zählt innerhalb der Szene und entspricht <code>l/@n</code> in der TEI-Datei. Alle Belege auch in <code>build/konkordanz.json</code>.</footer>
+</div>
+<script>
+// Popups: die Popover-API, wo vorhanden, sonst eine schlichte Rückfallebene.
+const supportsPopover = HTMLElement.prototype.hasOwnProperty('togglePopover');
+if (!supportsPopover) {
+  document.querySelectorAll('[data-pop]').forEach(btn => {
+    const pop = document.getElementById(btn.dataset.pop);
+    if (!pop) return;
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('[popover].fallback-open')
+              .forEach(p => p.classList.remove('fallback-open'));
+      pop.classList.add('fallback-open');
+    });
+  });
+}
+document.querySelectorAll('[popover] .close').forEach(b => {
+  b.addEventListener('click', () => {
+    const pop = b.closest('[popover]');
+    if (supportsPopover && pop.hidePopover) { pop.hidePopover(); }
+    else { pop.classList.remove('fallback-open'); }
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('[popover].fallback-open')
+            .forEach(p => p.classList.remove('fallback-open'));
+  }
+});
+</script>
+</body>
+</html>

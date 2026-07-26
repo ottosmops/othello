@@ -1,0 +1,110 @@
+{
+ "_format": "Belegstellen des Kommentars. 'id' wird von data/notes.json über das Feld 'refs' referenziert; build_tei.py macht daraus ein listBibl im standOff, die Leseansicht ein Popup. 'geprueft' hält fest, ob die Angabe für diese Ausgabe tatsächlich eingesehen wurde.",
+ "eintraege": [
+  {
+   "id": "pg1531",
+   "kurz": "Project Gutenberg #1531",
+   "voll": "William Shakespeare: Othello. Transkribiert vom PG Shakespeare Team. Project Gutenberg, EBook #1531, 1998, zuletzt aktualisiert 2025.",
+   "url": "https://www.gutenberg.org/ebooks/1531",
+   "geprueft": "eingesehen: der Text dieser Ausgabe"
+  },
+  {
+   "id": "dracor-gersh",
+   "kurz": "DraCor, German Shakespeare Drama Corpus",
+   "voll": "William Shakespeare: Othello, übersetzt von Wolf Heinrich Graf Baudissin. German Shakespeare Drama Corpus (gersh), hrsg. von Frank Fischer. DraCor, CC0 1.0.",
+   "url": "https://dracor.org/gersh/othello",
+   "geprueft": "eingesehen: der Text dieser Ausgabe"
+  },
+  {
+   "id": "textgrid-vn7q",
+   "kurz": "TextGrid Repository, Othello (Baudissin)",
+   "voll": "Digitalisat der Aufbau-Ausgabe (Sämtliche Werke in vier Bänden, hrsg. Anselm Schlösser, Bd. 4, 3. Aufl., Berlin/Weimar 1975, S. 389–496) im TextGrid Repository; Grundlage der DraCor-Fassung.",
+   "url": "http://www.textgridrep.org/textgrid:vn7q.0",
+   "geprueft": "eingesehen: Metadaten und Text über DraCor"
+  },
+  {
+   "id": "ise-textintro",
+   "kurz": "ISE, Othello: Textual Introduction",
+   "voll": "Internet Shakespeare Editions: Othello — Textual Introduction. University of Victoria.",
+   "url": "https://internetshakespeare.uvic.ca/m/doc/Oth_TextIntro/section/The%20text/",
+   "geprueft": "eingesehen für: Umfang der Q1/F1-Differenz, die nur im Folio überlieferten Passagen"
+  },
+  {
+   "id": "folger-textintro",
+   "kurz": "Folger, An Introduction to This Text: Othello",
+   "voll": "Folger Shakespeare Library: An Introduction to This Text — Othello.",
+   "url": "https://www.folger.edu/explore/shakespeares-works/othello/an-introduction-to-this-text/",
+   "geprueft": "eingesehen für: Verhältnis Q1 (1622), F1 (1623), Q2 (1630)"
+  },
+  {
+   "id": "shakespeare-documented-q1",
+   "kurz": "Shakespeare Documented: Othello, first edition",
+   "voll": "Shakespeare Documented (Folger Shakespeare Library): Othello, first edition, 1622.",
+   "url": "https://shakespearedocumented.folger.edu/resource/document/othello-first-edition",
+   "geprueft": "eingesehen für: das Weidenlied steht in Q1 nur teilweise"
+  },
+  {
+   "id": "cinthio-1565",
+   "kurz": "Giraldi Cinthio, De gli Hecatommithi (1565)",
+   "voll": "Giovanni Battista Giraldi Cinthio: De gli Hecatommithi, Parte prima. Monte Regale 1565. Die Novelle vom Mohren von Venedig steht in der dritten Dekade als siebte Novelle.",
+   "url": "https://archive.org/details/de-gli-hecatommithi-parte-prima",
+   "geprueft": "Digitalisat gesichtet; der Novellentext wurde für diese Ausgabe nicht ausgewertet"
+  },
+  {
+   "id": "cinthio-parr-1795",
+   "kurz": "Parr, The Story of the Moor of Venice (1795)",
+   "voll": "Wolstenholme Parr: The Story of the Moor of Venice. Translated from the Italian. With two essays on Shakespeare. London: Cadell & Davies 1795. Die früheste englische Übersetzung der Novelle.",
+   "url": "https://archive.org/details/bim_eighteenth-century_the-story-of-the-moor-of_parr-wolstenholme_1795",
+   "geprueft": "Digitalisat gesichtet; die Volltexterkennung des Scans ist für Zitate unbrauchbar"
+  },
+  {
+   "id": "wikisource-wieland",
+   "kurz": "Wieland, Othello (1766), Wikisource",
+   "voll": "William Shakespeare: Othello, der Mohr von Venedig, übersetzt von Christoph Martin Wieland. In: Shakespear. Theatralische Werke, Bd. 7, Zürich: Orell, Geßner & Comp. 1766, S. 177–403. Transkription auf Wikisource, Bearbeitungsstand »fertig«.",
+   "url": "https://de.wikisource.org/wiki/Othello,_der_Mohr_von_Venedig",
+   "geprueft": "eingesehen: Textdaten und Umfang; für diese Ausgabe nicht ausgewertet"
+  },
+  {
+   "id": "eigene-auszaehlung",
+   "kurz": "Eigene Auszählung am Text dieser Ausgabe",
+   "voll": "Zahlenangaben, die mit src/observe.py an den beiden Textzeugen dieser Ausgabe erhoben wurden. Die jeweils verwendete Abfrage steht im Belegfeld der Anmerkung; sie ist reproduzierbar.",
+   "url": "",
+   "geprueft": "reproduzierbar mit dem Analyseskript dieser Ausgabe"
+  },
+  {
+   "id": "eigenes-alignment",
+   "kurz": "Alignment dieser Ausgabe",
+   "voll": "Befunde aus der maschinellen Verknüpfung beider Textzeugen (src/align.py); die Abweichungen sind im standOff der TEI-Datei als typisierte Verknüpfungen verzeichnet.",
+   "url": "",
+   "geprueft": "reproduzierbar mit dem Alignment dieser Ausgabe"
+  },
+  {
+   "id": "coleridge-remains",
+   "kurz": "Coleridge, Literary Remains II (1836)",
+   "voll": "Samuel Taylor Coleridge: The Literary Remains, Bd. 2, hrsg. von Henry Nelson Coleridge, London 1836. Enthält die Notizen und Vorlesungsnachschriften zu Othello (Vorlesungen 1818/19).",
+   "url": "https://www.gutenberg.org/ebooks/8533",
+   "geprueft": "Volltext eingesehen und die zitierten Stellen im Wortlaut geprüft"
+  },
+  {
+   "id": "hazlitt-1817",
+   "kurz": "Hazlitt, Characters of Shakespear's Plays (1817)",
+   "voll": "William Hazlitt: Characters of Shakespeare's Plays. London 1817; hier nach der Ausgabe mit der Einleitung von Arthur Quiller-Couch (1916).",
+   "url": "https://www.gutenberg.org/ebooks/5085",
+   "geprueft": "Volltext eingesehen und die zitierten Stellen im Wortlaut geprüft"
+  },
+  {
+   "id": "bradley-1904",
+   "kurz": "Bradley, Shakespearean Tragedy (1904)",
+   "voll": "Andrew Cecil Bradley: Shakespearean Tragedy. Lectures on Hamlet, Othello, King Lear, Macbeth. London: Macmillan 1904.",
+   "url": "https://www.gutenberg.org/ebooks/16966",
+   "geprueft": "Volltext eingesehen und die zitierten Stellen im Wortlaut geprüft"
+  },
+  {
+   "id": "eigene-bezugspruefung",
+   "kurz": "Bezugsprüfung dieser Ausgabe",
+   "voll": "Für das Wortfeld »Ehre, Redlichkeit, Name« wurde jede der 67 Belegstellen einzeln gelesen und festgehalten, auf wen sich die Nennung richtet (data/bezuege.json). Die Zuordnung ist eine Lektüreentscheidung, keine Berechnung; sie steht mit Begründung bei jeder Stelle.",
+   "url": "",
+   "geprueft": "am Text gelesen, Stelle für Stelle"
+  }
+ ]
+}

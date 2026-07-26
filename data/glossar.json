@@ -1,0 +1,106 @@
+{
+ "_format": "Fachbegriffe, die im Kommentar vorkommen. build_tei.py zeichnet das erste Vorkommen je Anmerkung als TEI-term mit @ref aus und legt die Erklärungen als list[@type='gloss'] in den standOff; die Leseansicht zeigt sie beim Überfahren mit der Maus. 'begriff' ist die Anzeigeform, 'formen' die Schreibweisen, unter denen gesucht wird (längste zuerst geprüft).",
+ "begriffe": [
+
+  {"id": "q1", "begriff": "Q1",
+   "formen": ["Q1", "Quarto von 1622", "Quarto 1622"],
+   "erklaerung": "Die erste Einzelausgabe des Stücks im Quartformat, gedruckt 1622 von Nicholas Okes für Thomas Walkley — ein Jahr vor der ersten Werkausgabe. Sie ist rund 160 Zeilen kürzer als der Folio-Text, bewahrt aber Flüche, die dort getilgt sind."},
+
+  {"id": "f1", "begriff": "F1",
+   "formen": ["F1", "First Folio von 1623", "First Folio", "Folio von 1623"],
+   "erklaerung": "Die erste Gesamtausgabe der Dramen Shakespeares, 1623 von seinen Schauspielerkollegen Heminges und Condell herausgegeben, im großen Folioformat. Ihr Othello-Text ist länger als der der Quarto und geht auf eine andere Vorlage zurück."},
+
+  {"id": "quarto", "begriff": "Quarto",
+   "formen": ["Quarto"],
+   "erklaerung": "Buchformat, bei dem der Druckbogen zweimal gefaltet wird — vier Blatt, acht Seiten. Einzeldramen erschienen zu Shakespeares Zeit in diesem handlichen, billigen Format."},
+
+  {"id": "folio", "begriff": "Folio",
+   "formen": ["Folio"],
+   "erklaerung": "Buchformat, bei dem der Bogen nur einmal gefaltet wird — das große, repräsentative Format, sonst Bibeln und Gesetzestexten vorbehalten. Dass Shakespeares Dramen 1623 im Folio erschienen, war ein Anspruch auf literarischen Rang."},
+
+  {"id": "globe", "begriff": "Globe-Ausgabe",
+   "formen": ["Globe-Ausgabe", "Globe-/Moby-Tradition"],
+   "erklaerung": "Die einbändige Shakespeare-Ausgabe von William George Clark und William Aldis Wright (Cambridge 1864), lange die meistzitierte englische Ausgabe. Ihre Zeilenzählung wurde zum Standard; ihr Text ist eine Mischung aus Quarto- und Folio-Lesarten."},
+
+  {"id": "mischtext", "begriff": "Mischtext",
+   "formen": ["Mischtext"],
+   "erklaerung": "Ein Text, der Lesarten aus mehreren Überlieferungszeugen zusammenführt, statt einem einzigen zu folgen. Der englische Text dieser Ausgabe ist ein solcher: er bietet Flüche aus der Quarto und Zusätze aus dem Folio."},
+
+  {"id": "blankvers", "begriff": "Blankvers",
+   "formen": ["Blankvers"],
+   "erklaerung": "Reimloser fünfhebiger Jambus — das Versmaß des englischen Renaissancedramas und, seit Schlegel, auch des deutschen Shakespeare. Zehn oder elf Silben je Zeile, betont auf jeder zweiten."},
+
+  {"id": "reimpaar", "begriff": "Reimpaar",
+   "formen": ["Reimpaar", "Reimpaaren", "Verspaare"],
+   "erklaerung": "Zwei aufeinanderfolgende, aufeinander reimende Verse. Im elisabethanischen Drama markieren sie oft den Schluss einer Szene oder eine Sentenz — ein akustisches Signal, wo die Bühne keinen Vorhang hatte."},
+
+  {"id": "stichomythie", "begriff": "Stichomythie",
+   "formen": ["Stichomythie", "Stichomythia"],
+   "erklaerung": "Rede und Gegenrede im Wechsel einzelner Verszeilen. Aus der griechischen Tragödie übernommene Technik für Streit und Verhör; im Othello etwa die Tuch-Szene III,4."},
+
+  {"id": "chiasmus", "begriff": "Chiasmus",
+   "formen": ["Chiasmus", "Chiasmus-Struktur"],
+   "erklaerung": "Überkreuzstellung: Die zweite Hälfte eines Satzes spiegelt die Wortfolge der ersten (»Ich bin nicht, was ich bin«). Benannt nach dem griechischen Buchstaben Chi (X)."},
+
+  {"id": "oxymoron", "begriff": "Oxymoron",
+   "formen": ["Oxymoron"],
+   "erklaerung": "Verbindung zweier Wörter, die einander widersprechen — »ehrenvoller Mörder«. Kein Fehler, sondern eine Figur: Der Widerspruch ist die Aussage."},
+
+  {"id": "sentenz", "begriff": "Sentenz",
+   "formen": ["Sentenzen", "Sentenz"],
+   "erklaerung": "Ein in sich geschlossener Merksatz von allgemeiner Geltung, oft gereimt. In der Rhetorik der Frühen Neuzeit ein Beweismittel: Wer eine Sentenz zitiert, beruft sich auf allgemein anerkannte Wahrheit."},
+
+  {"id": "vice", "begriff": "Vice",
+   "formen": ["Vice der Moralitäten", "Vice"],
+   "erklaerung": "Die Laster-Figur des mittelalterlichen Moralitätenspiels: Sie wendet sich ans Publikum, erklärt ihre Bosheit offen und treibt trotzdem ungestört ihr Spiel. Jago wird seit Coleridge in dieser Tradition gesehen."},
+
+  {"id": "sprechakt", "begriff": "Sprechakt",
+   "formen": ["Sprechakt", "Sprechakte", "Sprechakten"],
+   "erklaerung": "In dieser Ausgabe die Grundeinheit: alles, was eine Figur ohne Unterbrechung durch eine andere sagt — im TEI ein sp-Element. Nicht zu verwechseln mit dem sprachphilosophischen Begriff."},
+
+  {"id": "alignment", "begriff": "Alignment",
+   "formen": ["Alignment"],
+   "erklaerung": "Die maschinelle Zuordnung entsprechender Stellen zweier Texte. Hier: welcher englische Sprechakt welchem deutschen entspricht — berechnet über die Reihenfolge der Sprecher, nicht über den Wortlaut."},
+
+  {"id": "kwic", "begriff": "Konkordanz",
+   "formen": ["Konkordanz", "KWIC"],
+   "erklaerung": "Verzeichnis aller Vorkommen eines Wortes mit ihrem Kontext (englisch: keyword in context). Das älteste Werkzeug der Philologie, seit den mittelalterlichen Bibelkonkordanzen."},
+
+  {"id": "hecatommithi", "begriff": "Hecatommithi",
+   "formen": ["Gli Hecatommithi", "Hecatommithi"],
+   "erklaerung": "»Hundert Erzählungen«, Novellensammlung von Giovanni Battista Giraldi, genannt Cinthio, Venedig 1565. Die siebte Novelle der dritten Dekade ist Shakespeares Vorlage für Othello."},
+
+  {"id": "act-1606", "begriff": "Act to Restrain Abuses of Players",
+   "formen": ["Act to Restrain Abuses of Players"],
+   "erklaerung": "Englisches Gesetz von 1606, das es unter Strafe stellte, auf der Bühne den Namen Gottes zu missbrauchen. Die Folge ist in den Drucktexten sichtbar: Flüche werden ersetzt oder gestrichen, »God« weicht dem »heaven«."},
+
+  {"id": "anthropophagen", "begriff": "Anthropophagen",
+   "formen": ["Anthropophagen", "Anthropophagi"],
+   "erklaerung": "Griechisch für »Menschenfresser«. Feste Größe der antiken Völkerkunde, von Herodot über Plinius bis in die Reiseberichte der Frühen Neuzeit — für Shakespeares Publikum keine Fabel, sondern Bildungswissen."},
+
+  {"id": "ottomiten", "begriff": "Ottomiten",
+   "formen": ["Ottomites", "Ottomiten"],
+   "erklaerung": "Die Osmanen. Der Türkenkrieg um Zypern ist historisch: Die Insel fiel 1570/71 an das Osmanische Reich. Shakespeares Flottenkatastrophe vor Zypern ist dagegen erfunden."},
+
+  {"id": "levante", "begriff": "Levant Company",
+   "formen": ["Levant Company", "Levantehandel"],
+   "erklaerung": "1581 gegründete englische Handelsgesellschaft mit Niederlassungen im Osmanischen Reich, unter anderem in Aleppo. Ihre Kaufleute waren die Quelle des englischen Wissens über den Orient — und ihres Publikums Bezugspunkt bei Othellos letzter Erzählung."},
+
+  {"id": "beizjagd", "begriff": "Beizjagd",
+   "formen": ["Beizjagd", "Falknerei"],
+   "erklaerung": "Jagd mit abgerichteten Greifvögeln, adliges Standesvergnügen. Ihr Fachwortschatz — haggard, jesses, to whistle her off — war so geläufig, dass Shakespeare ihn als Bildspender benutzen konnte."},
+
+  {"id": "double-time", "begriff": "doppelte Zeitrechnung",
+   "formen": ["doppelte Zeitrechnung", "Double Time", "double time"],
+   "erklaerung": "Die Beobachtung, dass Othello zwei unvereinbare Zeitmaße gleichzeitig nahelegt: eine rasende kurze Handlung von anderthalb Tagen und eine lange, die den Ehebruch überhaupt erst möglich machte. Der Begriff stammt von »Christopher North« (John Wilson) und wurde von A. C. Bradley ausführlich erörtert."},
+
+  {"id": "textkritik", "begriff": "Textkritik",
+   "formen": ["Textkritik"],
+   "erklaerung": "Der Zweig der Philologie, der aus den erhaltenen Zeugen — Handschriften, Drucken — den Text herzustellen und ihre Abweichungen zu beurteilen sucht. Bei Shakespeare heißt das vor allem: das Verhältnis von Quarto und Folio."},
+
+  {"id": "crux", "begriff": "Crux",
+   "formen": ["Crux"],
+   "erklaerung": "Eine Textstelle, die sich der sicheren Entscheidung entzieht — von lateinisch crux, Kreuz, das Marterholz des Herausgebers. Berühmtes Beispiel: »base Judean« oder »base Indian« in V,2."}
+
+ ]
+}

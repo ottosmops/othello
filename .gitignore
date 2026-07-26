@@ -1,0 +1,13 @@
+# Das TEI-Schema wird bei Bedarf geladen (make schema), nicht mitgeführt.
+build/tei_all.rng
+
+# Zwischenstände des Einlesens; werden aus sources/ neu erzeugt (make).
+build/en.json
+build/de.json
+build/align.json
+
+# build/konkordanz.json bleibt versioniert: die Konkordanzseiten verweisen
+# darauf als vollständige Datengrundlage.
+
+.DS_Store
+__pycache__/

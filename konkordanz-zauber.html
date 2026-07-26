@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Othello — Konkordanz: Zauber, Gift, Krankheit</title>
+<style>
+:root {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+          --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820; }
+}
+:root[data-theme="dark"] {
+  --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+  --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820;
+}
+:root[data-theme="light"] {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.4rem 6rem; }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; margin: 0 0 .3rem; font-weight: 600; }
+.sub { margin: 0; color: var(--muted); font-style: italic; }
+.sans { font-family: system-ui, -apple-system, sans-serif; }
+
+header.title { padding: 3rem 0 1.6rem; }
+header.title dl { display: grid; grid-template-columns: max-content 1fr;
+                  gap: .3rem 1.2rem; margin: 1.5rem 0 0; font-size: .82rem;
+                  color: var(--muted); }
+header.title dt { font-variant: small-caps; letter-spacing: .04em; }
+header.title dd { margin: 0; }
+
+nav.pages { display: flex; gap: 1.1rem; padding: .7rem 0; font-size: .78rem;
+            font-family: system-ui, sans-serif; border-bottom: 1px solid var(--rule);
+            border-top: 1px solid var(--rule); }
+nav.pages a { color: var(--muted); text-decoration: none; }
+nav.pages a.here { color: var(--accent); font-weight: 600; }
+nav.pages a:hover { color: var(--accent); }
+
+.hinweis { background: var(--note-bg); border-left: 3px solid var(--accent);
+           padding: .8rem 1rem; margin: 1.6rem 0; font-size: .85rem;
+           max-width: 52em; }
+.hinweis b { font-weight: 600; }
+
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+         font-size: .78rem; color: var(--muted); }
+
+/* Popups: die erste Regel versteckt auch dort, wo popover unbekannt ist. */
+[popover] { display: none; border: 1px solid var(--rule); background: var(--bg);
+            color: var(--fg); border-radius: 5px; padding: 1.2rem 1.4rem;
+            max-width: 36rem; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            font-size: .87rem; }
+[popover]:popover-open { display: block; }
+[popover].fallback-open { display: block !important; position: fixed; top: 50%;
+                          left: 50%; transform: translate(-50%, -50%); z-index: 60; }
+[popover]::backdrop { background: rgba(0,0,0,.4); }
+[popover] .close { position: absolute; top: .3rem; right: .55rem; border: 0;
+                   background: none; color: var(--muted); font-size: 1.2rem;
+                   cursor: pointer; line-height: 1; }
+
+/* Glossar: Erklärung beim Überfahren */
+.gloss { border-bottom: 1px dotted var(--accent); cursor: help; position: relative; }
+.gloss > .tip { display: none; position: absolute; left: 0; top: 1.5em; z-index: 70;
+                width: max(18rem, 22vw); max-width: 90vw; background: var(--bg);
+                color: var(--fg); border: 1px solid var(--accent); border-radius: 4px;
+                padding: .6rem .8rem; font-size: .78rem; line-height: 1.45;
+                font-style: normal; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.gloss > .tip b { display: block; font-variant: small-caps; letter-spacing: .06em;
+                  color: var(--accent); margin-bottom: .2rem; }
+.gloss:hover > .tip, .gloss:focus > .tip, .gloss:focus-within > .tip { display: block; }
+@media (max-width: 700px) { .gloss > .tip { left: auto; right: 0; } }
+
+.felder { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+          gap: 1rem; margin: 1.6rem 0; }
+.felder a { display: block; padding: .9rem 1rem; border: 1px solid var(--rule);
+            border-radius: 4px; text-decoration: none; color: inherit;
+            background: var(--note-bg); }
+.felder a:hover { border-color: var(--accent); }
+.felder .t { font-weight: 600; color: var(--accent); }
+.felder .z { font-size: .78rem; color: var(--muted);
+             font-family: system-ui, sans-serif; }
+.felder .w { font-size: .78rem; color: var(--muted); margin-top: .3rem; }
+
+section.wort { margin: 2.2rem 0; padding-top: 1rem; border-top: 1px solid var(--rule); }
+section.wort h2 { font-size: 1rem; margin: 0 0 .8rem; }
+section.wort h2 span { color: var(--muted); font-weight: 400; font-size: .82rem;
+                       font-family: system-ui, sans-serif; }
+.stelle { margin: 0 0 .9rem; padding-left: 5.6rem; position: relative;
+          max-width: 52em; }
+.stelle .ref { position: absolute; left: 0; top: .1rem; width: 5.2rem;
+               font-size: .7rem; font-family: system-ui, sans-serif;
+               color: var(--muted); line-height: 1.4; }
+.stelle .ref a { text-decoration: none; }
+.stelle .ref b { display: block; font-weight: 600; color: var(--fg); }
+.stelle .ctx { color: var(--muted); font-size: .86em; }
+.stelle .zeile { margin: .05rem 0; }
+.stelle em { font-style: normal; font-weight: 600; color: var(--accent); }
+.stelle .prosa { font-size: .95em; }
+.bezug { display: inline-block; margin-top: .2rem; font-size: .7rem;
+         font-family: system-ui, sans-serif; padding: .05rem .5rem;
+         border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); }
+.bezug.geprueft { border-color: var(--accent); color: var(--accent); }
+.bezug.auto { font-style: italic; }
+.zahlen { font-size: .8rem; color: var(--muted); font-family: system-ui, sans-serif;
+          background: var(--note-bg); padding: .7rem .9rem; border-radius: 4px;
+          margin: 1.2rem 0; }
+.zahlen b { color: var(--fg); font-weight: 600; }
+.zurueck { font-size: .8rem; font-family: system-ui, sans-serif; margin: 1.2rem 0; }
+@media (max-width: 700px) {
+  .stelle { padding-left: 0; }
+  .stelle .ref { position: static; width: auto; margin-bottom: .2rem; }
+  .stelle .ref b { display: inline; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="title">
+  <h1>Zauber, Gift, Krankheit</h1>
+  <p class="sub">Brabantios Anklage lautet auf Zauberei; Jago beschreibt seine Arbeit als Vergiftung. Beide Register bleiben bis zum Schluss in Gebrauch.</p>
+</header>
+<nav class="pages"><a href="index.html">Start</a><a href="einleitung.html">Einleitung</a><a href="othello-bilingual.html">Ausgabe</a><a href="befunde.html">Befunde</a><a href="konkordanz.html" class="here">Konkordanz</a><a href="quellen.html">Quellen</a></nav>
+<p class="zurueck"><a href="konkordanz.html">← alle Wortfelder</a></p><div class="zahlen">Englisch: 35 Belege · Deutsch in den verknüpften Reden: <b>Hexe</b> 1 · <b>Zauber</b> 8 · <b>Bann</b> 1 · <b>Gift</b> 9 · <b>Trank</b> 1 · <b>Pest</b> 1 · <b>krank</b> 3</div><section class="wort" id="w-witch"><h2>witch <span>· 4 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.72"><b>1,3</b>Z. 72<br>BRABANTIO</a></span><div class="zeile ctx">Being not deficient, blind, or lame of sense,</div><div class="zeile">Sans <em>witchcraft</em> could not.</div><div class="zeile ctx">Whoe’er he be, that in this foul proceeding,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.183"><b>1,3</b>Z. 183<br>OTHELLO</a></span><div class="zeile ctx">And I lov’d her that she did pity them.</div><div class="zeile">This only is the <em>witchcraft</em> I have us’d.</div><div class="zeile ctx">Here comes the lady. Let her witness it.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.341"><b>2,3</b>Z. 341<br>IAGO</a></span><div class="zeile ctx">What wound did ever heal but by degrees?</div><div class="zeile">Thou know’st we work by wit, and not by <em>witchcraft</em>,</div><div class="zeile ctx">And wit depends on dilatory time.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.236"><b>3,3</b>Z. 236<br>IAGO</a></span><div class="zeile ctx">To seal her father’s eyes up close as oak,</div><div class="zeile">He thought ’twas <em>witchcraft</em>. But I am much to blame.</div><div class="zeile ctx">I humbly do beseech you of your pardon</div></div></section><section class="wort" id="w-charm"><h2>charm <span>· 7 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.180"><b>1,1</b>Z. 180<br>BRABANTIO</a></span><div class="zeile ctx">Fathers, from hence trust not your daughters’ minds</div><div class="zeile">By what you see them act. Is there not <em>charms</em></div><div class="zeile ctx">By which the property of youth and maidhood</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.2.85"><b>1,2</b>Z. 85<br>BRABANTIO</a></span><div class="zeile ctx">Judge me the world, if ’tis not gross in sense,</div><div class="zeile">That thou hast practis’d on her with foul <em>charms</em>,</div><div class="zeile ctx">Abus’d her delicate youth with drugs or minerals</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.101"><b>1,3</b>Z. 101<br>OTHELLO</a></span><div class="zeile ctx">I will a round unvarnish’d tale deliver</div><div class="zeile">Of my whole course of love: what drugs, what <em>charms</em>,</div><div class="zeile ctx">What conjuration, and what mighty magic,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.4.58"><b>3,4</b>Z. 58<br>OTHELLO</a></span><div class="zeile ctx">Did an Egyptian to my mother give.</div><div class="zeile">She was a <em>charmer</em>, and could almost read</div><div class="zeile ctx">The thoughts of people. She told her, while she kept it,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.1.37"><b>5,1</b>Z. 37<br>OTHELLO</a></span><div class="zeile ctx">And your unbless’d fate hies. Strumpet, I come!</div><div class="zeile">Forth of my heart those <em>charms</em>, thine eyes, are blotted;</div><div class="zeile ctx">Thy bed, lust-stain’d, shall with lust’s blood be spotted.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.2.213"><b>5,2</b>Z. 213<br>IAGO</a></span><div class="zeile ctx">She false with Cassio? Did you say with Cassio?</div><div class="zeile">With Cassio, mistress. Go to, <em>charm</em> your tongue.</div><div class="zeile ctx">I will not charm my tongue; I am bound to speak.</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Cassio</span></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.2.214"><b>5,2</b>Z. 214<br>EMILIA</a></span><div class="zeile ctx">With Cassio, mistress. Go to, charm your tongue.</div><div class="zeile">I will not <em>charm</em> my tongue; I am bound to speak.</div><div class="zeile ctx">My mistress here lies murder’d in her bed.</div></div></section><section class="wort" id="w-magic"><h2>magic <span>· 3 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.2.77"><b>1,2</b>Z. 77<br>BRABANTIO</a></span><div class="zeile ctx">For I’ll refer me to all things of sense,</div><div class="zeile">(If she in chains of <em>magic</em> were not bound)</div><div class="zeile ctx">Whether a maid so tender, fair, and happy,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.102"><b>1,3</b>Z. 102<br>OTHELLO</a></span><div class="zeile ctx">Of my whole course of love: what drugs, what charms,</div><div class="zeile">What conjuration, and what mighty <em>magic</em>,</div><div class="zeile ctx">(For such proceeding I am charged withal)</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.4.71"><b>3,4</b>Z. 71<br>OTHELLO</a></span><div class="zeile ctx">Is’t possible?</div><div class="zeile">’Tis true. There’s <em>magic</em> in the web of it.</div><div class="zeile ctx">A sibyl, that had number’d in the world</div></div></section><section class="wort" id="w-spell"><h2>spell <span>· 1 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.69"><b>1,3</b>Z. 69<br>BRABANTIO</a></span><div class="zeile ctx">She is abused, stol’n from me, and corrupted</div><div class="zeile">By <em>spells</em> and medicines bought of mountebanks;</div><div class="zeile ctx">For nature so preposterously to err,</div></div></section><section class="wort" id="w-poison"><h2>poison <span>· 9 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.70"><b>1,1</b>Z. 70<br>IAGO</a></span><div class="zeile ctx">Call up her father,</div><div class="zeile">Rouse him, make after him, <em>poison</em> his delight,</div><div class="zeile ctx">Proclaim him in the streets; incense her kinsmen,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.124"><b>1,3</b>Z. 124<br>FIRST SENATOR</a></span><div class="zeile ctx">Did you by indirect and forced courses</div><div class="zeile">Subdue and <em>poison</em> this young maid’s affections?</div><div class="zeile ctx">Or came it by request, and such fair question</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-2.1.291"><b>2,1</b>Z. 291<br>IAGO</a></span><div class="zeile ctx">Hath leap’d into my seat. The thought whereof</div><div class="zeile">Doth, like a <em>poisonous</em> mineral, gnaw my inwards,</div><div class="zeile ctx">And nothing can or shall content my soul</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.361"><b>3,3</b>Z. 361<br>IAGO</a></span><div class="zeile ctx">As proofs of holy writ. This may do something.</div><div class="zeile">The Moor already changes with my <em>poison</em>:</div><div class="zeile ctx">Dangerous conceits are in their natures poisons,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.362"><b>3,3</b>Z. 362<br>IAGO</a></span><div class="zeile ctx">The Moor already changes with my poison:</div><div class="zeile">Dangerous conceits are in their natures <em>poisons</em>,</div><div class="zeile ctx">Which at the first are scarce found to distaste,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.430"><b>3,3</b>Z. 430<br>OTHELLO</a></span><div class="zeile ctx">As mine own face. If there be cords or knives,</div><div class="zeile"><em>Poison</em> or fire, or suffocating streams,</div><div class="zeile ctx">I’ll not endure ’t. Would I were satisfied!</div></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.203"><b>4,1</b>Z. 203<br>OTHELLO</a></span><div class="zeile ctx">That’s fouler.</div><div class="zeile">Get me some <em>poison</em>, Iago; this night. I’ll not expostulate with her,</div><div class="zeile ctx">lest her body and beauty unprovide my mind again. This night, Iago.</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Jago</span></div><div class="stelle prosa"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.205"><b>4,1</b>Z. 205<br>IAGO</a></span><div class="zeile ctx">lest her body and beauty unprovide my mind again. This night, Iago.</div><div class="zeile">Do it not with <em>poison</em>, strangle her in her bed, even the bed she hath</div><div class="zeile ctx">contaminated.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-5.2.415"><b>5,2</b>Z. 415<br>LODOVICO</a></span><div class="zeile ctx">Look on the tragic loading of this bed.</div><div class="zeile">This is thy work. The object <em>poisons</em> sight,</div><div class="zeile ctx">Let it be hid. Gratiano, keep the house,</div></div></section><section class="wort" id="w-medicine"><h2>medicine <span>· 3 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.69"><b>1,3</b>Z. 69<br>BRABANTIO</a></span><div class="zeile ctx">She is abused, stol’n from me, and corrupted</div><div class="zeile">By spells and <em>medicines</em> bought of mountebanks;</div><div class="zeile ctx">For nature so preposterously to err,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.368"><b>3,3</b>Z. 368<br>IAGO</a></span><div class="zeile ctx">Nor all the drowsy syrups of the world,</div><div class="zeile">Shall ever <em>medicine</em> thee to that sweet sleep</div><div class="zeile ctx">Which thou ow’dst yesterday.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.52"><b>4,1</b>Z. 52<br>IAGO</a></span><div class="zeile ctx">Work on,</div><div class="zeile">My <em>medicine</em>, work! Thus credulous fools are caught,</div><div class="zeile ctx">And many worthy and chaste dames even thus,</div></div></section><section class="wort" id="w-drug"><h2>drug <span>· 2 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.2.86"><b>1,2</b>Z. 86<br>BRABANTIO</a></span><div class="zeile ctx">That thou hast practis’d on her with foul charms,</div><div class="zeile">Abus’d her delicate youth with <em>drugs</em> or minerals</div><div class="zeile ctx">That weakens motion. I’ll have’t disputed on;</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.3.101"><b>1,3</b>Z. 101<br>OTHELLO</a></span><div class="zeile ctx">I will a round unvarnish’d tale deliver</div><div class="zeile">Of my whole course of love: what <em>drugs</em>, what charms,</div><div class="zeile ctx">What conjuration, and what mighty magic,</div></div></section><section class="wort" id="w-plague"><h2>plague <span>· 5 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-1.1.73"><b>1,1</b>Z. 73<br>IAGO</a></span><div class="zeile ctx">And though he in a fertile climate dwell,</div><div class="zeile"><em>Plague</em> him with flies: though that his joy be joy,</div><div class="zeile ctx">Yet throw such changes of vexation on’t,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.166"><b>3,3</b>Z. 166<br>IAGO</a></span><div class="zeile ctx">Though I perchance am vicious in my guess,</div><div class="zeile">As, I confess, it is my nature’s <em>plague</em></div><div class="zeile ctx">To spy into abuses, and of my jealousy</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.303"><b>3,3</b>Z. 303<br>OTHELLO</a></span><div class="zeile ctx">Than keep a corner in the thing I love</div><div class="zeile">For others’ uses. Yet, ’tis the <em>plague</em> of great ones,</div><div class="zeile ctx">Prerogativ’d are they less than the base,</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-3.3.306"><b>3,3</b>Z. 306<br>OTHELLO</a></span><div class="zeile ctx">’Tis destiny unshunnable, like death:</div><div class="zeile">Even then this forked <em>plague</em> is fated to us</div><div class="zeile ctx">When we do quicken. Desdemona comes.</div></div><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-4.1.110"><b>4,1</b>Z. 110<br>IAGO</a></span><div class="zeile ctx">Buys herself bread and clothes: it is a creature</div><div class="zeile">That dotes on Cassio, (as ’tis the strumpet’s <em>plague</em></div><div class="zeile ctx">To beguile many and be beguil’d by one.)</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Cassio</span></div></section><section class="wort" id="w-sick"><h2>sick <span>· 1 Belege, alle aufgeführt</span></h2><div class="stelle"><span class="ref"><a href="othello-bilingual.html#l-en-2.3.42"><b>2,3</b>Z. 42<br>IAGO</a></span><div class="zeile ctx">He’ll be as full of quarrel and offence</div><div class="zeile">As my young mistress’ dog. Now my <em>sick</em> fool Roderigo,</div><div class="zeile ctx">Whom love hath turn’d almost the wrong side out,</div><span class="bezug auto" title="in der Zeile genannt; maschinell erkannt, keine Deutung">nennt: Rodrigo</span></div></section>
+<footer>Erzeugt mit <code>src/concordance.py</code>. Die Zeilennummer zählt innerhalb der Szene und entspricht <code>l/@n</code> in der TEI-Datei. Alle Belege auch in <code>build/konkordanz.json</code>.</footer>
+</div>
+<script>
+// Popups: die Popover-API, wo vorhanden, sonst eine schlichte Rückfallebene.
+const supportsPopover = HTMLElement.prototype.hasOwnProperty('togglePopover');
+if (!supportsPopover) {
+  document.querySelectorAll('[data-pop]').forEach(btn => {
+    const pop = document.getElementById(btn.dataset.pop);
+    if (!pop) return;
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('[popover].fallback-open')
+              .forEach(p => p.classList.remove('fallback-open'));
+      pop.classList.add('fallback-open');
+    });
+  });
+}
+document.querySelectorAll('[popover] .close').forEach(b => {
+  b.addEventListener('click', () => {
+    const pop = b.closest('[popover]');
+    if (supportsPopover && pop.hidePopover) { pop.hidePopover(); }
+    else { pop.classList.remove('fallback-open'); }
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('[popover].fallback-open')
+            .forEach(p => p.classList.remove('fallback-open'));
+  }
+});
+</script>
+</body>
+</html>

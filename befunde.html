@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Othello — Befunde</title>
+<style>
+:root {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+          --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820; }
+}
+:root[data-theme="dark"] {
+  --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+  --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820;
+}
+:root[data-theme="light"] {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.4rem 6rem; }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; margin: 0 0 .3rem; font-weight: 600; }
+.sub { margin: 0; color: var(--muted); font-style: italic; }
+.sans { font-family: system-ui, -apple-system, sans-serif; }
+
+header.title { padding: 3rem 0 1.6rem; }
+header.title dl { display: grid; grid-template-columns: max-content 1fr;
+                  gap: .3rem 1.2rem; margin: 1.5rem 0 0; font-size: .82rem;
+                  color: var(--muted); }
+header.title dt { font-variant: small-caps; letter-spacing: .04em; }
+header.title dd { margin: 0; }
+
+nav.pages { display: flex; gap: 1.1rem; padding: .7rem 0; font-size: .78rem;
+            font-family: system-ui, sans-serif; border-bottom: 1px solid var(--rule);
+            border-top: 1px solid var(--rule); }
+nav.pages a { color: var(--muted); text-decoration: none; }
+nav.pages a.here { color: var(--accent); font-weight: 600; }
+nav.pages a:hover { color: var(--accent); }
+
+.hinweis { background: var(--note-bg); border-left: 3px solid var(--accent);
+           padding: .8rem 1rem; margin: 1.6rem 0; font-size: .85rem;
+           max-width: 52em; }
+.hinweis b { font-weight: 600; }
+
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+         font-size: .78rem; color: var(--muted); }
+
+/* Popups: die erste Regel versteckt auch dort, wo popover unbekannt ist. */
+[popover] { display: none; border: 1px solid var(--rule); background: var(--bg);
+            color: var(--fg); border-radius: 5px; padding: 1.2rem 1.4rem;
+            max-width: 36rem; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            font-size: .87rem; }
+[popover]:popover-open { display: block; }
+[popover].fallback-open { display: block !important; position: fixed; top: 50%;
+                          left: 50%; transform: translate(-50%, -50%); z-index: 60; }
+[popover]::backdrop { background: rgba(0,0,0,.4); }
+[popover] .close { position: absolute; top: .3rem; right: .55rem; border: 0;
+                   background: none; color: var(--muted); font-size: 1.2rem;
+                   cursor: pointer; line-height: 1; }
+
+/* Glossar: Erklärung beim Überfahren */
+.gloss { border-bottom: 1px dotted var(--accent); cursor: help; position: relative; }
+.gloss > .tip { display: none; position: absolute; left: 0; top: 1.5em; z-index: 70;
+                width: max(18rem, 22vw); max-width: 90vw; background: var(--bg);
+                color: var(--fg); border: 1px solid var(--accent); border-radius: 4px;
+                padding: .6rem .8rem; font-size: .78rem; line-height: 1.45;
+                font-style: normal; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.gloss > .tip b { display: block; font-variant: small-caps; letter-spacing: .06em;
+                  color: var(--accent); margin-bottom: .2rem; }
+.gloss:hover > .tip, .gloss:focus > .tip, .gloss:focus-within > .tip { display: block; }
+@media (max-width: 700px) { .gloss > .tip { left: auto; right: 0; } }
+
+section.block { margin: 2.4rem 0; padding-top: 1.1rem; border-top: 2px solid var(--rule); }
+section.block h2 { font-size: 1.05rem; font-variant: small-caps; letter-spacing: .06em;
+                   color: var(--accent); margin: 0 0 .5rem; }
+section.block p { max-width: 46em; }
+table.zahlen { border-collapse: collapse; margin: 1rem 0 .6rem; font-size: .86rem;
+               min-width: min(100%, 34rem); }
+table.zahlen th, table.zahlen td { padding: .28rem .9rem .28rem 0; text-align: left;
+                                   border-bottom: 1px solid var(--rule); }
+table.zahlen th { font-variant: small-caps; letter-spacing: .05em; color: var(--muted);
+                  font-weight: 400; font-size: .76rem; }
+table.zahlen td.num { text-align: right; font-variant-numeric: tabular-nums;
+                      padding-right: 1.6rem; }
+table.zahlen tr.sum td { font-weight: 600; border-top: 2px solid var(--rule); }
+.abfrage { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+           font-size: .76rem; color: var(--muted); background: var(--note-bg);
+           padding: .35rem .6rem; border-radius: 3px; display: inline-block;
+           margin-top: .3rem; }
+.beleg { margin-top: .8rem; font-size: .8rem; color: var(--muted); max-width: 46em; }
+.beleg .art { font-variant: small-caps; letter-spacing: .06em; color: var(--accent); }
+.tabellen { display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="title">
+  <h1>Befunde</h1>
+  <p class="sub">Was sich an den beiden Textzeugen auszählen lässt — und was die
+     Zahlen nicht hergeben</p>
+</header>
+<nav class="pages"><a href="index.html">Start</a><a href="einleitung.html">Einleitung</a><a href="othello-bilingual.html">Ausgabe</a><a href="befunde.html" class="here">Befunde</a><a href="konkordanz.html">Konkordanz</a><a href="quellen.html">Quellen</a></nav>
+<div class="hinweis"><b>Woher dieser Kommentar stammt.</b> Er ist kein Nachdruck einer vorhandenen Ausgabe, sondern für diese Zusammenstellung verfasst — maschinell, von einem Sprachmodell. Was sich belegen lässt, ist belegt: Zitate sind automatisch gegen beide Textzeugen geprüft, Zahlenangaben am Text ausgezählt, Angaben aus der Literatur im Volltext nachgeschlagen. Wo eine Aussage auf keinem dieser drei Wege gesichert ist, sagt das die Schaltfläche <i>Beleg</i> an der Anmerkung selbst. Die philologischen Urteile sind damit nicht abgesichert — sie gehören geprüft, bevor jemand sie zitiert.</div><div class="hinweis"><b>Wie gezählt wird.</b> Grundlage sind die beiden eingelesenen Textzeugen dieser Ausgabe. Gezählt werden Wörter als durch Leerzeichen getrennte Zeichenketten, Sprechakte als <code>sp</code>-Elemente, Wortvorkommen mit einem Wortgrenzen-Muster (<code>\bhonest\w*\b</code>), das auch Ableitungen erfasst. Regieanweisungen zählen mit, wenn sie in der Quelle stehen; stillschweigend ergänzt wurde keine. Zwei Einschränkungen sind wichtig: Die Vers/Prosa-Unterscheidung des englischen Zeugen ist erschlossen, nicht überliefert, und deutsche Wörter werden in der <i>verknüpften</i> Rede gezählt — sie stehen dem englischen Wort gegenüber, ohne es zwingend zu übersetzen.</div><section class="block" id="note-play-umfang"><h2>Der deutsche Text ist kürzer</h2><p>25 800 Wörter englisch stehen 24 696 Wörtern deutsch gegenüber — Baudissin braucht rund vier Prozent weniger, obwohl das Deutsche gegenüber dem Englischen normalerweise auffüllt. Der Grund ist der <span class="gloss" tabindex="0">Blankvers<span class="tip"><b>Blankvers</b>Reimloser fünfhebiger Jambus — das Versmaß des englischen Renaissancedramas und, seit Schlegel, auch des deutschen Shakespeare. Zehn oder elf Silben je Zeile, betont auf jeder zweiten.</span></span>: Wer fünfhebig bleiben will, muss im Deutschen verdichten. Die schärfste Verdichtung trifft in III,3 eine ganze Zeile (siehe die Anmerkung zum ausgelassenen »shrewd doubt«), im Übrigen zeigt sie sich als durchgehende Straffung der Nebensätze.</p><p class="beleg"><span class="art">Beleg — an dieser Ausgabe ausgezählt</span><br>Wortzählung beider Zeugen (Ausgabe von src/parse_en.py und src/parse_de.py); Verhältnis der Einzelreden: python3 src/observe.py ratio.</p></section><section class="block" id="note-play-redeanteile"><h2>Wer spricht: die Redeanteile</h2><p>Die Titelfigur ist nicht die sprechende Hauptfigur. Jago hat 272 Reden mit 8 392 Wörtern und damit 32,5 Prozent des Textes, Othello 274 Reden mit 6 216 Wörtern, also 24,1 Prozent. Desdemona kommt bei 165 Reden auf 2 744 Wörter (10,6 Prozent) — sie spricht oft und kurz, Jago selten kurz. Cassio (7,6 %) und Emilia (7,0 %) folgen; Bianca hat 15 Reden und 266 Wörter. Das Zahlenverhältnis ist die nüchternste Beschreibung dessen, was das Stück tut: es überlässt dem Intriganten das Wort und der Ermordeten am wenigsten.</p><p class="beleg"><span class="art">Beleg — an dieser Ausgabe ausgezählt</span><br>Auszählung am englischen Zeugen dieser Ausgabe: python3 src/observe.py share.</p></section><section class="block" id="note-play-vers-prosa-figuren"><h2>Vers und Prosa als Figurenzeichnung</h2><p>Die Verteilung von Vers und Prosa folgt keiner Standesregel, sondern der Lage. Der Narr spricht ausschließlich Prosa (14 von 14 Reden), Rodrigo zu 37 Prozent, Cassio zu 35, Jago zu 24 — Othello dagegen nur zu 9 Prozent, Emilia zu 4, Montano und Gratiano überhaupt nicht. Jago wechselt also fortwährend das Register, Othello fast nie: seine Prosa steht dort, wo er zusammenbricht (IV,1). Der Befund stützt sich auf die erschlossene Vers/Prosa-Zuordnung des englischen Zeugen und ist deshalb mit dem Vorbehalt zu lesen, der im Header dieser Ausgabe steht.</p><p class="beleg"><span class="art">Beleg — an dieser Ausgabe ausgezählt</span><br>python3 src/observe.py form. Zur Erschließung der Vers/Prosa-Unterscheidung im englischen Zeugen siehe encodingDesc/editorialDecl.</p></section><section class="block" id="note-play-schlussreime"><h2>Die Schlussreime</h2><p>Neun Szenen enden im <span class="gloss" tabindex="0">Reimpaar<span class="tip"><b>Reimpaar</b>Zwei aufeinanderfolgende, aufeinander reimende Verse. Im elisabethanischen Drama markieren sie oft den Schluss einer Szene oder eine Sentenz — ein akustisches Signal, wo die Bühne keinen Vorhang hatte.</span></span> — das Signal für den Vorhang auf der offenen Bühne, die keinen Vorhang hatte. Baudissin behält in allen neun Fällen den Reim: »Hell and night / Must bring this monstrous birth to the world&#x27;s light« wird zu »aus Höll&#x27; und Nacht / Sei diese Untat an das Licht gebracht«, »This heavy act with heavy heart relate« zu »Mit schwerem Herzen künden schwere Tat«. Das ist die auffälligste formale Treue dieser Übersetzung: Reim gegen Reim, auch wo er Wortlaut kostet.</p><p class="beleg"><span class="art">Beleg — an dieser Ausgabe ausgezählt</span><br>Vergleich der Szenenschlüsse beider Zeugen: python3 src/observe.py rhyme.</p></section><section class="block" id="note-play-regieanweisungen"><h2>Mehr Regie im Deutschen</h2><p>Der englische Zeuge hat 169 Regieanweisungen, der deutsche 214; in 13 von 15 Szenen steht im Deutschen mehr Regie als im Englischen. Am weitesten gehen die Fassungen in IV,1 auseinander (17 gegenüber 28). Das ist keine Übersetzungsentscheidung im engeren Sinn, sondern die Handschrift einer Ausgabe des 19. Jahrhunderts, die für die Lektüre einrichtet, was auf der elisabethanischen Bühne der Dialog selbst erledigte. Wer Baudissin für die Bühne benutzt, erbt eine Inszenierung mit.</p><p class="beleg"><span class="art">Beleg — an dieser Ausgabe ausgezählt</span><br>Zählung der stage-Elemente je Szene in beiden Zeugen: python3 src/observe.py stage.</p></section><section class="block" id="note-play-gott-und-himmel"><h2>»heaven« und »Gott«</h2><p>Der englische Text sagt 72-mal »heaven« und nur 12-mal »God«; der deutsche sagt 43-mal »Gott« und 43-mal »Himmel«. Das Missverhältnis hat einen überlieferungsgeschichtlichen Grund: Das <span class="gloss" tabindex="0">Folio<span class="tip"><b>Folio</b>Buchformat, bei dem der Bogen nur einmal gefaltet wird — das große, repräsentative Format, sonst Bibeln und Gesetzestexten vorbehalten. Dass Shakespeares Dramen 1623 im Folio erschienen, war ein Anspruch auf literarischen Rang.</span></span> ersetzt Gottesnamen im Gefolge des <span class="gloss" tabindex="0">Act to Restrain Abuses of Players<span class="tip"><b>Act to Restrain Abuses of Players</b>Englisches Gesetz von 1606, das es unter Strafe stellte, auf der Bühne den Namen Gottes zu missbrauchen. Die Folge ist in den Drucktexten sichtbar: Flüche werden ersetzt oder gestrichen, »God« weicht dem »heaven«.</span></span> (1606) regelmäßig durch Umschreibungen, während die <span class="gloss" tabindex="0">Quarto<span class="tip"><b>Quarto</b>Buchformat, bei dem der Druckbogen zweimal gefaltet wird — vier Blatt, acht Seiten. Einzeldramen erschienen zu Shakespeares Zeit in diesem handlichen, billigen Format.</span></span> die Flüche noch stehen lässt. Baudissin übersetzt, was er vorfindet, ohne diese Rücksicht — im Deutschen wird also wieder ausgesprochen, was der englische Drucktext von 1623 vermieden hatte. An einer Stelle geht es andersherum: Cassios »O God, that men should put an enemy in their mouths« beginnt bei Baudissin ohne Anrufung.</p><p class="beleg"><span class="art">Beleg — an dieser Ausgabe ausgezählt</span><br>Wortzählung an beiden Zeugen: python3 src/observe.py word heaven God. Zur Zensurpraxis des Folios siehe ISE; die Zuordnung einzelner Stellen zu Q1 oder F1 wurde nicht im Einzelnen geprüft.</p></section>
+<section class="block" id="redeanteile">
+  <h2>Redeanteile</h2>
+  <table class="zahlen"><tr><th>Figur</th><th>Reden</th><th>Wörter</th><th>Anteil</th></tr><tr><td>IAGO</td><td class="num">272</td><td class="num">8392</td><td class="num">32.5%</td></tr><tr><td>OTHELLO</td><td class="num">274</td><td class="num">6216</td><td class="num">24.1%</td></tr><tr><td>DESDEMONA</td><td class="num">165</td><td class="num">2744</td><td class="num">10.6%</td></tr><tr><td>CASSIO</td><td class="num">111</td><td class="num">1952</td><td class="num">7.6%</td></tr><tr><td>EMILIA</td><td class="num">103</td><td class="num">1808</td><td class="num">7.0%</td></tr><tr><td>BRABANTIO</td><td class="num">30</td><td class="num">1038</td><td class="num">4.0%</td></tr><tr><td>RODERIGO</td><td class="num">59</td><td class="num">860</td><td class="num">3.3%</td></tr><tr><td>LODOVICO</td><td class="num">33</td><td class="num">527</td><td class="num">2.0%</td></tr><tr><td>DUKE</td><td class="num">23</td><td class="num">474</td><td class="num">1.8%</td></tr><tr><td>MONTANO</td><td class="num">24</td><td class="num">414</td><td class="num">1.6%</td></tr><tr><td>BIANCA</td><td class="num">15</td><td class="num">266</td><td class="num">1.0%</td></tr><tr><td>CLOWN</td><td class="num">14</td><td class="num">226</td><td class="num">0.9%</td></tr><tr><td>FIRST SENATOR</td><td class="num">8</td><td class="num">180</td><td class="num">0.7%</td></tr><tr><td>GRATIANO</td><td class="num">19</td><td class="num">161</td><td class="num">0.6%</td></tr><tr class="sum"><td>alle Figuren</td><td class="num">1182</td><td class="num">25800</td><td class="num">100 %</td></tr></table>
+  <span class="abfrage">python3 src/observe.py share</span>
+</section>
+<section class="block" id="vers-prosa">
+  <h2>Vers und Prosa je Figur (englischer Zeuge)</h2>
+  <p>Die Zuordnung ist aus dem Zeilenmaß der Transkription erschlossen;
+     129 von 1224 Redegruppen (10.5%)
+     beruhen auf der Kontextregel und sind in der TEI-Datei mit
+     <code>cert="low"</code> markiert.</p>
+  <table class="zahlen"><tr><th>Figur (ID)</th><th>Vers</th><th>Prosa</th><th>Prosa-Anteil</th></tr><tr><td>iago</td><td class="num">224</td><td class="num">67</td><td class="num">23%</td></tr><tr><td>othello</td><td class="num">259</td><td class="num">24</td><td class="num">8%</td></tr><tr><td>desdemona</td><td class="num">158</td><td class="num">14</td><td class="num">8%</td></tr><tr><td>cassio</td><td class="num">78</td><td class="num">39</td><td class="num">33%</td></tr><tr><td>emilia</td><td class="num">100</td><td class="num">4</td><td class="num">4%</td></tr><tr><td>roderigo</td><td class="num">37</td><td class="num">22</td><td class="num">37%</td></tr><tr><td>lodovico</td><td class="num">31</td><td class="num">2</td><td class="num">6%</td></tr><tr><td>brabantio</td><td class="num">29</td><td class="num">1</td><td class="num">3%</td></tr><tr><td>montano</td><td class="num">24</td><td class="num">0</td><td class="num">0%</td></tr><tr><td>duke</td><td class="num">22</td><td class="num">1</td><td class="num">4%</td></tr><tr><td>gratiano</td><td class="num">19</td><td class="num">0</td><td class="num">0%</td></tr><tr><td>bianca</td><td class="num">13</td><td class="num">2</td><td class="num">13%</td></tr><tr><td>clown</td><td class="num">0</td><td class="num">14</td><td class="num">100%</td></tr><tr><td>senator1</td><td class="num">8</td><td class="num">0</td><td class="num">0%</td></tr></table>
+  <span class="abfrage">python3 src/observe.py form</span>
+</section>
+<section class="block" id="verknuepfungen">
+  <h2>Verknüpfung der beiden Zeugen</h2>
+  <p>Regieanweisungen: 169 englisch, 203 deutsch.</p>
+  <table class="zahlen"><tr><th>Art der Verknüpfung</th><th>Anzahl</th></tr><tr><td>Sprechakt zu Sprechakt</td><td class="num">1168</td></tr><tr><td>nur im englischen Zeugen</td><td class="num">11</td></tr><tr><td>abweichende Sprecherzuweisung</td><td class="num">3</td></tr><tr><td>nur im deutschen Zeugen</td><td class="num">1</td></tr><tr class="sum"><td>alle Verknüpfungen</td><td class="num">1183</td></tr></table>
+  <span class="abfrage">python3 src/align.py</span>
+</section>
+<section class="block" id="szenen">
+  <h2>Umfang der Szenen</h2>
+  <p>Verhältnis der Wortzahlen, deutsch zu englisch. Werte unter 1,00 zeigen,
+     wo Baudissin verdichtet.</p>
+  <table class="zahlen"><tr><th>Szene</th><th>Wörter englisch</th><th>Wörter deutsch</th><th>Verhältnis</th></tr><tr><td>1,1</td><td class="num">1478</td><td class="num">1386</td><td class="num">0.94</td></tr><tr><td>1,2</td><td class="num">816</td><td class="num">753</td><td class="num">0.92</td></tr><tr><td>1,3</td><td class="num">3205</td><td class="num">3045</td><td class="num">0.95</td></tr><tr><td>2,1</td><td class="num">2500</td><td class="num">2397</td><td class="num">0.96</td></tr><tr><td>2,2</td><td class="num">101</td><td class="num">96</td><td class="num">0.95</td></tr><tr><td>2,3</td><td class="num">2932</td><td class="num">2952</td><td class="num">1.01</td></tr><tr><td>3,1</td><td class="num">439</td><td class="num">381</td><td class="num">0.87</td></tr><tr><td>3,2</td><td class="num">46</td><td class="num">42</td><td class="num">0.91</td></tr><tr><td>3,3</td><td class="num">3851</td><td class="num">3601</td><td class="num">0.94</td></tr><tr><td>3,4</td><td class="num">1557</td><td class="num">1442</td><td class="num">0.93</td></tr><tr><td>4,1</td><td class="num">2128</td><td class="num">2109</td><td class="num">0.99</td></tr><tr><td>4,2</td><td class="num">1966</td><td class="num">1923</td><td class="num">0.98</td></tr><tr><td>4,3</td><td class="num">850</td><td class="num">827</td><td class="num">0.97</td></tr><tr><td>5,1</td><td class="num">985</td><td class="num">941</td><td class="num">0.96</td></tr><tr><td>5,2</td><td class="num">2946</td><td class="num">2801</td><td class="num">0.95</td></tr><tr class="sum"><td>gesamt</td><td class="num">25800</td><td class="num">24696</td><td class="num">0.96</td></tr></table>
+  <span class="abfrage">python3 src/observe.py ratio</span>
+</section>
+<footer>Alle Zahlen sind mit den Skripten dieser Ausgabe reproduzierbar. Die Wortfelder des englischen Textes stehen in der <a href="konkordanz.html">Konkordanz</a>, die Quellen unter <a href="quellen.html">Quellen</a>.</footer>
+</div>
+<script>
+// Popups: die Popover-API, wo vorhanden, sonst eine schlichte Rückfallebene.
+const supportsPopover = HTMLElement.prototype.hasOwnProperty('togglePopover');
+if (!supportsPopover) {
+  document.querySelectorAll('[data-pop]').forEach(btn => {
+    const pop = document.getElementById(btn.dataset.pop);
+    if (!pop) return;
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('[popover].fallback-open')
+              .forEach(p => p.classList.remove('fallback-open'));
+      pop.classList.add('fallback-open');
+    });
+  });
+}
+document.querySelectorAll('[popover] .close').forEach(b => {
+  b.addEventListener('click', () => {
+    const pop = b.closest('[popover]');
+    if (supportsPopover && pop.hidePopover) { pop.hidePopover(); }
+    else { pop.classList.remove('fallback-open'); }
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('[popover].fallback-open')
+            .forEach(p => p.classList.remove('fallback-open'));
+  }
+});
+</script>
+</body>
+</html>

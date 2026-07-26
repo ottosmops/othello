@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Othello — zweisprachige kommentierte Ausgabe</title>
+<style>
+:root {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+          --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820; }
+}
+:root[data-theme="dark"] {
+  --bg: #16150f; --fg: #e8e4d9; --muted: #9c9585; --rule: #33302a;
+  --accent: #d99a86; --mark: #232016; --note-bg: #1e1c15; --chip: #2b2820;
+}
+:root[data-theme="light"] {
+  --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b6659; --rule: #ddd8cc;
+  --accent: #7a3b2e; --mark: #f4ede1; --note-bg: #f6f2ea; --chip: #ece5d7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+       font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.4rem 6rem; }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; margin: 0 0 .3rem; font-weight: 600; }
+.sub { margin: 0; color: var(--muted); font-style: italic; }
+.sans { font-family: system-ui, -apple-system, sans-serif; }
+
+header.title { padding: 3rem 0 1.6rem; }
+header.title dl { display: grid; grid-template-columns: max-content 1fr;
+                  gap: .3rem 1.2rem; margin: 1.5rem 0 0; font-size: .82rem;
+                  color: var(--muted); }
+header.title dt { font-variant: small-caps; letter-spacing: .04em; }
+header.title dd { margin: 0; }
+
+nav.pages { display: flex; gap: 1.1rem; padding: .7rem 0; font-size: .78rem;
+            font-family: system-ui, sans-serif; border-bottom: 1px solid var(--rule);
+            border-top: 1px solid var(--rule); }
+nav.pages a { color: var(--muted); text-decoration: none; }
+nav.pages a.here { color: var(--accent); font-weight: 600; }
+nav.pages a:hover { color: var(--accent); }
+
+.hinweis { background: var(--note-bg); border-left: 3px solid var(--accent);
+           padding: .8rem 1rem; margin: 1.6rem 0; font-size: .85rem;
+           max-width: 52em; }
+.hinweis b { font-weight: 600; }
+
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+         font-size: .78rem; color: var(--muted); }
+
+/* Popups: die erste Regel versteckt auch dort, wo popover unbekannt ist. */
+[popover] { display: none; border: 1px solid var(--rule); background: var(--bg);
+            color: var(--fg); border-radius: 5px; padding: 1.2rem 1.4rem;
+            max-width: 36rem; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            font-size: .87rem; }
+[popover]:popover-open { display: block; }
+[popover].fallback-open { display: block !important; position: fixed; top: 50%;
+                          left: 50%; transform: translate(-50%, -50%); z-index: 60; }
+[popover]::backdrop { background: rgba(0,0,0,.4); }
+[popover] .close { position: absolute; top: .3rem; right: .55rem; border: 0;
+                   background: none; color: var(--muted); font-size: 1.2rem;
+                   cursor: pointer; line-height: 1; }
+
+/* Glossar: Erklärung beim Überfahren */
+.gloss { border-bottom: 1px dotted var(--accent); cursor: help; position: relative; }
+.gloss > .tip { display: none; position: absolute; left: 0; top: 1.5em; z-index: 70;
+                width: max(18rem, 22vw); max-width: 90vw; background: var(--bg);
+                color: var(--fg); border: 1px solid var(--accent); border-radius: 4px;
+                padding: .6rem .8rem; font-size: .78rem; line-height: 1.45;
+                font-style: normal; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.gloss > .tip b { display: block; font-variant: small-caps; letter-spacing: .06em;
+                  color: var(--accent); margin-bottom: .2rem; }
+.gloss:hover > .tip, .gloss:focus > .tip, .gloss:focus-within > .tip { display: block; }
+@media (max-width: 700px) { .gloss > .tip { left: auto; right: 0; } }
+
+.karten { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+          gap: 1rem; margin: 2rem 0; }
+.karten a { display: block; padding: 1.1rem 1.2rem; border: 1px solid var(--rule);
+            border-radius: 5px; text-decoration: none; color: inherit;
+            background: var(--note-bg); }
+.karten a:hover { border-color: var(--accent); }
+.karten .t { font-weight: 600; color: var(--accent); display: block;
+             margin-bottom: .3rem; }
+.karten .d { font-size: .85rem; color: var(--muted); }
+.kennzahlen { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+              gap: 1rem 1.5rem; margin: 2rem 0; padding: 1.2rem 0;
+              border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kennzahlen div { text-align: left; }
+.kennzahlen .z { font-size: 1.5rem; font-weight: 600; color: var(--accent);
+                 font-variant-numeric: tabular-nums; }
+.kennzahlen .b { font-size: .74rem; color: var(--muted);
+                 font-family: system-ui, sans-serif; }
+section.start { margin: 2.4rem 0; }
+section.start h2 { font-size: 1rem; font-variant: small-caps; letter-spacing: .06em;
+                   color: var(--accent); margin-bottom: .4rem; }
+section.start p { max-width: 46em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="title">
+  <h1>Othello, der Mohr von Venedig</h1>
+  <p class="sub">Englisch–deutsche Parallelausgabe mit Stellenkommentar ·
+     Shakespeare 1604 / Baudissin 1832</p>
+</header>
+<nav class="pages"><a href="index.html" class="here">Start</a><a href="einleitung.html">Einleitung</a><a href="othello-bilingual.html">Ausgabe</a><a href="befunde.html">Befunde</a><a href="konkordanz.html">Konkordanz</a><a href="quellen.html">Quellen</a></nav>
+
+<section class="start">
+  <p>Shakespeares Tragödie in zwei gemeinfreien Textzeugen — dem englischen Text
+  der Globe-Tradition und Wolf Heinrich Graf Baudissins Übersetzung von 1832 —,
+  sprechaktweise verknüpft, deutsch kommentiert und als gültiges TEI P5
+  ausgezeichnet. Die Abweichungen zwischen den Fassungen sind nicht geglättet,
+  sondern verzeichnet: Baudissins ausgelassene Zoten, die Q/F-Differenzen, die
+  abweichenden Sprecherzuweisungen.</p>
+</section>
+
+<div class="kennzahlen">
+  <div><div class="z">2 354</div><div class="b">Sprechakte, zweisprachig</div></div><div><div class="z">1 183</div><div class="b">Verknüpfungen, davon 15 Abweichungen</div></div><div><div class="z">123</div><div class="b">Anmerkungen, jede mit Beleg</div></div><div><div class="z">1 475</div><div class="b">Konkordanzbelege</div></div><div><div class="z">280</div><div class="b">Stellen mit geprüftem Bezug</div></div>
+</div>
+
+<div class="karten">
+  <a href="einleitung.html"><span class="t">Einleitung</span><span class="d">Neun Texte: Überlieferung des englischen Textes, Baudissins Übersetzung, Wieland, Cinthios Novelle, die Farbfrage, die doppelte Zeit, die Wirkungsgeschichte von Coleridge bis Bradley.</span></a><a href="othello-bilingual.html"><span class="t">Die Ausgabe</span><span class="d">Beide Fassungen nebeneinander, Sprechakt für Sprechakt verknüpft. Anmerkungen als Randnummern, Zeilennummern zuschaltbar, Abweichungen zwischen den Zeugen markiert.</span></a><a href="befunde.html"><span class="t">Befunde</span><span class="d">Was sich auszählen lässt: Redeanteile, Vers und Prosa je Figur, die Arten der Verknüpfung, der Umfang der Szenen — jeweils mit der Abfrage, die die Zahl erzeugt.</span></a><a href="konkordanz.html"><span class="t">Konkordanz</span><span class="d">Zwölf Wortfelder des englischen Textes. Jede Stelle in ihrer Zeile, mit Kontext und Sprung in den Paralleltext; für vier Felder ist geprüft, auf wen sich jede Nennung bezieht.</span></a><a href="quellen.html"><span class="t">Quellen</span><span class="d">Die beiden Textzeugen mit Überlieferungskette und Rechtsstand, die zitierte Literatur — und was geprüft und verworfen wurde, mit Begründung.</span></a>
+</div>
+
+<section class="start">
+  <h2>Woher der Kommentar stammt</h2>
+  <p>Er ist kein Nachdruck einer vorhandenen Ausgabe, sondern für diese
+  Zusammenstellung verfasst — maschinell, von einem Sprachmodell. Was sich
+  belegen lässt, ist belegt: Zitate sind automatisch gegen beide Textzeugen
+  geprüft, Zahlenangaben am Text ausgezählt, Angaben aus der Literatur im
+  Volltext nachgeschlagen. Wo eine Aussage auf keinem dieser drei Wege gesichert
+  ist, sagt das die Schaltfläche <i>Beleg</i> an der Anmerkung selbst. Die
+  philologischen Urteile sind damit nicht abgesichert — sie gehören geprüft,
+  bevor jemand sie zitiert.</p>
+</section>
+
+<section class="start">
+  <h2>Daten und Nachnutzung</h2>
+  <p>Die Ausgabe selbst ist eine TEI-P5-Datei
+  (<code>othello-bilingual.tei.xml</code>, gültig gegen <code>tei_all</code>):
+  zwei Textzeugen in einer <code>group</code>, das Alignment und der Kommentar im
+  <code>standOff</code>, jeder Sprechakt und jede Zeile mit eigener
+  <code>xml:id</code>. Kommentar, Bibliographie, Glossar und Bezugsschicht liegen
+  daneben als JSON und werden beim Bauen eingesetzt; jedes Zitat wird dabei gegen
+  beide Zeugen geprüft, ein falsches bricht den Bau.</p>
+  <p>Beide Textzeugen sind gemeinfrei. Kodierung, Alignment, Kommentar und
+  Skripte stehen unter
+  <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>.</p>
+</section>
+<footer>Quelltext und Daten: <a href="https://github.com/ottosmops/othello">github.com/ottosmops/othello</a> · Textzeugen gemeinfrei, Bearbeitung CC0 1.0</footer>
+</div>
+<script>
+// Popups: die Popover-API, wo vorhanden, sonst eine schlichte Rückfallebene.
+const supportsPopover = HTMLElement.prototype.hasOwnProperty('togglePopover');
+if (!supportsPopover) {
+  document.querySelectorAll('[data-pop]').forEach(btn => {
+    const pop = document.getElementById(btn.dataset.pop);
+    if (!pop) return;
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('[popover].fallback-open')
+              .forEach(p => p.classList.remove('fallback-open'));
+      pop.classList.add('fallback-open');
+    });
+  });
+}
+document.querySelectorAll('[popover] .close').forEach(b => {
+  b.addEventListener('click', () => {
+    const pop = b.closest('[popover]');
+    if (supportsPopover && pop.hidePopover) { pop.hidePopover(); }
+    else { pop.classList.remove('fallback-open'); }
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('[popover].fallback-open')
+            .forEach(p => p.classList.remove('fallback-open'));
+  }
+});
+</script>
+</body>
+</html>
